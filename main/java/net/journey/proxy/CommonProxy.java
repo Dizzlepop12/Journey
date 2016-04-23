@@ -42,6 +42,7 @@ public class CommonProxy {
 		Config.init(event);
 		//Essence.tropicalWater.setBlock(EssenceBlocks.tropicalWater);
 		EntityRegistry.init();
+		JourneyChestGenerator.init();
 		JourneyAchievements.init();
 		JourneyMaterialRecipes.init();
 		JourneyBlockRecipes.init();
@@ -71,7 +72,6 @@ public class CommonProxy {
 		FMLCommonHandler.instance().bus().register(new JourneySapphireSwordEvent());
 		FMLCommonHandler.instance().bus().register(new JourneySapphireEvent());
 		FMLCommonHandler.instance().bus().register(new JourneyDungeonEvent());
-		ChestGenHooks.getInfo(ChestGenHooks.NETHER_FORTRESS).addItem(new WeightedRandomChestContent(new ItemStack(JourneyItems.boilKey), 1, 1, 10));
 	}
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGenEssence(), 2);

@@ -84,8 +84,8 @@ public class JourneyItems {
 	public static int HEAD = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
 	public static final Item heartSml = new ItemHealth("heartSml", "Heart: Tier 1", 1);
-	public static final Item heartMed = new ItemHealth("heartMed", "Heart: Tier 2", 3);
-	public static final Item heartLrg = new ItemHealth("heartLrg", "Heart: Tier 3", 5);
+	public static final Item heartMed = new ItemHealth("heartMed", "Heart: Tier 2", 2);
+	public static final Item heartLrg = new ItemHealth("heartLrg", "Heart: Tier 3", 3);
 	public static final Item heartUlt = new ItemHealth("heartUlt", "Heart: Ultimate", 8);
 	
 	public static final Item hellstoneIngot = new ItemMod("hellstoneIngot", "Bloodcrust Ingot");
