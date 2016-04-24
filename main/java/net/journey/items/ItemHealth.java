@@ -37,12 +37,10 @@ public class ItemHealth extends ItemFood {
     @Override
     protected void onFoodEaten(ItemStack i, World w, EntityPlayer p) {
     	if(p.getMaxHealth() < 60) {
-    		{
-    			p.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(p.getMaxHealth() + hearts);
-    			PlayerHelper.getPersistedpTag(p).setDouble("health", p.getMaxHealth());
-    			EnumSounds.playSound(EnumSounds.SUMMON_TABLE, w, p);
-    			//--i.stackSize;
-    		}
+    		p.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(p.getMaxHealth() + hearts);
+    		PlayerHelper.getPersistedpTag(p).setDouble("health", p.getMaxHealth());
+    		EnumSounds.playSound(EnumSounds.SUMMON_TABLE, w, p);
+    		//--i.stackSize;
     	}
     }
 	
