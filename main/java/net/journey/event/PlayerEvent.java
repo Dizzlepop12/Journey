@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
@@ -19,8 +20,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
@@ -29,6 +32,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensio
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.slayer.api.PlayerHelper;
 import net.slayer.api.SlayerAPI;
 
 public class PlayerEvent {
@@ -62,6 +66,19 @@ public class PlayerEvent {
 		}
 	}
 	
+	@SubscribeEvent
+	public void onPlayerLogged(EntityJoinWorldEvent event) {
+		if (event.entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.entity;
+			NBTTagCompound nbt = PlayerHelper.getPersistedpTag(player);
+			if(!event.world.isRemote) {
+				player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
+				if(nbt.hasKey("health")) {
+					player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(nbt.getDouble("health"));
+				}
+			}
+		}
+	}
 	@SubscribeEvent
 	public void onEntityDrop(LivingDropsEvent event) {
 		if (event.source.getDamageType().equals("player")) {

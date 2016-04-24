@@ -4,20 +4,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class PlayerHelper {
-	
-	public static NBTTagCompound getPersistedPlayerTag(EntityPlayer player)
-	{
-		NBTTagCompound nbt;
-		if (!player.getEntityData().hasKey("PlayerPersisted")) 
-		{
-		   nbt = new NBTTagCompound();
-		   player.getEntityData().setTag("PlayerPersisted", nbt);
-		} 
-		else 
-		{
-		   nbt = player.getEntityData().getCompoundTag("PlayerPersisted");
-		}
-		return nbt;
-	}
 
+	public static NBTTagCompound getPersistedpTag(EntityPlayer p) {
+		NBTTagCompound n;
+		if (!p.getEntityData().hasKey("PlayerPersisted")) {
+			n = new NBTTagCompound();
+			p.getEntityData().setTag("PlayerPersisted", n);
+		} 
+		else {
+			n = p.getEntityData().getCompoundTag("PlayerPersisted");
+		}
+		return n;
+	}
 }

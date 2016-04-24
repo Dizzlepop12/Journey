@@ -27,7 +27,6 @@ public class Config {
 	public static int eucaBiome, depthsBiome, boilBiome, frozenBiome, corbaBiome, wastelandsBiome, cloudiaBiome, terraniaBiome, goldenBiome;
 
 	public static int baseMobID, baseProjectileID, baseEntityListID, entityHealthDistance;
-	public static double maximumHealthIncrease;
 
 	public static void dimensionInit() {
 		eucaBiome = cfg.get("Dimension", "Euca biome ID", 60).getInt();
@@ -71,7 +70,6 @@ public class Config {
 	}
 
 	public static void miscInit() {
-		maximumHealthIncrease = cfg.get("Mechanics", "MaxHealthIncrease", 80D, "The maximum amount of health players can get from using Heart Containers.").getDouble();
 
 	}
 }
