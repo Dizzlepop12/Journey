@@ -97,6 +97,7 @@ public class JourneyItems {
 	public static final Item flairiumIngot = new ItemMod("flairiumIngot", "Flairium Ingot");
 	public static final Item ash = new ItemMod("ash", "Ash");
 	public static final Item sapphire = new ItemMod("sapphire", "Sapphire Gem");
+	public static final Item blazium = new ItemMod("blazium", "Blazium Gem");
 	public static final Item enderilliumShard = new ItemMod("enderilliumShard", "Enderillium Shard");
 	public static final Item orbaditeIngot = new ItemMod("orbaditeIngot", "Orbadite Ingot");
 	public static final Item gorbiteGem = new ItemMod("gorbiteGem", "Gorbite Gem");
@@ -204,11 +205,6 @@ public class JourneyItems {
 	public static final Item rockChunk = new ItemMod("rockChunk", "Rock Chunk");
 	public static final Item rockShard = new ItemMod("rockShard", "Rock Shard");
 	//public static final Item plasmaBall = new ItemMod("plasmaBall");
-	
-	/**
-	Firebombs are throwing items that explode
-	**/
-
 
 	public static final Item hellstoneMultiTool = new ItemMultiTool("hellstoneMultiTool", "Bloodcrust Multi Tool", EssenceToolMaterial.HELLSTONE_MULTI_TOOL);
 	public static final Item shadiumMultiTool = new ItemMultiTool("shadiumMultiTool", "Shadium Multi Tool", EssenceToolMaterial.SHADIUM_MULTI_TOOL);

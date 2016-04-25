@@ -44,16 +44,17 @@ public class ItemMultiTool extends ItemTool {
         GameRegistry.registerItem(this, name);
 	}
 
-	@Override
+	/**@Override
 	public boolean getIsRepairable(ItemStack i, ItemStack i1) {
 		boolean canRepair = mat.getRepairItem() != null;
 		if(canRepair) return mat.getRepairItem() == i1.getItem() ? true : super.getIsRepairable(i, i1);
 		return super.getIsRepairable(i, i1);
-	}
-	@Override
+	} */
+	
+	/**@Override
 	public boolean isItemTool(ItemStack i) {
 		return true;
-	}
+	} */
 
 	@Override
 	public boolean canHarvestBlock(Block block, ItemStack stack) {
@@ -64,6 +65,10 @@ public class ItemMultiTool extends ItemTool {
 	public boolean canHarvestBlock(Block block) {
 		return isEfficient(block);
 	}
+	
+    public float getCorrectEfficiency(ItemStack is, Block b) {
+        return this.toolMaterial.getEfficiencyOnProperMaterial();
+    }
 
 	protected boolean isEfficient(Block block) {
 		return block == Blocks.obsidian ? this.toolMaterial.getHarvestLevel() == 3 :
@@ -86,7 +91,7 @@ public class ItemMultiTool extends ItemTool {
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing fa, float par8, float par9, float par10) {
-		//if (!player.canPlayerEdit(pos, fa, stack)) return false;
+		if (!player.canPlayerEdit(pos, fa, stack)) return false;
 
 		UseHoeEvent event = new UseHoeEvent(player, stack, world, pos);
 		if (MinecraftForge.EVENT_BUS.post(event)) return false;
@@ -104,6 +109,7 @@ public class ItemMultiTool extends ItemTool {
 			if (world.isRemote) return true;
 
 			world.setBlockState(pos, block1.getDefaultState());
+			stack.damageItem(1, player);
 			return true;
 		}
 		return false;

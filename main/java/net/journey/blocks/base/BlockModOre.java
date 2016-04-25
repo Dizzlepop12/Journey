@@ -26,7 +26,6 @@ public class BlockModOre extends BlockMod {
 	public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random r) {
 		renderParticle(worldIn, pos.getX(), pos.getY(), pos.getZ());
 	}
-
 	@SideOnly(Side.CLIENT)
 	private void renderParticle(World w, int x, int y, int z) {
 		float r = 0.0F, g = 0.0F, b = 0.0F;
@@ -35,7 +34,7 @@ public class BlockModOre extends BlockMod {
 			g = 1.0F;
 			b = 0.0F;
 		}
-		if(this == JourneyBlocks.shadiumOre || this == JourneyBlocks.shadiumBlock || this == JourneyBlocks.gorbiteOre || this == JourneyBlocks.desOre || 
+		if(this == JourneyBlocks.shadiumOre || this == JourneyBlocks.shadiumBlock || this == JourneyBlocks.sapphireOre || this == JourneyBlocks.sapphireBlock || this == JourneyBlocks.gorbiteOre || this == JourneyBlocks.desOre || 
 				 this == JourneyBlocks.gorbiteBlock || this == JourneyBlocks.desBlock) {
 			r = 0.0F;
 			g = 0.0F;
@@ -56,8 +55,8 @@ public class BlockModOre extends BlockMod {
 			g = 0.0F;
 			b = 0.0F;
 		}
-		if(this == JourneyBlocks.sapphireOre || this == JourneyBlocks.sapphireBlock || this == JourneyBlocks.luniteOre || this == JourneyBlocks.luniteBlock) {
-			r = 0.5F;
+		if(this == JourneyBlocks.luniteOre || this == JourneyBlocks.luniteBlock) {
+			r = 0.8F;
 			g = 0.0F;
 			b = 1.0F;
 		}
@@ -105,6 +104,7 @@ public class BlockModOre extends BlockMod {
 	@Override
 	public Item getItemDropped(IBlockState par1, Random par2, int par3) {
 		if(this == JourneyBlocks.ashualOre) return JourneyItems.ash;
+		if(this == JourneyBlocks.blaziumOre) return JourneyItems.blazium;
 		if(this == JourneyBlocks.sapphireOre) return JourneyItems.sapphire;
 		if(this == JourneyBlocks.enderilliumOre) return JourneyItems.enderilliumShard;
 		if(this == JourneyBlocks.gorbiteOre) return JourneyItems.gorbiteGem;

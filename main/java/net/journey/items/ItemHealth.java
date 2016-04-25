@@ -47,7 +47,7 @@ public class ItemHealth extends ItemFood {
 	@Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add(SlayerAPI.Colour.RED + "Adds " + hearts / 2F + " Heart(s)");
-		if(player.getMaxHealth() > 59) {
+		if(player.getMaxHealth() > 59F) {
 			list.add(SlayerAPI.Colour.DARK_RED + "You have reached the maximum ammount of health. No more can be achieved.");
 		}
 	}
