@@ -116,6 +116,7 @@ public class EntityRendering {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDemonicBomb.class, new RenderItemProjectile(JourneyItems.demonicBomb));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFireBomb.class, new RenderItemProjectile(JourneyItems.fireBomb));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBubbleProjectile.class, new RenderProjectile(Textures.bubble));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDetractor.class, new RenderProjectile(Textures.detractor));
 		//RenderingRegistry.registerEntityRenderingHandler(EntityRoyalKnife.class, new RenderItemProjectile(JourneyItems.royalKnife));
 		/**Overworld Mobs*/
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderModMob(new ModelRobot(), Textures.robot));

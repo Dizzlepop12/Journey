@@ -103,24 +103,6 @@ public class BlockMod extends Block{
 	public int getRenderType() {
 		return 3;
 	}
-	
-	/*@SideOnly(Side.CLIENT)
-	public BlockMod setCutout() {
-		layerType = EnumWorldBlockLayer.CUTOUT;
-		isOpaque = false;
-		isNormalCube = false;
-		setLightOpacity(3);
-		return this;
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public BlockMod setTranslucent() {
-		layerType = EnumWorldBlockLayer.TRANSLUCENT;
-		isOpaque = false;
-		isNormalCube = false;
-		setLightOpacity(3);
-		return this;
-	}*/
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -145,30 +127,10 @@ public class BlockMod extends Block{
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World w, BlockPos pos, IBlockState state, Random random) {
-		/*if(Config.boilBlockSpawnSmoke){
-			if(w.getBlockState(pos) == EssenceBlocks.hotBlock.getDefaultState()){
-				for(int i = 0; i < 3; ++i) {
-					double d0 = (double)pos.getX() + rand.nextDouble();
-					double d1 = (double)pos.getY() + rand.nextDouble() * 0.5D + 0.7D;
-					double d2 = (double)pos.getZ() + rand.nextDouble();
-					w.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, 0.0D, 0.0D, 0.0D, new int[0]);
-				}
-			}
-		}*/
-	}
+	public void randomDisplayTick(World w, BlockPos pos, IBlockState state, Random random) {}
 
 	@Override
-    public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
-    {
-        if (this == net.minecraft.init.Blocks.netherrack && side == EnumFacing.UP)
-        {
-            return true;
-        }
-        if ((world.provider instanceof net.minecraft.world.WorldProviderEnd) && this == net.minecraft.init.Blocks.bedrock && side == EnumFacing.UP)
-        {
-            return true;
-        }
-        return false;
+	public boolean isFireSource(World world, BlockPos pos, EnumFacing side) {
+		return true;
 	}
 }

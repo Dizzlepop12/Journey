@@ -240,7 +240,7 @@ public class DimensionHelper {
 	
 	private static void addCaveSpawns() {
 		int amount = 250;
-		int amount2 = 100;
+		int amount2 = 10;
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 			if (biome != null){
@@ -278,7 +278,6 @@ public class DimensionHelper {
 		EntityRegistry.addSpawn(EntityFireMage.class, amount, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.NETHER));
 		EntityRegistry.addSpawn(EntityFireMage.class, amount, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.BEACH));
 		EntityRegistry.addSpawn(EntityFireMage.class, amount, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.HOT));
-		EntityRegistry.addSpawn(EntityFireMage.class, amount, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SANDY));
 		EntityRegistry.addSpawn(EntityFireMage.class, amount, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SANDY));
 		EntityRegistry.addSpawn(EntityBlizzard.class, amount, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SNOWY));
 		

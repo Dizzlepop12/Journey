@@ -83,10 +83,11 @@ public class JourneyItems {
 
 	public static int HEAD = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-	public static final Item heartSml = new ItemHealth("heartSml", "Heart: Tier 1", 1, 2, 0.2F, false, false);
-	public static final Item heartMed = new ItemHealth("heartMed", "Heart: Tier 2", 2, 2, 0.2F, false, false);
-	public static final Item heartLrg = new ItemHealth("heartLrg", "Heart: Tier 3", 4, 2, 0.2F, false, false);
-	public static final Item heartUlt = new ItemHealth("heartUlt", "Heart: Ultimate", 8, 2, 0.2F, false, false);
+	public static final Item heartSml = new ItemHealth("heartSml", "Heart: Tier 1", 1, 2, 0.2F, false, false, 60, false);
+	public static final Item heartMed = new ItemHealth("heartMed", "Heart: Tier 2", 2, 2, 0.2F, false, false, 60, false);
+	public static final Item heartLrg = new ItemHealth("heartLrg", "Heart: Tier 3", 4, 2, 0.2F, false, false, 60, false);
+	public static final Item heartUlt = new ItemHealth("heartUlt", "Heart: Ultimate", 8, 2, 0.2F, false, false, 60, false);
+	public static final Item heartSentry = new ItemHealth("heartSen", "Sentry's Heart", 10, 2, 0.2F, false, false, 20, true);
 	public static final Item hellstoneIngot = new ItemMod("hellstoneIngot", "Bloodcrust Ingot");
 	public static final Item shadiumIngot = new ItemMod("shadiumIngot", "Shadium Ingot");
 	public static final Item celestiumIngot = new ItemMod("celestiumIngot", "Celestium Ingot");
@@ -200,7 +201,8 @@ public class JourneyItems {
 	public static final Item spawnerBar = new ItemMod("spawnerBar", "Spawner Bar");
 
 	public static final Item flameCoin = new ItemFlameCoin("flameCoin", "Flame Coin");
-	//public static final Item essenceDetractor = new ItemAttractor("essenceDetractor", false, true, 100);
+	public static final Item essenceDetractor = new ItemDetractor("essenceDetractor", "Essence Detractor", 1, false, true);
+	public static final Item essenceAttractor = new ItemDetractor("essenceAttractor", "Essence Attractor", 1, true, false);
 
 	public static final Item rockChunk = new ItemMod("rockChunk", "Rock Chunk");
 	public static final Item rockShard = new ItemMod("rockShard", "Rock Shard");
