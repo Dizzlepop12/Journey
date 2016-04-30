@@ -34,7 +34,7 @@ public class ItemPoisonHealthSword extends ItemModSword {
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase hit, EntityLivingBase player) {
 		hit.addPotionEffect(new PotionEffect(Potion.poison.id, 100, 2));
 		float hearts = player.getHealth();
-		if((hearts >= 1F) & (hearts < 20F)){
+		if(hearts >= 1F){
 			player.setHealth(hearts + this.health);
 		}
 		

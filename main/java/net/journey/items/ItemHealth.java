@@ -24,23 +24,25 @@ public class ItemHealth extends ItemFood {
 	public int max;
 	public double hearts;
 	public boolean isSentry;
-    public ItemHealth(String name, String actual, int hearts, int heal, float f, boolean sat, boolean b, int max, boolean isSentry) {
+	public boolean isntSentry;
+    public ItemHealth(String name, String actual, int hearts, int heal, float f, boolean sat, boolean b, int max, boolean isSentry, boolean isntSentry) {
         super(heal, sat);
-        LangRegistry.addItem(name, actual);
-        setUnlocalizedName(name);
         this.hearts = hearts;
         this.isSentry = isSentry;
-        this.setAlwaysEdible();
+        this.isntSentry = isntSentry;
         this.max = max;
         setMaxStackSize(8);
-        GameRegistry.registerItem(this, name);
-        JourneyItems.itemNames.add(name);
+        setAlwaysEdible();
+        setUnlocalizedName(name);
         setCreativeTab(JourneyTabs.crops);
+        GameRegistry.registerItem(this, name);
+        LangRegistry.addItem(name, actual);
+        JourneyItems.itemNames.add(name);
     }
 
     @Override
     protected void onFoodEaten(ItemStack i, World w, EntityPlayer p) {
-    	if(p.getMaxHealth() < max /*60*/) {
+    	if(isntSentry && p.getMaxHealth() < max) {
     		p.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(p.getMaxHealth() + hearts);
     		PlayerHelper.getPersistedpTag(p).setDouble("health", p.getMaxHealth());
     		EnumSounds.playSound(EnumSounds.SUMMON_TABLE, w, p);
@@ -55,11 +57,8 @@ public class ItemHealth extends ItemFood {
 	@Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add(SlayerAPI.Colour.RED + "Adds " + hearts / 2F + " Heart(s)");
-		if(player.getMaxHealth() >= 60 && !isSentry) {
+		if(isntSentry && player.getMaxHealth() >= 60 && !isSentry) {
 			list.add(SlayerAPI.Colour.DARK_RED + "You have reached the maximum amount of health. No more can be achieved without a Sentry's Heart");
-		}
-		if(player.getMaxHealth() > max && isSentry) {
-			list.add(SlayerAPI.Colour.DARK_RED + "You have reached the maximum amount of health. No more can be achieved.");
 		}
 		if(isSentry) {
 			list.add(SlayerAPI.Colour.GOLD + "Grants 10 more health points");

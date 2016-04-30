@@ -14,6 +14,7 @@ import net.journey.dimension.frozen.BiomeGenFrozenLands;
 import net.journey.dimension.frozen.WorldProviderFrozenLands;
 import net.journey.dimension.golden.BiomeGenGoldenGrains;
 import net.journey.dimension.golden.WorldProviderGoldenGrains;
+import net.journey.dimension.senterian.WorldProviderSenterian;
 import net.journey.dimension.terrania.BiomeGenTerrania;
 import net.journey.dimension.terrania.WorldProviderTerrania;
 import net.journey.entity.mob.boiling.EntityBurningLight;
@@ -112,6 +113,7 @@ public class DimensionHelper {
 	public static BiomeGenBase cloudia = new BiomeGenCloudia(Config.cloudiaBiome);
 	public static BiomeGenBase terrania = new BiomeGenTerrania(Config.terraniaBiome);
 	public static BiomeGenBase golden = new BiomeGenGoldenGrains(Config.goldenBiome);
+	public static BiomeGenBase senterian = new BiomeGenGoldenGrains(Config.senterianBiome);
 
 	public static void init(){
 		addDimension(Config.euca, WorldProviderEuca.class, Config.keepLoadingEuca);
@@ -123,6 +125,7 @@ public class DimensionHelper {
 		addDimension(Config.cloudia, WorldProviderCloudia.class, Config.keepLoadingCloudia);
 		addDimension(Config.terrania, WorldProviderTerrania.class, Config.keepLoadingTerrania);
 		addDimension(Config.golden, WorldProviderGoldenGrains.class, Config.keepLoadingGolden);
+		addDimension(Config.senterian, WorldProviderSenterian.class, Config.keepLoadingSenterian);
 	}
 
 	private static void addDimension(int id, Class<? extends WorldProvider> w, boolean keeploading) {

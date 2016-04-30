@@ -24,6 +24,7 @@ import net.journey.blocks.BlockJoinedPane;
 import net.journey.blocks.BlockLock;
 import net.journey.blocks.BlockMiniColouredBricks;
 import net.journey.blocks.BlockRoot;
+import net.journey.blocks.BlockSenterianPortalFrame;
 import net.journey.blocks.BlockStalks;
 import net.journey.blocks.BlockSwampLamp;
 import net.journey.blocks.base.BlockModFire;
@@ -50,6 +51,7 @@ import net.journey.blocks.portal.BlockDepthsPortal;
 import net.journey.blocks.portal.BlockEucaPortal;
 import net.journey.blocks.portal.BlockFrozenPortal;
 import net.journey.blocks.portal.BlockGoldenPortal;
+import net.journey.blocks.portal.BlockSenterianPortal;
 import net.journey.blocks.portal.BlockTerraniaPortal;
 import net.journey.blocks.tileentity.TileEntityJourneyChest;
 import net.minecraft.block.Block;
@@ -216,6 +218,14 @@ public class JourneyBlocks {
 	public static final Block corbaPost = new BlockModFence(pinkCloudiaCloud, "corbaPost", "Corba Post");
 	public static final Block sizzlingPost = new BlockModFence(pinkCloudiaCloud, "sizzlingPost", "Sizzling Post");
 	
+	public static final Block senterianBricks = new BlockMod("senterianBricks", "Senterian Bricks"); 
+	public static final Block senterianRock = new BlockMod("senterianRock", "Senterian Rock"); 
+	public static final Block senterianCarvedRock = new BlockMod("senterianCarvedRock", "Senterian Carved Rock"); 
+	public static final Block senterianFloor = new BlockMod("senterianFloor", "Senterian Floor"); 
+	public static final Block senterianLightLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianLightLamp", "Senterian Light Lamp", 0.1F).setLightLevel(0.1F).setCreativeTab(JourneyTabs.decoration);
+	public static final Block senterianMellowLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianMellowLamp", "Senterian Mellow Lamp", 0.1F).setLightLevel(0.1F).setCreativeTab(JourneyTabs.decoration);
+	public static final Block senterianGuardianLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianGuardianLamp", "Senterian Guardian Lamp", 0.1F).setLightLevel(0.1F).setCreativeTab(JourneyTabs.decoration);
+	
 	/*public static final BlockMod wastelandsStone = new BlockWastelandsStone("wastelandsStone");
 	public static final Block wastelandsGrass = new BlockModGrass((BlockMod)null, "wastelandsGrass", 2.0F);
 	public static final Block wastelandsLog = new BlockModLog("wastelandsLog");
@@ -235,6 +245,9 @@ public class JourneyBlocks {
 	public static final Block corbaPortalFrame = new BlockCorbaPortalFrame("corbaPortalFrame", "Corba Portal Frame");
 	public static final BlockTerraniaPortal terraniaPortal = (BlockTerraniaPortal)new BlockTerraniaPortal("terraniaPortal");
 	public static final Block terraniaPortalFrame = new BlockMod("terraniaPortalFrame", "Terrania Portal Frame", 3.0F);
+	
+	public static final BlockSenterianPortal senterianPortal = (BlockSenterianPortal)new BlockSenterianPortal("senterianPortal", "senterianPortal");
+	public static final Block senterianPortalFrame = new BlockSenterianPortalFrame("senterianPortalFrame", "Senterian Portal Frame");
 	//public static final BlockWastelandsPortal wastelandsPortal = (BlockWastelandsPortal)new BlockWastelandsPortal("wastelandsPortal");
 	//public static final Block wastelandsPortalFrame = new BlockMod("wastelandsPortalFrame");
 	public static final BlockCloudiaPortal cloudiaPortal = (BlockCloudiaPortal)new BlockCloudiaPortal("cloudiaPortal");

@@ -83,11 +83,11 @@ public class JourneyItems {
 
 	public static int HEAD = 0, BODY = 1, LEGS = 2, BOOTS = 3;
 
-	public static final Item heartSml = new ItemHealth("heartSml", "Heart: Tier 1", 1, 2, 0.2F, false, false, 60, false);
-	public static final Item heartMed = new ItemHealth("heartMed", "Heart: Tier 2", 2, 2, 0.2F, false, false, 60, false);
-	public static final Item heartLrg = new ItemHealth("heartLrg", "Heart: Tier 3", 4, 2, 0.2F, false, false, 60, false);
-	public static final Item heartUlt = new ItemHealth("heartUlt", "Heart: Ultimate", 8, 2, 0.2F, false, false, 60, false);
-	public static final Item heartSentry = new ItemHealth("heartSen", "Sentry's Heart", 10, 2, 0.2F, false, false, 20, true);
+	public static final Item heartSml = new ItemHealth("heartSml", "Heart: Tier 1", 1, 2, 0.2F, false, false, 60, false, true);
+	public static final Item heartMed = new ItemHealth("heartMed", "Heart: Tier 2", 2, 2, 0.2F, false, false, 60, false, true);
+	public static final Item heartLrg = new ItemHealth("heartLrg", "Heart: Tier 3", 4, 2, 0.2F, false, false, 60, false, true);
+	public static final Item heartUlt = new ItemHealth("heartUlt", "Heart: Ultimate", 8, 2, 0.2F, false, false, 60, false, true);
+	public static final Item heartSentry = new ItemHealth("heartSen", "Sentry's Heart", 10, 2, 0.2F, false, false, 20, true, false);
 	public static final Item hellstoneIngot = new ItemMod("hellstoneIngot", "Bloodcrust Ingot");
 	public static final Item shadiumIngot = new ItemMod("shadiumIngot", "Shadium Ingot");
 	public static final Item celestiumIngot = new ItemMod("celestiumIngot", "Celestium Ingot");
@@ -337,8 +337,8 @@ public class JourneyItems {
 	public static final Item vinestrandBlade = new ItemPoisionSword("vinestrandBlade", "Vinestrand Blade", EssenceToolMaterial.VINESTRAND_BLADE);
 	public static final Item darkPineSword = new ItemWitherSword("darkPineSword", "Dark Pine Sword", EssenceToolMaterial.DARK_PINE_SWORD);
 	
-	public static final Item healersBlade = new ItemHealthSword("healersBlade", "Healers Blade", EssenceToolMaterial.HEALERS_BLADE, 2);
-	public static final Item terronicBlade = new ItemHealthSword("terronicBlade", "Terronic Blade", EssenceToolMaterial.TERRONIC_BLADE, 4);
+	public static final Item healersBlade = new ItemHealthSword("healersBlade", "Healers Blade", EssenceToolMaterial.HEALERS_BLADE, 1);
+	public static final Item terronicBlade = new ItemHealthSword("terronicBlade", "Terronic Blade", EssenceToolMaterial.TERRONIC_BLADE, 2);
 	
 	public static final Item developerSword = new ItemModSword("developerSword", "Creative Sword", EssenceToolMaterial.DEVELOPER_SWORD);
 	
