@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -83,7 +84,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
 
     @Override
     public Chunk provideChunk(int chunkX, int chunkZ) {
-        SenterianChunk senterianChunk = new SenterianChunk();
+        ChunkPrimer senterianChunk = new ChunkPrimer();
 
         for (int i = 4; i > 0; i--) {
             RoomBase room = (RoomBase) (Rooms.get(random.nextInt(21)));
@@ -95,7 +96,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
 
         Ceiling.generate(senterianChunk, random, (new BlockPos(0, 40, 0)));
 
-        chunkTileEntityMap.put(new ChunkCoords(chunkX, chunkZ), senterianChunk.chunkTileEntityPositions);
+        chunkTileEntityMap.put(new ChunkCoords(chunkX, chunkZ), senterianChunk);
 
         Chunk chunk = new Chunk(this.worldObj, chunkX, chunkZ);
         chunk.generateSkylightMap();
@@ -170,7 +171,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
 
     @Override
     public String makeString() {
-        return "Arcana";
+        return "Senterian Labyrinth";
     }
 
 	@Override
