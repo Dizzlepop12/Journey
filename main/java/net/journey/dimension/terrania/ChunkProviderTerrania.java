@@ -445,7 +445,7 @@ public class ChunkProviderTerrania implements IChunkProvider {
 	}
 
 	@Override
-	public BlockPos getStrongholdGen(World worldIn, String p_180513_2_, BlockPos p_180513_3_) {
+	public BlockPos getStrongholdGen(World worldIn, String par1, BlockPos par2) {
 		return null;
 	}
 

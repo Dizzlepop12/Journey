@@ -9,65 +9,71 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class SenterianPortalCoords implements IExtendedEntityProperties {
 
-	private final EntityPlayer player;
+	public final EntityPlayer p;
 	public static final String NAME = "SenterianPort";
-    public double returnPortalX;
-    public double returnPortalY;
-    public double returnPortalZ;
+    public double coordX;
+    public double coordY;
+    public double coordZ;
 	
-	public SenterianPortalCoords(EntityPlayer player) {
-		this.player = player;
+	public SenterianPortalCoords(EntityPlayer p) {
+		this.p = p;
 	}
 
 	@Override
-	public void saveNBTData(NBTTagCompound n) {
-		NBTTagCompound tag = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
-        tag.setDouble("returnPortalX", returnPortalX);
-        tag.setDouble("returnPortalY", returnPortalY);
-        tag.setDouble("returnPortalZ", returnPortalZ);
-        player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
+	public void saveNBTData(NBTTagCompound compound) {
+		NBTTagCompound tag = p.getEntityData().getCompoundTag(p.PERSISTED_NBT_TAG);
+        tag.setDouble("returnPortalX", 
+        		coordX);
+        tag.setDouble("returnPortalY", 
+        		coordY);
+        tag.setDouble("returnPortalZ", 
+        		coordZ);
+        p.getEntityData().setTag(p.PERSISTED_NBT_TAG, tag);
 	}
 
 	@Override
-	public void loadNBTData(NBTTagCompound n) {
-		NBTTagCompound tag = (NBTTagCompound) player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
+	public void loadNBTData(NBTTagCompound compound) {
+		NBTTagCompound tag = (NBTTagCompound) p.getEntityData().getCompoundTag(p.PERSISTED_NBT_TAG);
 		if(!tag.hasKey("returnPortalX"))return;
-        this.returnPortalX = tag.getDouble("returnPortalX");
-        this.returnPortalY = tag.getDouble("returnPortalY");
-        this.returnPortalZ = tag.getDouble("returnPortalZ");
-        player.getEntityData().setTag(player.PERSISTED_NBT_TAG, tag);
+        this.coordX = 
+        		tag.getDouble("returnPortalX");
+        this.coordY = 
+        		tag.getDouble("returnPortalY");
+        this.coordZ = 
+        		tag.getDouble("returnPortalZ");
+        p.getEntityData().setTag(p.PERSISTED_NBT_TAG, tag);
 	}
 	
-	public static void addProperties(EntityPlayer player) {
+	public static void addPortalProperties(EntityPlayer player) {
 		player.registerExtendedProperties(NAME, new SenterianPortalCoords(player));
 	}
 	
-	public static SenterianPortalCoords getProperties(EntityPlayer player) {
+	public static SenterianPortalCoords getPortalProperties(EntityPlayer player) {
 		return (SenterianPortalCoords) player.getExtendedProperties(NAME);
 	}
 
     public void setReturnPortalX(double x) {
-        this.returnPortalX = x;
+        this.coordX = x;
     }
 
     public double getReturnPortalX() {
-        return this.returnPortalX;
+        return this.coordX;
     }
 
     public void setReturnPortalY(double y) {
-        this.returnPortalY = y;
+        this.coordY = y;
     }
 
     public double getReturnPortalY() {
-        return this.returnPortalY;
+        return this.coordY;
     }
 
     public void setReturnPortalZ(double z) {
-        this.returnPortalZ = z;
+        this.coordZ = z;
     }
 
     public double getReturnPortalZ() {
-        return this.returnPortalZ;
+        return this.coordZ;
     }
 
     @Override

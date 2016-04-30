@@ -6,6 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.slayer.api.SlayerAPI;
 
 public class JourneyTabs extends CreativeTabs {
 	
@@ -31,6 +32,7 @@ public class JourneyTabs extends CreativeTabs {
 	
 	public JourneyTabs(String name) {
 		super(name);
+		//this.setBackgroundImageName("journeyCreative.png");
 	}
 	
     public void setIcon(Item icon) {

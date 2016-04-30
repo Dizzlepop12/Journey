@@ -7,14 +7,23 @@ import java.util.Map;
 import java.util.Random;
 
 import net.journey.dimension.senterian.room.RoomBase;
+import net.journey.dimension.senterian.room.RoomChest;
+import net.journey.dimension.senterian.room.RoomHall;
+import net.journey.dimension.senterian.room.RoomNPC;
+import net.journey.dimension.senterian.room.RoomSpawner1;
+import net.journey.dimension.senterian.room.SenterianCeiling;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.IProgressUpdate;
+import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkProviderSenterian implements IChunkProvider {
 
@@ -44,7 +53,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
 
     private ArrayList Rooms;
     private ArrayList BossRooms;
-    //private DungeonCeiling Ceiling;
+    private SenterianCeiling Ceiling;
     private World worldObj;
     private Random random;
     private Map chunkTileEntityMap;
@@ -55,32 +64,15 @@ public class ChunkProviderSenterian implements IChunkProvider {
         random = new Random(seed);
 
         Rooms = new ArrayList(21);
-        BossRooms = new ArrayList(2);
 
-        /*Rooms.add(new DungeonComponent());
-        Rooms.add(new DungeonComponent1());
-        Rooms.add(new DungeonComponent2());
-        Rooms.add(new DungeonComponent3());
-        Rooms.add(new DungeonComponent4());
-        Rooms.add(new DungeonComponent5());
-        Rooms.add(new DungeonComponent6());
-        Rooms.add(new DungeonComponent7());
-        Rooms.add(new DungeonComponent9());
-        Rooms.add(new DungeonComponent10());
-        Rooms.add(new DungeonComponent11());
-        Rooms.add(new DungeonComponent12());
-        Rooms.add(new DungeonComponent13());
-        Rooms.add(new DungeonComponent14());
-        Rooms.add(new DungeonComponent15());
-        Rooms.add(new DungeonComponent16());
-        Rooms.add(new DungeonComponent17());
-        Rooms.add(new DungeonComponent22());
-        Rooms.add(new DungeonComponenet18());
-        Rooms.add(new DungeonComponenet19());
-        Rooms.add(new DungeonComponent8());
-        BossRooms.add(new DungeonComponentParasecta());
-        BossRooms.add(new DungeonComponentDramix()); */
-        //Ceiling = new DungeonCeiling();
+        Rooms.add(new RoomHall());
+        Rooms.add(new RoomChest());
+        Rooms.add(new RoomNPC());
+        Rooms.add(new RoomSpawner1());
+        /*Rooms.add(new RoomSpawner2());
+        Rooms.add(new RoomSpawner3());
+        Rooms.add(new RoomSpawner4());*/
+        Ceiling = new SenterianCeiling();
         this.chunkTileEntityMap = new HashMap();
     }
 
@@ -95,24 +87,24 @@ public class ChunkProviderSenterian implements IChunkProvider {
 
         for (int i = 4; i > 0; i--) {
             RoomBase room = (RoomBase) (Rooms.get(random.nextInt(21)));
-            if (room instanceof DungeonComponent8 && i >= 3)
+            if (room instanceof RoomHall && i >= 3)
                 room = (RoomBase) (Rooms.get(this.random.nextInt(10) + 10));
 
-            room.generate(senterianChunk, random, 0, i * 8, 0);
+            room.generate(senterianChunk, random, (new BlockPos(0, i * 8, 0)));
         }
 
-        Ceiling.generate(senterianChunk, random, 0, 40, 0);
+        Ceiling.generate(senterianChunk, random, (new BlockPos(0, 40, 0)));
 
         chunkTileEntityMap.put(new ChunkCoords(chunkX, chunkZ), senterianChunk.chunkTileEntityPositions);
 
-        Chunk chunk = new Chunk(this.worldObj, senterianChunk.getChunkData(), senterianChunk.getChunkMetadata(), chunkX, chunkZ);
+        Chunk chunk = new Chunk(this.worldObj, chunkX, chunkZ);
         chunk.generateSkylightMap();
-        BiomeGenBase[] abiomegenbase = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[]) null, chunkX * 16,
+        BiomeGenBase[] biome = this.worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[]) null, chunkX * 16,
                         chunkZ * 16, 16, 16);
         byte[] abyte = chunk.getBiomeArray();
 
         for (int i = 0; i < abyte.length; ++i) {
-            abyte[i] = (byte) abiomegenbase[i].biomeID;
+            abyte[i] = (byte) biome[i].biomeID;
         }
 
         chunk.generateSkylightMap();
@@ -120,15 +112,15 @@ public class ChunkProviderSenterian implements IChunkProvider {
     }
 
     @Override
-    public Chunk loadChunk(int i, int j) {
-        return this.provideChunk(i, j);
+    public Chunk provideChunk(BlockPos pos) {
+        return this.provideChunk(pos);
     }
 
     @Override
 	public void populate(IChunkProvider chunkProvider, int chunkX, int chunkZ) {
 		int x = chunkX * 16;
 		int z = chunkZ * 16;
-		BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(x + 16, z + 16);
+		BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(new BlockPos(x + 16, z + 16, 0));
 		boolean flag = false;
 		this.random.setSeed(this.worldObj.getSeed());
 		long var8 = this.random.nextLong() / 2L * 2L + 1L;
@@ -140,13 +132,13 @@ public class ChunkProviderSenterian implements IChunkProvider {
 		Chunk chunk = this.worldObj.getChunkFromChunkCoords(chunkX, chunkZ);
 
 		ChunkCoords chunkCoords = new ChunkCoords(chunkX, chunkZ);
-		List<ChunkPosition> chunkTileEntityPositions = (List<ChunkPosition>)chunkTileEntityMap.get(chunkCoords);
+		List<ChunkCoordIntPair> chunkTileEntityPositions = (List<ChunkCoordIntPair>)chunkTileEntityMap.get(chunkCoords);
 		if (chunkTileEntityPositions != null) {
 			for (int i = 0; i < chunkTileEntityPositions.size(); i++) {
-				ChunkPosition chunkPosition = chunkTileEntityPositions.get(i);
-				Block b = chunk.getBlock(chunkPosition.chunkPosX, chunkPosition.chunkPosY, chunkPosition.chunkPosZ);
-				TileEntity te = b.createTileEntity(this.worldObj, 0);
-				this.worldObj.setTileEntity(x + chunkPosition.chunkPosX, chunkPosition.chunkPosY, z + chunkPosition.chunkPosZ, te);
+				ChunkCoordIntPair ChunkCoordIntPair = chunkTileEntityPositions.get(i);
+				Block b = chunk.getBlock(ChunkCoordIntPair.chunkXPos, ChunkCoordIntPair.chunkZPos, i);
+				TileEntity te = b.createTileEntity(this.worldObj, null);
+				this.worldObj.setTileEntity(new BlockPos(x + ChunkCoordIntPair.chunkXPos, z + ChunkCoordIntPair.chunkZPos, i), te);
 			}
 			chunkTileEntityMap.remove(chunkCoords);
 		}
@@ -154,7 +146,6 @@ public class ChunkProviderSenterian implements IChunkProvider {
 		    for(int i = 1; i < 4; i++) {
     			if(this.random.nextInt(30) == 0 || this.random.nextInt(30) == 0 || this.random.nextInt(30) == 0) {
     	            roomToGenerate = rand.nextInt(2);
-    				((WorldGenerator)(BossRooms.get(roomToGenerate))).generate(this.worldObj, rand, x, i * 8, z);
     				this.random.setSeed(chunkX * var8 + chunkZ * var10 ^ this.worldObj.getSeed() * i << 2 | var10);
     				break;
     			}
@@ -182,11 +173,11 @@ public class ChunkProviderSenterian implements IChunkProvider {
         return "Arcana";
     }
 
-    @Override
-    public List getPossibleCreatures(EnumCreatureType enumcreaturetype, int i, int j, int k) {
-        BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(i, k);
-        return biomegenbase == null ? null : biomegenbase.getSpawnableList(enumcreaturetype);
-    }
+	@Override
+	public List <SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
+		BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(pos);
+		return biomegenbase.getSpawnableList(creatureType);
+	}
 
     @Override
     public int getLoadedChunkCount() {
@@ -194,15 +185,22 @@ public class ChunkProviderSenterian implements IChunkProvider {
     }
 
     @Override
-    public void recreateStructures(int i, int j) {
-    }
+    public void recreateStructures(Chunk chunk, int i, int j) {}
 
     @Override
-    public void saveExtraData() {
-    }
+    public void saveExtraData() {}
 
-    @Override
-    public ChunkPosition findClosestStructure(World var1, String var2, int var3, int var4, int var5) {
+    public ChunkCoordIntPair findClosestStructure(World var1, String var2, int var3, int var4, int var5) {
         return null;
     }
+
+	@Override
+	public boolean func_177460_a(IChunkProvider p_177460_1_, Chunk p_177460_2_, int p_177460_3_, int p_177460_4_) {
+		return false;
+	}
+
+	@Override
+	public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position) {
+		return null;
+	}
 }
