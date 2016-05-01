@@ -27,26 +27,26 @@ public class TeleporterSenterian extends Teleporter {
 	    if (entityIn.dimension == Config.senterian) {        
             int chunkX = (MathHelper.floor_double(entityIn.posX) & ~0xf);
             int chunkZ = (MathHelper.floor_double(entityIn.posZ) & ~0xf);
-            int y;
+            int chunkY = (MathHelper.floor_double(entityIn.posY) & ~0xf);
 
             coords.setReturnPortalX(entityIn.posX);
             coords.setReturnPortalY(entityIn.posY);
             coords.setReturnPortalZ(entityIn.posZ);
 
-            for (y = 9; y < 40; y += 8) {
-                if (this.world.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) == JourneyBlocks.senterianPortal) {
-                    entityIn.setLocationAndAngles(chunkX + 7.5D, y + 0.5D, chunkZ + 7.5D, entityIn.rotationYaw, 0.0F);
+            for (chunkY = 9; chunkY < 40; chunkY += 8) {
+                if (this.world.getBlockState(new BlockPos(chunkX + 7, chunkY, chunkZ + 7)) == JourneyBlocks.senterianPortal) {
+                    entityIn.setLocationAndAngles(chunkX + 7.5D, chunkY + 0.5D, chunkZ + 7.5D, entityIn.rotationYaw, 0.0F);
                     entityIn.motionX = entityIn.motionY = entityIn.motionZ = 0.0D;            
                     return true;
                 }
             }
             
-            for (y = 8; y < 40; y += 8) {
-                if (this.world.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) !=Blocks.air.getDefaultState() && 
-                	this.world.getBlockState(new BlockPos(chunkX + 7, y + 8, chunkZ + 7)) !=Blocks.air.getDefaultState()) {
+            for (chunkY = 8; chunkY < 40; chunkY += 8) {
+                if (this.world.getBlockState(new BlockPos(chunkX + 7, chunkY, chunkZ + 7)) !=Blocks.air.getDefaultState() && 
+                	this.world.getBlockState(new BlockPos(chunkX + 7, chunkY + 8, chunkZ + 7)) !=Blocks.air.getDefaultState()) {
                 	
-                    generatePortalRoom(this.world, chunkX, y, chunkZ);
-                    entityIn.setLocationAndAngles(chunkX + 7.5D, y + 1.5D, chunkZ + 7.5D, entityIn.rotationYaw, 0.0F);
+                    generatePortalRoom(this.world, chunkX, chunkY, chunkZ);
+                    entityIn.setLocationAndAngles(chunkX + 7.5D, chunkY + 1.5D, chunkZ + 7.5D, entityIn.rotationYaw, 0.0F);
                     entityIn.motionX = entityIn.motionY = entityIn.motionZ = 0.0D;
                     return true;
                 }
