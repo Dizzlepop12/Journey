@@ -110,6 +110,7 @@ public class JourneyItems {
 	public static final Item hellTurtleShell = new ItemMod("hellTurtleShell", "Hell Turtle Shell");
 	public static final Item sizzlingEye = new ItemMod("sizzlingEye", "Sizzling Eye");
 
+	public static final Item sentryEye = new ItemSentryEye("sentryEye", "Sentry Eye");
 	public static final Item boilingSkull = new ItemMod("boilingSkull", "Boiling Skull");
 	public static final Item overgrownNatureBall = new ItemMod("overgrownNatureBall", "Overgrown Natureball");
 	public static final Item overseeingTablet = new ItemMod("overseeingTablet", "Overseeing Tablet");

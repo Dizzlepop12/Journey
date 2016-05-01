@@ -17,9 +17,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class WorldGenSmeltery extends WorldGenerator {
 	
 	
-	private static WeightedRandomChestContent[] loot = {new WeightedRandomChestContent(JourneyItems.metalDisk, 0, 1, 5, 10), 
-		new WeightedRandomChestContent(JourneyItems.golderDust, 0, 1, 10, 40), 
-		new WeightedRandomChestContent(JourneyItems.goldClump, 0, 1, 5, 40)};
+	private static WeightedRandomChestContent[] loot = {
+		new WeightedRandomChestContent(JourneyItems.metalDisk, 0, 1, 5, 1), 
+		new WeightedRandomChestContent(JourneyItems.golderDust, 0, 1, 10, 5), 
+		new WeightedRandomChestContent(JourneyItems.goldClump, 0, 1, 5, 10)};
 	
 
 	public boolean locationIsValidSpawn(World w, int x, int y, int z) {

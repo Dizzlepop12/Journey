@@ -64,11 +64,11 @@ public class ChunkProviderSenterian implements IChunkProvider {
         worldObj = world;
         random = new Random(seed);
 
-        Rooms = new ArrayList(21);
+        Rooms = new ArrayList(2);
 
         Rooms.add(new RoomHall());
-        Rooms.add(new RoomChest());
-        Rooms.add(new RoomNPC());
+        //Rooms.add(new RoomChest());
+        //Rooms.add(new RoomNPC());
         Rooms.add(new RoomSpawner1());
         /*Rooms.add(new RoomSpawner2());
         Rooms.add(new RoomSpawner3());
@@ -87,7 +87,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
         ChunkPrimer senterianChunk = new ChunkPrimer();
 
         for (int i = 4; i > 0; i--) {
-            RoomBase room = (RoomBase) (Rooms.get(random.nextInt(21)));
+            RoomBase room = (RoomBase) (Rooms.get(random.nextInt(2)));
             if (room instanceof RoomHall && i >= 3)
                 room = (RoomBase) (Rooms.get(this.random.nextInt(10) + 10));
 
@@ -155,7 +155,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
 	}
 
     @Override
-    public boolean saveChunks(boolean flag, IProgressUpdate iprogressupdate) {
+    public boolean saveChunks(boolean flag, IProgressUpdate update) {
         return true;
     }
 
@@ -196,7 +196,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
     }
 
 	@Override
-	public boolean func_177460_a(IChunkProvider p_177460_1_, Chunk p_177460_2_, int p_177460_3_, int p_177460_4_) {
+	public boolean func_177460_a(IChunkProvider par1, Chunk par2, int par3, int par4) {
 		return false;
 	}
 
