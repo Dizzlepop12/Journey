@@ -1,5 +1,8 @@
 {
-	"textures": {
-        "particle": "essence:blocks/corbaPortalFrame_side"
-	}
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "particle": "essence:blocks/sentryFrameEye"
+    },
+    "elements": [
+    ]
 }
