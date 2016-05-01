@@ -28,7 +28,7 @@ public class BlockSenterianPortalFrame extends BlockMod {
         super(name, f, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(EYE, Boolean.valueOf(false)));
     }
-
+    
     @Override
     public boolean isOpaqueCube() {
         return false;

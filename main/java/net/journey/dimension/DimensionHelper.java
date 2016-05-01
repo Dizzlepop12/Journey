@@ -14,6 +14,7 @@ import net.journey.dimension.frozen.BiomeGenFrozenLands;
 import net.journey.dimension.frozen.WorldProviderFrozenLands;
 import net.journey.dimension.golden.BiomeGenGoldenGrains;
 import net.journey.dimension.golden.WorldProviderGoldenGrains;
+import net.journey.dimension.senterian.BiomeGenSenterian;
 import net.journey.dimension.senterian.WorldProviderSenterian;
 import net.journey.dimension.terrania.BiomeGenTerrania;
 import net.journey.dimension.terrania.WorldProviderTerrania;
@@ -113,7 +114,7 @@ public class DimensionHelper {
 	public static BiomeGenBase cloudia = new BiomeGenCloudia(Config.cloudiaBiome);
 	public static BiomeGenBase terrania = new BiomeGenTerrania(Config.terraniaBiome);
 	public static BiomeGenBase golden = new BiomeGenGoldenGrains(Config.goldenBiome);
-	public static BiomeGenBase senterian = new BiomeGenGoldenGrains(Config.senterianBiome);
+	public static BiomeGenBase senterian = new BiomeGenSenterian(Config.senterianBiome);
 
 	public static void init(){
 		addDimension(Config.euca, WorldProviderEuca.class, Config.keepLoadingEuca);
