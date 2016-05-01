@@ -58,6 +58,15 @@ public class EntityBoom extends EntityModMob {
 	public EnumSounds setDeathSound() {
 		return EnumSounds.CREEPER_DEATH;
 	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return 
+			   this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.grass || 
+			   		this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.leaves || 
+			   			this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.sand || 
+			   				this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.dirt;
+	}
 
 	@Override
 	public Item getItemDropped() {

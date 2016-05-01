@@ -6,6 +6,7 @@ import net.journey.enums.EnumSounds;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.slayer.api.SlayerAPI;
@@ -43,14 +44,14 @@ public class EntitySmallHongo extends EntityModMob {
 	public EnumSounds setDeathSound() {
 		return EnumSounds.SMALL_HONGO_HURT;
 	}
-	
+
 	@Override
-	public void onDeath(DamageSource d) {
-		super.onDeath(d);
-		if(d.getEntity() instanceof EntityPlayer) {
-			EntityPlayer p = (EntityPlayer)d.getEntity();
-			p.triggerAchievement(JourneyAchievements.achievementGiantMushroom);
-		}
+	public boolean getCanSpawnHere() {
+		return 
+			   this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.grass || 
+			   		this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.leaves || 
+			   			this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.sand || 
+			   				this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.dirt;
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import net.journey.entity.MobStats;
 import net.journey.enums.EnumSounds;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,6 +22,15 @@ public class EntityWraith extends EntityModMob {
 		addAttackingAI();
 		setSize(1.0F, 2.0F);
 		dataWatcher.updateObject(ENTITY_TYPE, rand.nextInt(4));
+	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return 
+			   this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.grass || 
+			   		this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.leaves || 
+			   			this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.sand || 
+			   				this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.dirt;
 	}
 	
 	@Override

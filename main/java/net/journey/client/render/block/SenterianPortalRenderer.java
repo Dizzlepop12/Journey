@@ -16,11 +16,12 @@ import net.minecraft.tileentity.TileEntityEndPortal;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.slayer.api.SlayerAPI;
 
 @SideOnly(Side.CLIENT)
 public class SenterianPortalRenderer extends TileEntitySpecialRenderer<TileEntitySenterianPortal> {
-    private static final ResourceLocation END_SKY_TEXTURE = new ResourceLocation("textures/environment/end_sky.png");
-    private static final ResourceLocation END_PORTAL_TEXTURE = new ResourceLocation("textures/entity/end_portal.png");
+    private static final ResourceLocation TEXTURE_1 = new ResourceLocation(SlayerAPI.PREFIX + "textures/entity/sentrySky.png");
+    private static final ResourceLocation TEXTURE_MAIN = new ResourceLocation(SlayerAPI.PREFIX + "textures/entity/sentryPortal.png");
     private static final Random rand = new Random(31100L);
     FloatBuffer buffer = GLAllocation.createDirectFloatBuffer(16);
 
@@ -30,7 +31,7 @@ public class SenterianPortalRenderer extends TileEntitySpecialRenderer<TileEntit
         float f1 = (float)this.rendererDispatcher.entityY;
         float f2 = (float)this.rendererDispatcher.entityZ;
         GlStateManager.disableLighting();
-        rand.setSeed(31100L);
+        rand.setSeed(501100L);
         float f3 = 0.75F;
 
         for (int i = 0; i < 16; ++i) {
@@ -40,7 +41,7 @@ public class SenterianPortalRenderer extends TileEntitySpecialRenderer<TileEntit
             float f6 = 1.0F / (f4 + 1.0F);
 
             if (i == 0) {
-                this.bindTexture(END_SKY_TEXTURE);
+                this.bindTexture(TEXTURE_1);
                 f6 = 0.1F;
                 f4 = 65.0F;
                 f5 = 0.125F;
@@ -49,7 +50,7 @@ public class SenterianPortalRenderer extends TileEntitySpecialRenderer<TileEntit
             }
 
             if (i >= 1) {
-                this.bindTexture(END_PORTAL_TEXTURE);
+                this.bindTexture(TEXTURE_MAIN);
             }
 
             if (i == 1) {
@@ -106,7 +107,7 @@ public class SenterianPortalRenderer extends TileEntitySpecialRenderer<TileEntit
             tessellator.draw();
             GlStateManager.popMatrix();
             GlStateManager.matrixMode(5888);
-            this.bindTexture(END_SKY_TEXTURE);
+            this.bindTexture(TEXTURE_1);
         }
 
         GlStateManager.disableBlend();

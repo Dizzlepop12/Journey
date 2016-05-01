@@ -8,7 +8,6 @@ import net.minecraftforge.common.AchievementPage;
 public class JourneyAchievements {
 	
 	public static final AchievementPage ap = new AchievementPage("Journey Achievements");
-	public static Achievement achievementGiantMushroom;
 	public static Achievement achievementOre;
 	public static Achievement achievementGem;
 	public static Achievement achievementBoil;
@@ -42,10 +41,9 @@ public class JourneyAchievements {
 	}
 
 	public static void registerMiscAchievements() {
-		achievementGiantMushroom = addAchievement("achievement.giantMushroom", "giantMushroom", 0, 0, new ItemStack(JourneyItems.hongoShroom), (Achievement)null);
-		achievementOre = addAchievement("achievement.ore", "ore", 2, 0, new ItemStack(JourneyItems.sapphire), achievementGiantMushroom);
+		achievementOre = addAchievement("achievement.ore", "ore", 2, 0, new ItemStack(JourneyItems.sapphire), null);
 		achievementFl = addAchievement("achievement.fl", "fl", -1, -2, new ItemStack(JourneyItems.crystalFlake), achievementOre).setSpecial();
-		achievementGem = addAchievement("achievement.gem", "gem", -2, 0, new ItemStack(JourneyItems.blueGem), achievementGiantMushroom);
+		achievementGem = addAchievement("achievement.gem", "gem", -2, 0, new ItemStack(JourneyItems.blueGem), null);
 		achievementSapphireSword = addAchievement("achievement.sapphireSword", "sapphireSword", 2, 2, new ItemStack(JourneyItems.sapphireSword), achievementOre);	
 		achievementKillNether = addAchievement("achievement.netherKill", "netherKill", -4, -2, new ItemStack(JourneyItems.blood), achievementFl);
 		achievementBoil = addAchievement("achievement.boil", "boil", -4, -4, new ItemStack(JourneyItems.boilingSkull), achievementKillNether).setSpecial();
@@ -54,8 +52,8 @@ public class JourneyAchievements {
 		achievementCorba = addAchievement("achievement.corba", "corba", 2, -4, new ItemStack(JourneyItems.corbaPortalGem), achievementDepths).setSpecial();
 		achievementTerrania = addAchievement("achievement.terrania", "terrania", 4, -4, new ItemStack(JourneyItems.terraniaPortalGem), achievementCorba).setSpecial();
 		achievementCloudia = addAchievement("achievement.cloudia", "cloudia", 6, -4, new ItemStack(JourneyItems.cloudiaPortalGem), achievementTerrania).setSpecial();
-		achievementCave = addAchievement("achievement.cave", "cave", 4, 1, new ItemStack(JourneyItems.caveCrystal), achievementGiantMushroom);
-		achievementPet = addAchievement("achievement.pet", "pet", -2, 1, new ItemStack(JourneyItems.floroPedal), achievementGiantMushroom);
+		achievementCave = addAchievement("achievement.cave", "cave", 4, 1, new ItemStack(JourneyItems.caveCrystal), null);
+		achievementPet = addAchievement("achievement.pet", "pet", -2, 1, new ItemStack(JourneyItems.floroPedal), null);
 		achievementThunderbird = addAchievement("achievement.thunderbird", "thunderbird", 0, -5, new ItemStack(JourneyItems.thunderbirdOrb), achievementDepths);
 		achievementRoc = addAchievement("achievement.roc", "roc", 2, -6, new ItemStack(JourneyItems.rocFeather), achievementThunderbird);
 		achievementNetherBeast = addAchievement("achievement.netherBeast", "netherBeast", -6, -2, new ItemStack(JourneyItems.netherBeastOrb), achievementKillNether);
