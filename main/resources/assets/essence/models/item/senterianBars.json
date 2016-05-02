@@ -1,5 +1,5 @@
 {
-	"parent": "essence:block/terranianBars_nsew",
+	"parent": "essence:block/senterianBars_nsew",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10, -45, 170 ],

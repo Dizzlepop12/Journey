@@ -27,6 +27,7 @@ import net.journey.blocks.BlockRoot;
 import net.journey.blocks.BlockSenterianPortalFrame;
 import net.journey.blocks.BlockStalks;
 import net.journey.blocks.BlockSwampLamp;
+import net.journey.blocks.BlockTrap;
 import net.journey.blocks.base.BlockModFire;
 import net.journey.blocks.base.BlockModOre;
 import net.journey.blocks.crop.BlockCorveggieCrop;
@@ -54,6 +55,7 @@ import net.journey.blocks.portal.BlockGoldenPortal;
 import net.journey.blocks.portal.BlockSenterianPortal;
 import net.journey.blocks.portal.BlockTerraniaPortal;
 import net.journey.blocks.tileentity.TileEntityJourneyChest;
+import net.journey.entity.mob.corba.EntityOverseerElder;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
@@ -223,9 +225,12 @@ public class JourneyBlocks {
 	public static final Block senterianCarvedRock = new BlockMod("senterianCarvedRock", "Senterian Carved Rock").setBlockUnbreakable().setResistance(10000000.0F);
 	public static final Block senterianFloor = new BlockMod("senterianFloor", "Senterian Floor").setBlockUnbreakable().setResistance(10000000.0F);
 	public static final Block senterianBars = new BlockModBars("senterianBars", "Senterian Bars").setBlockUnbreakable().setResistance(10000000.0F);
-	public static final Block senterianLightLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianLightLamp", "Senterian Light Lamp", 0.1F).setLightLevel(0.6F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
-	public static final Block senterianMellowLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianMellowLamp", "Senterian Mellow Lamp", 0.1F).setLightLevel(0.6F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
-	public static final Block senterianGuardianLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianGuardianLamp", "Senterian Guardian Lamp", 0.1F).setLightLevel(0.6F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
+	public static final Block senterianLightLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianLightLamp", "Senterian Light Lamp", 0.1F).setLightLevel(0.5F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
+	public static final Block senterianMellowLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianMellowLamp", "Senterian Mellow Lamp", 0.1F).setLightLevel(0.5F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
+	public static final Block senterianGuardianLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianGuardianLamp", "Senterian Guardian Lamp", 0.1F).setLightLevel(0.5F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
+	public static final Block senterianPost = new BlockModFence(senterianBricks, "senterianPost", "Senterian Post").setBlockUnbreakable().setResistance(10000000.0F);
+	
+	public static final Block senterianTrap = new BlockTrap("senterianTrap", "Senterian Floor");
 	
 	/*public static final BlockMod wastelandsStone = new BlockWastelandsStone("wastelandsStone");
 	public static final Block wastelandsGrass = new BlockModGrass((BlockMod)null, "wastelandsGrass", 2.0F);
