@@ -112,9 +112,7 @@ public class ChunkProviderSenterian implements IChunkProvider {
 	}
 
 	public void setBlocksInChunk(int par1, int par2, ChunkPrimer par3) {}
-
 	public void biomeBlocks(int x, int z, ChunkPrimer c, BiomeGenBase[] b) {}
-
 	public final void generateBiomeTerrain(Random r, ChunkPrimer c, int x, int z, double s) {}
 
 	@Override

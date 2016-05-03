@@ -1,5 +1,6 @@
 package net.journey.enums;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -102,6 +103,14 @@ public enum EnumSounds {
 	
 	public String getNonPrefixedName() {
 		return sound;
+	}
+	
+	public static void playSound(EnumSounds sound, World w, Entity e){
+		w.playSoundAtEntity(e, sound.getNonPrefixedName(), 1.0F, 1.0F);
+	}
+	
+	public static void playSound(String sound, World w, Entity e){
+		w.playSoundAtEntity(e, sound, 1.0F, 1.0F);
 	}
 	
 	public static void playSound(String sound, World w, EntityLivingBase e){

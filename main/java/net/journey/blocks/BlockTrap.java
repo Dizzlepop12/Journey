@@ -4,6 +4,7 @@ import net.journey.JourneyTabs;
 import net.journey.blocks.tileentity.TileEntityTrap;
 import net.journey.entity.mob.corba.EntityOverseerElder;
 import net.journey.entity.projectile.EntityBasicProjectile;
+import net.journey.enums.EnumSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -43,6 +44,7 @@ public class BlockTrap extends BlockMod {
 		if(!w.isRemote) {
 			try {
 				w.spawnEntityInWorld(EntityOverseerElder);
+				EntityOverseerElder.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
 			} catch (Exception exception) {
 				exception.printStackTrace();
 			}
