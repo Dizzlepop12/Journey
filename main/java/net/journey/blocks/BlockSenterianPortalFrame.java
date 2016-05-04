@@ -3,6 +3,7 @@ package net.journey.blocks;
 import java.util.List;
 import java.util.Random;
 
+import net.journey.JourneyItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -20,7 +21,7 @@ import net.slayer.api.SlayerAPI;
 import net.slayer.api.block.BlockMod;
 
 public class BlockSenterianPortalFrame extends BlockMod {
-	
+
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyBool EYE = PropertyBool.create("eye");
 
@@ -28,7 +29,7 @@ public class BlockSenterianPortalFrame extends BlockMod {
         super(name, f, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(EYE, Boolean.valueOf(false)));
     }
-    
+
     @Override
     public boolean isOpaqueCube() {
         return false;
@@ -42,7 +43,8 @@ public class BlockSenterianPortalFrame extends BlockMod {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return SlayerAPI.toItem(this);
+    	if (((Boolean)((IBlockState) this.getBlockState()).getValue(EYE)).booleanValue()) 
+    	return JourneyItems.sentryEye;
     }
 
     @Override

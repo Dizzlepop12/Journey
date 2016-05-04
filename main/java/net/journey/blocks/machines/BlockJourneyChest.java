@@ -66,6 +66,7 @@ public class BlockJourneyChest extends BlockModContainer {
 		return new BlockState(this, new IProperty[] {FACING});
 	}
 	
+	@Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
         TileEntity tileentity = worldIn.getTileEntity(pos);
@@ -79,6 +80,7 @@ public class BlockJourneyChest extends BlockModContainer {
         super.breakBlock(worldIn, pos, state);
     }
 
+	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
 		//EnumSounds.playSound(EnumSounds.CHEST_OPEN_0, worldIn, playerIn);
