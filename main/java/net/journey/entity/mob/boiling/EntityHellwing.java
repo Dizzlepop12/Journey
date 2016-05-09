@@ -39,7 +39,13 @@ public class EntityHellwing extends EntityModFlying {
 	public double setMaxHealth(MobStats s) {
 		return MobStats.flyingHealth;
 	}
-
+	
+	@Override
+	public void onUpdate() {
+        super.onUpdate();
+        if(!this.worldObj.isRemote && this.worldObj.getDifficulty() == EnumDifficulty.PEACEFUL) this.setDead();
+    }
+	
 	@Override
 	public EnumSounds setLivingSound() {
 		return EnumSounds.EMPTY;

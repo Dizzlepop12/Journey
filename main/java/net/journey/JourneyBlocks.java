@@ -28,6 +28,7 @@ import net.journey.blocks.BlockSenterianPortalFrame;
 import net.journey.blocks.BlockStalks;
 import net.journey.blocks.BlockSwampLamp;
 import net.journey.blocks.BlockTrap;
+import net.journey.blocks.BlockTrophy;
 import net.journey.blocks.base.BlockModFire;
 import net.journey.blocks.base.BlockModOre;
 import net.journey.blocks.crop.BlockCorveggieCrop;
@@ -231,6 +232,10 @@ public class JourneyBlocks {
 	public static final Block senterianPost = new BlockModFence(senterianBricks, "senterianPost", "Senterian Post").setBlockUnbreakable().setResistance(10000000.0F);
 	
 	public static final Block senterianTrap = new BlockTrap("senterianTrap", "Senterian Floor");
+	
+	public static final Block trophy = new BlockTrophy("trophy", "Trophy");
+	public static final Block trophyNetherBeast = new BlockTrophy("trophyNetherBeast", "Nether Beast Trophy");
+	public static final Block trophyWitherBeast = new BlockTrophy("trophyWitherBeast", "Withering Beast Trophy");
 	
 	/*public static final BlockMod wastelandsStone = new BlockWastelandsStone("wastelandsStone");
 	public static final Block wastelandsGrass = new BlockModGrass((BlockMod)null, "wastelandsGrass", 2.0F);

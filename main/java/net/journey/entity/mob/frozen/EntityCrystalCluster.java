@@ -36,6 +36,12 @@ public class EntityCrystalCluster extends EntityModFlying {
 	public double setMaxHealth(MobStats s) {
 		return MobStats.flyingHealth;
 	}
+	
+	@Override
+	public void onUpdate() {
+        super.onUpdate();
+        if(!this.worldObj.isRemote && this.worldObj.getDifficulty() == EnumDifficulty.PEACEFUL) this.setDead();
+    }
 
 	@Override
 	public EnumSounds setLivingSound() {
@@ -70,12 +76,7 @@ public class EntityCrystalCluster extends EntityModFlying {
 	@Override
 	protected void dropFewItems(boolean b, int j) {
 		if(rand.nextInt(1) == 0) dropItem(JourneyItems.crystalFlake, 2);
-		super.dropFewItems(b, j);
 		if(rand.nextInt(1) == 0) dropItem(JourneyItems.crystalFlake, 4);
-		super.dropFewItems(b, j);
-		if(rand.nextInt(30) == 0) dropItem(JourneyItems.gateKeys, 2);
-		super.dropFewItems(b, j);
-		if(rand.nextInt(60) == 0) dropItem(JourneyItems.gateKeys, 4);
 		super.dropFewItems(b, j);
 	}
 

@@ -4,6 +4,8 @@ import net.journey.*;
 import net.journey.achievement.event.JourneyDungeonEvent;
 import net.journey.achievement.event.JourneySapphireEvent;
 import net.journey.achievement.event.JourneySapphireSwordEvent;
+import net.journey.biome.base.BiomeRegistry;
+import net.journey.biome.base.WorldTypeJourney;
 import net.journey.blocks.tileentity.*;
 import net.journey.client.BarTickHandler;
 import net.journey.dimension.*;
@@ -50,8 +52,10 @@ public class CommonProxy {
 		JourneySmeltingRecipes.init();
 		JourneyWeaponRecipes.init();
 		DimensionHelper.init();
+		BiomeRegistry.initBiome();
 		DimensionHelper.addSpawns();
 		JourneyTabs.init();
+		BiomeRegistry.mainClass();
 		
 		if(SlayerAPI.DEVMODE) LangRegistry.instance.register();
 		addOreDictionary();
@@ -81,7 +85,7 @@ public class CommonProxy {
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {
-
+		WorldType JOURNEY = new WorldTypeJourney(3, "Journey");
 	}
 	
 	public void serverStarting(FMLServerStartingEvent event) {

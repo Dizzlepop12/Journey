@@ -38,7 +38,13 @@ public class EntityMiniGhast extends EntityModFlying {
 	public double setMaxHealth(MobStats s) {
 		return s.flyingHealth;
 	}
-
+	
+	@Override
+	public void onUpdate() {
+        super.onUpdate();
+        if(!this.worldObj.isRemote && this.worldObj.getDifficulty() == EnumDifficulty.PEACEFUL) this.setDead();
+    }
+	
 	@Override
     protected String getLivingSound()
     {

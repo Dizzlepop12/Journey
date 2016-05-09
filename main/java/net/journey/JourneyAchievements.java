@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.StatBase;
 import net.minecraftforge.common.AchievementPage;
+import net.slayer.api.SlayerAPI;
 
 public class JourneyAchievements {
 	
@@ -34,6 +35,7 @@ public class JourneyAchievements {
 	public static Achievement achievementSentry;
 	public static Achievement achievementTerra;
 	public static Achievement achievementSkyStalker;
+	public static Achievement achievementTrophy;
 	
 	public static void init() {
 		AchievementPage.registerAchievementPage(ap);
@@ -67,6 +69,7 @@ public class JourneyAchievements {
 		achievementSentry = addAchievement("achievement.sentry", "sentry", 2, -3, new ItemStack(JourneyItems.sentryKingOrb), achievementCorba);
 		achievementTerra = addAchievement("achievement.terra", "terra", 4, -5, new ItemStack(JourneyItems.enchantedTerrastar), achievementTerrania);
 		achievementSkyStalker = addAchievement("achievement.sky", "sky", 6, -5, new ItemStack(JourneyItems.mysteriousDisk), achievementCloudia);
+		achievementTrophy = addAchievement("achievement.trophy", "trophy", -1, 3, new ItemStack(SlayerAPI.toItem(JourneyBlocks.trophy)), achievementTrophy);
 	}
 
 	public static Achievement addAchievement(String n, String id, int x, int y, ItemStack icon, Achievement a) {

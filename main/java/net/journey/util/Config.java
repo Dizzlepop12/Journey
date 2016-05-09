@@ -25,10 +25,12 @@ public class Config {
 
 	public static int euca, depths, boil, frozen, corba, wastelands, cloudia, terrania, golden, senterian;
 	public static int eucaBiome, depthsBiome, boilBiome, frozenBiome, corbaBiome, wastelandsBiome, cloudiaBiome, terraniaBiome, goldenBiome, senterianBiome;
+	public static int witherSandsBiome;
 
 	public static int baseMobID, baseProjectileID, baseEntityListID, entityHealthDistance;
 
 	public static void dimensionInit() {
+		witherSandsBiome = cfg.get("Biome", "Withering Sands biome ID", 190).getInt();
 		eucaBiome = cfg.get("Dimension", "Euca biome ID", 60).getInt();
 		euca = cfg.get("Dimension", "Euca ID", 20).getInt();
 		keepLoadingEuca = cfg.get("Dimension", "Keep loading Euca", true).getBoolean(true);

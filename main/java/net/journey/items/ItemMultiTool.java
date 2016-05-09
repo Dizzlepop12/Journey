@@ -44,17 +44,17 @@ public class ItemMultiTool extends ItemTool {
         GameRegistry.registerItem(this, name);
 	}
 
-	/**@Override
+	@Override
 	public boolean getIsRepairable(ItemStack i, ItemStack i1) {
 		boolean canRepair = mat.getRepairItem() != null;
 		if(canRepair) return mat.getRepairItem() == i1.getItem() ? true : super.getIsRepairable(i, i1);
 		return super.getIsRepairable(i, i1);
-	} */
+	}
 	
-	/**@Override
+	@Override
 	public boolean isItemTool(ItemStack i) {
 		return true;
-	} */
+	}
 
 	@Override
 	public boolean canHarvestBlock(Block block, ItemStack stack) {

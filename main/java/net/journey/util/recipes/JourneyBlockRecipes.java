@@ -43,6 +43,7 @@ public class JourneyBlockRecipes {
 		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.boilingChest, 4), new Object[] {"ddd", "did", "ddd", 'i', Blocks.chest, 'd', JourneyBlocks.boilingLog});
 		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.boilingBars, 4), new Object[] {"ddd", "ddd", 'd', Items.blaze_rod});
 		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.stoneCraftingTable, 1), new Object[] {"dd", "dd", 'd', Blocks.cobblestone});
+		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.trophy, 1), new Object[] {"d d", "ddd", " d ", 'd', Items.gold_ingot});
 		GameRegistry.addRecipe(new ItemStack(b.grindstone), new Object[] {" o ", "bib", "bbb", 'b', Blocks.brick_block, 'o', Blocks.obsidian, 'i', Items.iron_ingot});
 		GameRegistry.addRecipe(new ItemStack(Blocks.web), new Object[] {"sss", "sss","sss", 's', Items.string});
 		GameRegistry.addRecipe(new ItemStack(b.netherFurnace, 1), new Object[] {"ddd", "d d", "ddd", 'd', Blocks.netherrack});

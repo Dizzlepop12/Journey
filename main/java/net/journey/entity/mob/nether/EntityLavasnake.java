@@ -38,6 +38,12 @@ public class EntityLavasnake extends EntityModFlying {
 		this.isImmuneToFire = true;
 		setSize(0.7F, 1.2F);
 	}
+	
+	@Override
+	public void onUpdate() {
+        super.onUpdate();
+        if(!this.worldObj.isRemote && this.worldObj.getDifficulty() == EnumDifficulty.PEACEFUL) this.setDead();
+    }
 
 	@Override
 	public double setMaxHealth(MobStats s) {

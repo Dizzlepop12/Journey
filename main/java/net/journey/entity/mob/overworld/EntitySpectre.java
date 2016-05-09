@@ -10,6 +10,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.slayer.api.entity.EntityModMob;
 
@@ -34,6 +35,8 @@ public class EntitySpectre extends EntityModMob {
 	public double setAttackDamage(MobStats s) {
 		return s.lowJourneyDamage;
 	}
+	
+	
 	
 	@Override
     public void onLivingUpdate()
