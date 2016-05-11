@@ -38,9 +38,19 @@ public class BlockSenterianPortalFrame extends BlockMod {
     public boolean isOpaqueCube() {
         return false;
     }
+    
+	@Override
+    public void setBlockBoundsForItemRender() {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.445F, 1.0F);
+    }
 
     @Override
     public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List list, Entity collidingEntity) {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.445F, 1.0F);
+        if (((Boolean)worldIn.getBlockState(pos).getValue(EYE)).booleanValue()) {
+            this.setBlockBounds(0.3125F, 0.8125F, 0.3125F, 0.6875F, 1.0F, 0.6875F);
+            super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
+        }
         super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         this.setBlockBoundsForItemRender();
     }

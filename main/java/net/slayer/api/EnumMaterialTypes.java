@@ -21,7 +21,8 @@ public enum EnumMaterialTypes {
     GOURD(Material.gourd, Block.soundTypeWood),
     ICE(Material.ice, Block.soundTypeGlass),
     GLASS_SOUND(Material.ground, Block.soundTypeGlass),
-    METAL_SOUND(Material.rock, Block.soundTypeMetal);
+    METAL_SOUND(Material.rock, Block.soundTypeMetal),
+    TROPHY(Material.ground, Block.soundTypeMetal);
 
     private Material m;
     private SoundType s;

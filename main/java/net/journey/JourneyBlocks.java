@@ -234,6 +234,16 @@ public class JourneyBlocks {
 	public static final Block senterianTrap = new BlockTrap("senterianTrap", "Senterian Floor");
 	
 	public static final Block trophy = new BlockTrophy("trophy", "Trophy");
+	public static final Block trophySoul = new BlockTrophy("trophySoul", "Soul Watcher Trophy");
+	public static final Block trophyBlaze = new BlockTrophy("trophyBlaze", "Blazier Trophy");
+	public static final Block trophyEudor = new BlockTrophy("trophyEudor", "Eudor Trophy");
+	public static final Block trophyCor = new BlockTrophy("trophyCor", "Corallator Trophy");
+	public static final Block trophyScale = new BlockTrophy("trophyScale", "Scale Trophy");
+	public static final Block trophyRoc = new BlockTrophy("trophyRoc", "Thunderbird Trophy");
+	public static final Block trophySentry = new BlockTrophy("trophySentry", "Sentry King Trophy");
+	public static final Block trophyLogger = new BlockTrophy("trophyLogger", "Logger Trophy");
+	public static final Block trophyTerra = new BlockTrophy("trophyTerra", "Terranian Protector Trophy");
+	public static final Block trophyStalk = new BlockTrophy("trophyStalk", "Sky Stalker Trophy");
 	public static final Block trophyNetherBeast = new BlockTrophy("trophyNetherBeast", "Nether Beast Trophy");
 	public static final Block trophyWitherBeast = new BlockTrophy("trophyWitherBeast", "Withering Beast Trophy");
 	

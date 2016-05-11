@@ -3,7 +3,6 @@ package net.journey.entity.mob.euca;
 import net.journey.JourneyItems;
 import net.journey.entity.MobStats;
 import net.journey.entity.projectile.EntityFireBall;
-import net.journey.entity.projectile.EntityShimmererProjectile;
 import net.journey.enums.EnumSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -14,13 +13,14 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.slayer.api.entity.EntityModMob;
 
 public class EntityGolditeMage extends EntityModMob implements IRangedAttackMob {
 
-	private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 15, 60);
-
+	private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 23, 10);
+	
 	public EntityGolditeMage(World par1World) {
 		super(par1World);
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false, new Class[0]));
@@ -53,25 +53,25 @@ public class EntityGolditeMage extends EntityModMob implements IRangedAttackMob 
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase e, float f) {
-        EntityShimmererProjectile b = new EntityShimmererProjectile(this.worldObj, this, 10F, newPosX, newPosX);
+        EntityFireBall b = new EntityFireBall(this.worldObj, this, 4F);
         b.setThrowableHeading(e.posX-this.posX, e.posY-this.posY, e.posZ-this.posZ, 1.6f, 12);
         EnumSounds.playSound(EnumSounds.SPARKLE, worldObj, this);
         this.worldObj.spawnEntityInWorld(b);
 	}
-
+	
 	@Override
 	public double setAttackDamage(MobStats s) {
-		return 0;
+		return s.lowJourneyDamage;
 	}
 
 	@Override
 	public double setMaxHealth(MobStats s) {
-		return s.eucaHealth;
+		return s.overworldHealth;
 	}
 
 	@Override
 	public EnumSounds setLivingSound() {
-		return EnumSounds.INSECTO;
+		return EnumSounds.PSYOLLOM;
 	}
 
 	@Override
@@ -83,19 +83,9 @@ public class EntityGolditeMage extends EntityModMob implements IRangedAttackMob 
 	public EnumSounds setDeathSound() {
 		return EnumSounds.INSECTO_HURT;
 	}
-	
+
 	@Override
 	public Item getItemDropped() {
 		return null;
-	}
-	
-	@Override
-	protected void dropFewItems(boolean b, int j) {
-		if(rand.nextInt(24) == 0) dropItem(JourneyItems.goldClump, 1);
-		super.dropFewItems(b, j);
-		if(rand.nextInt(14) == 0) dropItem(JourneyItems.goldClump, 4);
-		super.dropFewItems(b, j);
-		if(rand.nextInt(60) == 0) dropItem(JourneyItems.silverClump, 1);
-		super.dropFewItems(b, j);
 	}
 }
