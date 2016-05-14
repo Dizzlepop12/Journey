@@ -6,8 +6,7 @@ import net.minecraft.world.gen.ChunkProviderSettings;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class JourneyGenLayerBiome extends GenLayer
-{
+public class JourneyGenLayerBiome extends GenLayer {
     @SuppressWarnings("unchecked")
     private java.util.List<net.minecraftforge.common.BiomeManager.BiomeEntry>[] biomes = new java.util.ArrayList[net.minecraftforge.common.BiomeManager.BiomeType.values().length];
 
@@ -32,7 +31,7 @@ public class JourneyGenLayerBiome extends GenLayer
         biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeGenBase.desert, 30));
         biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeGenBase.savanna, 20));
         biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeGenBase.plains, 10));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeRegistry.netherWitherSands, 10));
+        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeRegistry.lushLands, 10));
 
         if (p_i45560_4_ == WorldType.DEFAULT_1_1)
         {
@@ -43,7 +42,7 @@ public class JourneyGenLayerBiome extends GenLayer
             biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeGenBase.swampland, 10));
             biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeGenBase.plains, 10));
             biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeGenBase.taiga, 10));
-            biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeRegistry.netherWitherSands, 10));
+            biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(BiomeRegistry.lushLands, 10));
             this.field_175973_g = null;
         }
         else if (p_i45560_4_ == WorldType.CUSTOMIZED)

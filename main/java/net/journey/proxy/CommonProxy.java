@@ -81,7 +81,6 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGenEssence(), 2);
 		SlayerAPI.registerEvent(new PlayerEvent());
-		//EssenceAchievements.init();
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {
@@ -106,9 +105,5 @@ public class CommonProxy {
 		OreDictionary.registerOre("ingotShadium", JourneyItems.shadiumIngot);
 		OreDictionary.registerOre("ingotFlairium", JourneyItems.flairiumIngot);
 		OreDictionary.registerOre("gemSapphire", JourneyItems.sapphire);
-	}
-	
-	public EntityPlayer getClientPlayer() { 
-		return Minecraft.getMinecraft().thePlayer;
 	}
 }
