@@ -29,6 +29,7 @@ import net.journey.blocks.BlockStalks;
 import net.journey.blocks.BlockSwampLamp;
 import net.journey.blocks.BlockTrap;
 import net.journey.blocks.BlockTrophy;
+import net.journey.blocks.BlockWitherFrame;
 import net.journey.blocks.base.BlockModFire;
 import net.journey.blocks.base.BlockModOre;
 import net.journey.blocks.crop.BlockCorveggieCrop;
@@ -55,6 +56,7 @@ import net.journey.blocks.portal.BlockFrozenPortal;
 import net.journey.blocks.portal.BlockGoldenPortal;
 import net.journey.blocks.portal.BlockSenterianPortal;
 import net.journey.blocks.portal.BlockTerraniaPortal;
+import net.journey.blocks.portal.BlockWitherPortal;
 import net.journey.blocks.tileentity.TileEntityJourneyChest;
 import net.journey.entity.mob.corba.EntityOverseerElder;
 import net.minecraft.block.Block;
@@ -161,6 +163,15 @@ public class JourneyBlocks {
 	public static final Block frozenBark = new BlockModLog("frozenBark", "Frozen Bark");
 	public static final Block frozenPlanks = new BlockMod(EnumMaterialTypes.WOOD, "frozenPlanks", "Frozen Planks", 0.5F);
 	
+	public static final BlockMod withanDirt = new BlockMod(EnumMaterialTypes.DIRT, "withanDirt", "Withan Dirt", 2.0F);
+	public static final BlockMod withanRock = new BlockMod(EnumMaterialTypes.STONE, "withanRock", "Withan Rock", 5.0F);
+	public static final Block withanGrass = new BlockModGrass(withanDirt, "withanGrass", "Withan Grass", 2.0F);
+	public static final Block withanLeaves = new BlockModLeaves("withanLeaves", "Withering Leaves", 0.5F);
+	public static final Block withanBark = new BlockModLog("withanBark", "Withering Bark");
+	public static final Block withanRockReinforced = new BlockMod("reinforcedWithan", "Withan Rock").setResistance(10000000000F).setBlockUnbreakable();
+	public static final Block withanLamp = new BlockMod(EnumMaterialTypes.GLASS, "withanLamp", "Withan Lamp", 0.1F).setLightLevel(1.0F).setCreativeTab(JourneyTabs.decoration);
+	public static final Block withanLight = new BlockMod(EnumMaterialTypes.GLASS, "withanLight", "Withan Light", 0.1F).setLightLevel(1.0F).setCreativeTab(JourneyTabs.decoration);
+	
 	public static final Block goldenGrass = new BlockModGrass((BlockMod)null, "goldenGrass", "Golden Grass", 0.5F);
 	public static final BlockMod goldenStone = new BlockMod("goldenStone", "Golden Stone");
 	
@@ -252,18 +263,27 @@ public class JourneyBlocks {
 	public static final Block wastelandsLog = new BlockModLog("wastelandsLog");
 	public static final Block wastelandsBranches = new BlockModLeaves("wastelandsBranches", 2.0F).setStepSound(EnumMaterialTypes.WOOD.getSound());*/
 
+	public static final BlockWitherPortal witherPortal = (BlockWitherPortal)new BlockWitherPortal("witherPortal", "Withanian Portal");
+	public static final Block witherPortalFrame = new BlockWitherFrame("witherPortalFrame", "Withanian Portal Frame");
+	
 	public static final BlockEucaPortal eucaPortal = (BlockEucaPortal)new BlockEucaPortal("eucaPortal");
 	public static final Block eucaPortalFrame = new BlockMod("eucaPortalFrame", "Euca Portal Frame", 3.0F);
+	
 	public static final BlockGoldenPortal goldenPortal = (BlockGoldenPortal)new BlockGoldenPortal("goldenPortal");
 	public static final Block goldenPortalFrame = new BlockMod("goldenPortalFrame", "Golden Portal Frame", 3.0F);
+	
 	public static final BlockDepthsPortal depthsPortal = (BlockDepthsPortal)new BlockDepthsPortal("depthsPortal");
 	public static final Block depthsPortalFrame = new BlockMod("depthsPortalFrame", "Depths Portal Frame", 3.0F);
+	
 	public static final BlockBoilPortal boilPortal = (BlockBoilPortal)new BlockBoilPortal("boilingPortal");
 	public static final Block boilPortalFrame = new BlockMod("boilingPortalFrame", "Boiling Portal Frame", 3.0F);
+	
 	public static final BlockFrozenPortal frozenPortal = (BlockFrozenPortal)new BlockFrozenPortal("frozenPortal");
 	public static final Block frozenPortalFrame = new BlockMod("frozenPortalFrame", "Frozen Portal Frame", 3.0F);
+	
 	public static final BlockCorbaPortal corbaPortal = (BlockCorbaPortal)new BlockCorbaPortal("corbaPortal", "Corba Portal");
 	public static final Block corbaPortalFrame = new BlockCorbaPortalFrame("corbaPortalFrame", "Corba Portal Frame");
+	
 	public static final BlockTerraniaPortal terraniaPortal = (BlockTerraniaPortal)new BlockTerraniaPortal("terraniaPortal");
 	public static final Block terraniaPortalFrame = new BlockMod("terraniaPortalFrame", "Terrania Portal Frame", 3.0F);
 	

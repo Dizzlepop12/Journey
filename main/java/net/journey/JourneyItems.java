@@ -172,7 +172,7 @@ public class JourneyItems {
 	public static final Item concentratedBlood = new ItemMod("concentratedBlood", "Concentrated Blood");
 	public static final Item snakeSkin = new ItemMod("snakeSkin", "Snake Skin");
 	public static final Item withicSpine = new ItemMod("withicSpine", "Withic Spine");
-	public static final Item lostSoul = new ItemMod("lostSoul", "Lost Soul");
+	public static final Item lostSoul = new ItemSoul("lostSoul", "Lost Soul");
 	public static final Item withicSoul = new ItemMod("withicSoul", "Withic Soul");
 	public static final Item eucaPortalPiece = new ItemMod("eucaPortalPiece", "Euca Portal Piece");
 	public static final Item eucaPortalPiece_1 = new ItemMod("eucaPortalPiece_1", "Euca Portal Piece");

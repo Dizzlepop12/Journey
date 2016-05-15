@@ -16,6 +16,7 @@ public class WorldProviderFrozenLands extends WorldProvider{
 		this.dimensionId = Config.frozen;
 	}
 	
+	@Override
 	public IChunkProvider createChunkGenerator()
     {
         return new ChunkProviderFrozenLands(worldObj, worldObj.getSeed(), worldObj.getWorldInfo().getGeneratorOptions());

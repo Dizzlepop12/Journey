@@ -18,6 +18,8 @@ import net.journey.dimension.senterian.BiomeGenSenterian;
 import net.journey.dimension.senterian.WorldProviderSenterian;
 import net.journey.dimension.terrania.BiomeGenTerrania;
 import net.journey.dimension.terrania.WorldProviderTerrania;
+import net.journey.dimension.wither.BiomeGenWither;
+import net.journey.dimension.wither.WorldProviderWither;
 import net.journey.entity.mob.boiling.EntityBurningLight;
 import net.journey.entity.mob.boiling.EntityFrightener;
 import net.journey.entity.mob.boiling.EntityHellwing;
@@ -115,6 +117,7 @@ public class DimensionHelper {
 	public static BiomeGenBase terrania = new BiomeGenTerrania(Config.terraniaBiome);
 	public static BiomeGenBase golden = new BiomeGenGoldenGrains(Config.goldenBiome);
 	public static BiomeGenBase senterian = new BiomeGenSenterian(Config.senterianBiome);
+	public static BiomeGenBase wither = new BiomeGenWither(Config.witherBiome);
 
 	public static void init(){
 		addDimension(Config.euca, WorldProviderEuca.class, Config.keepLoadingEuca);
@@ -127,6 +130,7 @@ public class DimensionHelper {
 		addDimension(Config.terrania, WorldProviderTerrania.class, Config.keepLoadingTerrania);
 		addDimension(Config.golden, WorldProviderGoldenGrains.class, Config.keepLoadingGolden);
 		addDimension(Config.senterian, WorldProviderSenterian.class, Config.keepLoadingSenterian);
+		addDimension(Config.wither, WorldProviderWither.class, Config.keepLoadingWither);
 	}
 
 	private static void addDimension(int id, Class<? extends WorldProvider> w, boolean keeploading) {

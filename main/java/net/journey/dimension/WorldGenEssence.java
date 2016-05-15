@@ -288,6 +288,10 @@ public class WorldGenEssence implements IWorldGenerator {
 			if(y > 99 && y < 130)
 			(new WorldGenMinable(JourneyBlocks.lightBlueCloudiaCloud.getDefaultState(), 40, BlockHelper.forBlock(Blocks.air))).generate(w, r, new BlockPos(x, y, z));
 			break;
+		case 21:
+			y = r.nextInt(250); x = chunkX + r.nextInt(16) + 8; z = chunkZ + r.nextInt(16) + 8;
+			(new WorldGenMinable(JourneyBlocks.withanLight.getDefaultState(), 25, BlockHelper.forBlock(JourneyBlocks.withanRockReinforced))).generate(w, r, new BlockPos(x, y, z));
+			break;
 		}
 	}
 
@@ -326,6 +330,11 @@ public class WorldGenEssence implements IWorldGenerator {
 		//for(i = 0; i < 25; i++) GenerationHelper.generateEssenceDimensions(12, w, chunkX, chunkZ);
 		//for(i = 0; i < 25; i++) GenerationHelper.generateEssenceDimensions(2, w, chunkX, chunkZ);
 		//for(i = 0; i < 5; i++) GenerationHelper.generateEssenceDimensions(10, w, chunkX, chunkZ);
+	}
+	
+	private void generateWither(World w, Random r, int chunkX, int chunkZ) {
+		int i = 0;
+		for(i = 0; i < 25; i++) WorldGenEssence.generateEssenceDimensions(21, w, chunkX, chunkZ);
 	}
 
 	private void generateEuca(World w, Random r, int chunkX, int chunkZ) {
