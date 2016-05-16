@@ -32,7 +32,7 @@ public class JourneyTabs extends CreativeTabs {
 	
 	public JourneyTabs(String name) {
 		super(name);
-		//this.setBackgroundImageName("journeyCreative.png");
+		this.setBackgroundImageName("journeyCreative.png");
 	}
 	
     public void setIcon(Item icon) {

@@ -1,5 +1,7 @@
 package net.journey.proxy;
 
+import amerifrance.guideapi.GuideAPI;
+import amerifrance.guideapi.api.base.Book;
 import net.journey.*;
 import net.journey.achievement.event.JourneyDungeonEvent;
 import net.journey.achievement.event.JourneySapphireEvent;
