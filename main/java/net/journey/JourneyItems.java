@@ -3,6 +3,7 @@ package net.journey;
 import java.util.ArrayList;
 import java.util.List;
 
+import amerifrance.guideapi.item.ItemGuideBook;
 import net.journey.entity.projectile.*;
 import net.journey.enums.EnumKnowledge;
 import net.journey.enums.EnumSounds;
@@ -208,8 +209,6 @@ public class JourneyItems {
 	public static final Item rockChunk = new ItemMod("rockChunk", "Rock Chunk");
 	public static final Item rockShard = new ItemMod("rockShard", "Rock Shard");
 	//public static final Item plasmaBall = new ItemMod("plasmaBall");
-	
-	public static final Item journeyBook = new ItemJourneyBook("journeyBook", "Journey Book");
 
 	public static final Item hellstoneMultiTool = new ItemMultiTool("hellstoneMultiTool", "Bloodcrust Multi Tool", EssenceToolMaterial.HELLSTONE_MULTI_TOOL);
 	public static final Item shadiumMultiTool = new ItemMultiTool("shadiumMultiTool", "Shadium Multi Tool", EssenceToolMaterial.SHADIUM_MULTI_TOOL);

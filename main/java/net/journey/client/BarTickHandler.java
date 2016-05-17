@@ -21,8 +21,7 @@ import net.slayer.api.SlayerAPI;
 import org.lwjgl.opengl.GL11;
 
 public class BarTickHandler {
-
-	private Minecraft mc = Minecraft.getMinecraft();
+	
 	private EntityPlayer player;
 	private int ticks = 10;
 
@@ -60,6 +59,7 @@ public class BarTickHandler {
 
 	@SideOnly(Side.CLIENT)
 	private void onTickRender(EntityPlayer player) {
+		Minecraft mc = Minecraft.getMinecraft();
 		if(mc.currentScreen == null) {
 			if(!player.capabilities.isCreativeMode) {
 				GL11.glPushMatrix();
@@ -68,7 +68,7 @@ public class BarTickHandler {
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 				GuiIngame gig = mc.ingameGUI;
 				ScaledResolution scaledresolution = new ScaledResolution(mc);
-				this.mc.getTextureManager().bindTexture(new ResourceLocation(SlayerAPI.MOD_ID, "textures/gui/misc.png"));
+				mc.getTextureManager().bindTexture(new ResourceLocation(SlayerAPI.MOD_ID, "textures/gui/misc.png"));
 				//int sw = scaledresolution.getScaledWidth(), sh = scaledresolution.getScaledHeight();
 				int y = scaledresolution.getScaledHeight() - 30, x = 10, x1 = 10, x2 = 10;
 				gig.drawTexturedModalRect(x - 10, y + 10, 0, 177, 117, 19);

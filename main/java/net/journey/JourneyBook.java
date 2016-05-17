@@ -25,7 +25,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class JourneyBook extends Book {
+public class JourneyBook {
 
     public static void registerTests(int amountOfBooks) {
         for (int i = 0; i < amountOfBooks; i++)
