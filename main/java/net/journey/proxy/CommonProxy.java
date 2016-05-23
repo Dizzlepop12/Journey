@@ -9,6 +9,7 @@ import net.journey.achievement.event.JourneySapphireSwordEvent;
 import net.journey.biome.base.BiomeRegistry;
 import net.journey.biome.base.WorldTypeJourney;
 import net.journey.blocks.tileentity.*;
+import net.journey.book.JourneyBook;
 import net.journey.client.BarTickHandler;
 import net.journey.dimension.*;
 import net.journey.enums.*;

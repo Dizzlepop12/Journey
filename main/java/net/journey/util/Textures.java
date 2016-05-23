@@ -181,6 +181,7 @@ public class Textures {
 	public static final ResourceLocation dunewerm = addMob("dunewerm");
 	public static final ResourceLocation ferret = addMob("ferret");
 	public static final ResourceLocation detractor = addProjectile("detractor");
+	public static final ResourceLocation jungleGolem = addMob("jungleGolem");
 	
     private static ResourceLocation addMob(String tex){
     	return new ResourceLocation(prefix + tex + ".png");

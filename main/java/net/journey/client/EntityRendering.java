@@ -24,6 +24,7 @@ import net.journey.client.render.model.mob.overworld.cold.ModelBlizzard;
 import net.journey.client.render.model.mob.overworld.desert.ModelDunewerm;
 import net.journey.client.render.model.mob.overworld.desert.ModelSandCrawler;
 import net.journey.client.render.model.mob.overworld.desert.ModelSpyclops;
+import net.journey.client.render.model.mob.overworld.jungle.ModelJungleGolem;
 import net.journey.client.render.model.mob.overworld.underground.*;
 import net.journey.client.render.model.mob.overworld.underground.npc.ModelRockiteGolem;
 import net.journey.client.render.model.mob.terrania.mob.ModelPurplian;
@@ -58,6 +59,7 @@ import net.journey.entity.mob.nether.EntityWitherspine;
 import net.journey.entity.mob.overworld.*;
 import net.journey.entity.mob.overworld.EntityWraith;
 import net.journey.entity.mob.overworld.cold.EntityBlizzard;
+import net.journey.entity.mob.overworld.jungle.EntityJungleGolem;
 import net.journey.entity.mob.overworld.npc.*;
 import net.journey.entity.mob.overworld.underground.*;
 import net.journey.entity.mob.overworld.underground.npc.EntityRockiteGolem;
@@ -224,6 +226,8 @@ public class EntityRendering {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzard.class, new RenderModMob(new ModelBlizzard(), Textures.blizzard));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRockiteGolem.class, new RenderModMob(new ModelRockiteGolem(), Textures.rockiteGolem));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFerret.class, new RenderModMob(new ModelFerret(), Textures.ferret));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityJungleGolem.class, new RenderModMob(new ModelJungleGolem(), Textures.jungleGolem));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDragonEgg.class, new RenderDragonEgg(new ModelDragonEgg()));
 		

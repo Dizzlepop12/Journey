@@ -5,6 +5,7 @@ import java.util.List;
 import net.journey.JourneyItems;
 import net.journey.entity.MobStats;
 import net.journey.enums.EnumSounds;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.slayer.api.entity.EntityModMob;
@@ -53,6 +55,11 @@ public class EntityTreeGolem extends EntityModMob{
 		return EnumSounds.BUSH;
 	}
 
+	@Override
+    protected void playStepSound(BlockPos pos, Block blockIn) {
+        this.playSound("mob.irongolem.walk", 1.0F, 1.0F);
+    }
+	
 	@Override
 	public EnumSounds setHurtSound() {
 		return EnumSounds.BUSH_HURT;

@@ -47,7 +47,7 @@ public class ItemHealth extends ItemFood {
     		PlayerHelper.getPersistedpTag(p).setDouble("health", p.getMaxHealth());
     		EnumSounds.playSound(EnumSounds.SUMMON_TABLE, w, p);
     	}
-    	if(isSentry && p.getMaxHealth() >= max) {
+    	else if(isSentry && p.getMaxHealth() >= max) {
     		p.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(p.getMaxHealth() + hearts);
     		PlayerHelper.getPersistedpTag(p).setDouble("health", p.getMaxHealth());
     		EnumSounds.playSound(EnumSounds.SUMMON_TABLE, w, p);
@@ -58,7 +58,8 @@ public class ItemHealth extends ItemFood {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add(SlayerAPI.Colour.RED + "Adds " + hearts / 2F + " Heart(s)");
 		if(isntSentry && player.getMaxHealth() >= 60 && !isSentry) {
-			list.add(SlayerAPI.Colour.DARK_RED + "You have reached the maximum amount of health. No more can be achieved without a Sentry's Heart");
+			list.add(SlayerAPI.Colour.DARK_RED + "You have reached the maximum amount of health.");
+			list.add(SlayerAPI.Colour.DARK_RED + "No more can be achieved without a Sentry's Heart");
 		}
 		if(isSentry) {
 			list.add(SlayerAPI.Colour.GOLD + "Grants 10 more health points");

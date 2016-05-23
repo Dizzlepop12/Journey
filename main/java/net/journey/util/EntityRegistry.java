@@ -23,6 +23,7 @@ import net.journey.entity.mob.nether.EntityWitherspine;
 import net.journey.entity.mob.overworld.*;
 import net.journey.entity.mob.overworld.EntityWraith;
 import net.journey.entity.mob.overworld.cold.EntityBlizzard;
+import net.journey.entity.mob.overworld.jungle.EntityJungleGolem;
 import net.journey.entity.mob.overworld.npc.*;
 import net.journey.entity.mob.overworld.underground.*;
 import net.journey.entity.mob.overworld.underground.npc.EntityRockiteGolem;
@@ -139,6 +140,7 @@ public class EntityRegistry {
 		SlayerAPI.registerOverworldMob(EntityBlizzard.class, "blizzard", "Blizzard");
 		SlayerAPI.registerOverworldMob(EntityDunewerm.class, "dunewerm", "Dunewerm");
 		
+		SlayerAPI.registerOverworldMob(EntityJungleGolem.class, "jungleGolem", "Jungle Golem");
 		SlayerAPI.registerOverworldMob(EntityFerret.class, "ferret", "Ferret");
 		SlayerAPI.registerOverworldMob(EntityTameRoc.class, "tameRoc", "Tame Roc");
 	}

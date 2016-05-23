@@ -2,6 +2,7 @@ package net.slayer.api.entity;
 
 import net.journey.entity.MobStats;
 import net.journey.enums.EnumSounds;
+import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -13,6 +14,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
@@ -75,6 +77,11 @@ public abstract class EntityModMob extends EntityMob {
 		for(int i = 0; i < 1 + rand.nextInt(1); i++)
 			this.dropItem(getItemDropped(), 1);
 	}
+	
+	@Override
+    protected void playStepSound(BlockPos pos, Block blockIn) {
+        this.playSound("mob.wolf.step", 0.15F, 1.0F);
+    }
 
 	@Override
 	protected String getLivingSound() {

@@ -248,7 +248,7 @@ public class DimensionHelper {
 	
 	private static void addCaveSpawns() {
 		int amount = 250;
-		int amount2 = 10;
+		int amount2 = 5;
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 			if (biome != null){

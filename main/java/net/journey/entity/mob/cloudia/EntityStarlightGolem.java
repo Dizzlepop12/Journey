@@ -3,7 +3,9 @@ package net.journey.entity.mob.cloudia;
 import net.journey.JourneyItems;
 import net.journey.entity.MobStats;
 import net.journey.enums.EnumSounds;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.slayer.api.entity.EntityModMob;
 import net.slayer.api.entity.EntityPeacefullUntillAttacked;
@@ -40,6 +42,11 @@ public class EntityStarlightGolem extends EntityModMob {
 	public EnumSounds setDeathSound() {
 		return EnumSounds.EMPTY;
 	}
+	
+	@Override
+    protected void playStepSound(BlockPos pos, Block blockIn) {
+        this.playSound("mob.irongolem.walk", 1.0F, 1.0F);
+    }
 	
 	@Override
     protected String getLivingSound() {
