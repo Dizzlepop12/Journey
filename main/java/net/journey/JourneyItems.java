@@ -644,7 +644,7 @@ public class JourneyItems {
 	public static final Item friedEgg = new ItemModFood("friedEgg", "Fried Egg", 2, 0.6F, 10, false);
 	public static final Item floroPedal = new ItemModFood("floroPedal", "Floro Pedal", 3, 0.6F, 10, false);
 	public static final Item tomato = new ItemModFood("tomato", "Tomato", 3, 0.6F, 10, false);
-	public static final Item airMelon = new ItemModFood("airMelon", "Air Melon", 100, 3.0F, 14, false).setAlwaysEdible().setPotionEffect(Potion.digSpeed.id, 10, 1, 1.0F);
+	public static final Item airMelon = new ItemModFood("airMelon", "Air Melon", 10, 3.0F, 2, false).setAlwaysEdible().setPotionEffect(Potion.digSpeed.id, 10, 40, 1.0F);
 	public static final Item glowshroom = new ItemModFood("glowshroom", "Glowshroom", 4, 0.6F, 10, false).setAlwaysEdible().setPotionEffect(Potion.nightVision.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item terrashroom = new ItemModFood("terrashroom", "Terrashroom", 8, 0.6F, 10, false).setAlwaysEdible().setPotionEffect(Potion.nightVision.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item corveggies = new ItemModFood("corveggies", "Corveggies", 4, 0.6F, 10, false).setPotionEffect(Potion.saturation.id, 20, 1, 1.0F).setAlwaysEdible();

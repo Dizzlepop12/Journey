@@ -89,7 +89,8 @@ public class DimensionCommand extends CommandBase {
 
 			if(var2[0].equalsIgnoreCase("Cloudia")) {
 				if(playerMP.dimension != Config.cloudia) {
-					playerMP.dimension = Config.cloudia;
+					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, Config.cloudia, new ModTeleporter(playerMP.mcServer.worldServerForDimension(Config.cloudia), Config.cloudia, JourneyBlocks.cloudiaPortal, JourneyBlocks.cloudiaPortalFrame));
+					//playerMP.dimension = Config.cloudia;
 				}
 			}
 		}

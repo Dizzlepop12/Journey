@@ -45,7 +45,7 @@ public class BlockModOre extends BlockMod {
 			g = 1.0F;
 			b = 0.0F;
 		}
-		if(this == JourneyBlocks.flairiumOre || this == JourneyBlocks.flairiumBlock) {
+		if(this == JourneyBlocks.flairiumOre || this == JourneyBlocks.flairiumBlock || this == JourneyBlocks.blaziumOre || this == JourneyBlocks.blaziumBlock) {
 			r = 1.0F;
 			g = 0.5F;
 			b = 0.0F;

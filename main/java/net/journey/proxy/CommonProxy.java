@@ -73,6 +73,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityJourneyChest.class, "Journey Chest");
 		GameRegistry.registerTileEntity(TileEntityNetherFurnace.class, "Nether Furnace");
 		GameRegistry.registerTileEntity(TileEntitySenterianPortal.class, "Senterian Labyrinth Portal");
+		GameRegistry.registerFuelHandler(new JourneyFuelHandler());
 		//SlayerAPI.addMapGen(MapGenBoilVillage.Start.class, "Boil Village");
 		//SlayerAPI.addMapGen(MapGenBoilBridge.Start.class, "Boil Bridge");
 		//StructureBoilBridgePieces.registerBoilFortressPieces();
@@ -109,5 +110,6 @@ public class CommonProxy {
 		OreDictionary.registerOre("ingotShadium", JourneyItems.shadiumIngot);
 		OreDictionary.registerOre("ingotFlairium", JourneyItems.flairiumIngot);
 		OreDictionary.registerOre("gemSapphire", JourneyItems.sapphire);
+		OreDictionary.registerOre("gemBlazium", JourneyItems.blazium);
 	}
 }

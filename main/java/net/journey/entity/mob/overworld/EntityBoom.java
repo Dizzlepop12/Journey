@@ -4,6 +4,7 @@ import net.journey.entity.MobStats;
 import net.journey.entity.AI.EntityAIBoomSwell;
 import net.journey.enums.EnumSounds;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ai.EntityAIRestrictSun;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -25,10 +26,50 @@ public class EntityBoom extends EntityModMob {
 
 	public EntityBoom(World par1World) {
 		super(par1World);
-		this.tasks.addTask(2, new EntityAIBoomSwell(this));
+		this.tasks.addTask(1, new EntityAIBoomSwell(this));
+        this.tasks.addTask(2, new EntityAIRestrictSun(this));
 		addAttackingAI();
 		this.setSize(1.0F, 2.0F);
 	}
+	
+	@Override
+    public void onLivingUpdate()
+    {
+        if (this.worldObj.isDaytime() && !this.worldObj.isRemote)
+        {
+            float f = this.getBrightness(1.0F);
+            BlockPos blockpos = new BlockPos(this.posX, (double)Math.round(this.posY), this.posZ);
+
+            if (f > 0.5F && this.rand.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && this.worldObj.canSeeSky(blockpos))
+            {
+                boolean flag = true;
+                ItemStack itemstack = this.getEquipmentInSlot(4);
+
+                if (itemstack != null)
+                {
+                    if (itemstack.isItemStackDamageable())
+                    {
+                        itemstack.setItemDamage(itemstack.getItemDamage() + this.rand.nextInt(2));
+
+                        if (itemstack.getItemDamage() >= itemstack.getMaxDamage())
+                        {
+                            this.renderBrokenItemStack(itemstack);
+                            this.setCurrentItemOrArmor(4, (ItemStack)null);
+                        }
+                    }
+
+                    flag = false;
+                }
+
+                if (flag)
+                {
+                    this.setFire(8);
+                }
+            }
+        }
+
+        super.onLivingUpdate();
+    }
 	
 	@Override
 	public double setMovementSpeed(){
@@ -52,7 +93,7 @@ public class EntityBoom extends EntityModMob {
 
 	@Override
 	public EnumSounds setHurtSound() {
-		return EnumSounds.CREEPER_DEATH;
+		return EnumSounds.CREEPER;
 	}
 
 	@Override
@@ -62,7 +103,7 @@ public class EntityBoom extends EntityModMob {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return !worldObj.isDaytime() &&
+		return
 			   this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.grass || 
 			   this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.leaves || 
 			   this.worldObj.getBlockState(new BlockPos(this.posX, this.posY-1, this.posZ)).getBlock() == Blocks.sand || 
