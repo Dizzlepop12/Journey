@@ -126,6 +126,8 @@ public class JourneyBlocks {
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");
 	public static final Block yellowGemBlock = new BlockMod("yellowGemBlock", "Yellow Gem Block");
 	
+	public static final Block benCarson = new BlockMod(EnumMaterialTypes.SLIME, "benCarson", "Ben Carson", 1.0F);
+	
 	public static final Block eucaGrass = new BlockModGrass(null, "eucaGrass", "Euca Grass", 2.0F);
 	public static final Block eucaStone = new BlockMod("eucaStone", "Euca Stone", 2.0F);
 	public static final Block eucaGoldLog = new BlockModLog("eucaGoldLog", "Golden Euca Log");

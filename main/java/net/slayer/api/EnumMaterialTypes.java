@@ -22,7 +22,8 @@ public enum EnumMaterialTypes {
     ICE(Material.ice, Block.soundTypeGlass),
     GLASS_SOUND(Material.ground, Block.soundTypeGlass),
     METAL_SOUND(Material.rock, Block.soundTypeMetal),
-    TROPHY(Material.ground, Block.soundTypeMetal);
+    TROPHY(Material.ground, Block.soundTypeMetal),
+	SLIME(Material.ground, Block.SLIME_SOUND);
 
     private Material m;
     private SoundType s;

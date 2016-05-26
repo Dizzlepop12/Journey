@@ -35,6 +35,7 @@ tile.greenGemBlock.name=Green Gem Block
 tile.purpleGemBlock.name=Purple Gem Block
 tile.blueGemBlock.name=Blue Gem Block
 tile.yellowGemBlock.name=Yellow Gem Block
+tile.benCarson.name=Ben Carson
 tile.eucaGrass.name=Euca Grass
 tile.eucaStone.name=Euca Stone
 tile.eucaGoldLog.name=Golden Euca Log
