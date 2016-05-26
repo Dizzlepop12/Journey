@@ -33,10 +33,11 @@ public class ItemMultiTool extends ItemTool {
 	private static final Set<Block> blocksEffectiveAgainst = Sets.newHashSet(Block.blockRegistry);
 	protected EssenceToolMaterial mat;
 
-    public ItemMultiTool(String name, String f, EssenceToolMaterial tool) {
+    public ItemMultiTool(String name, String f, EssenceToolMaterial tool, int damage) {
         super(0, tool.getToolMaterial(), blocksEffectiveAgainst);
         LangRegistry.addItem(name, f);
 		mat = tool;
+		this.setMaxDamage(damage);
         setUnlocalizedName(name);
         setCreativeTab(JourneyTabs.tools);
         setHarvestLevel("pickaxe", tool.getHarvestLevel());

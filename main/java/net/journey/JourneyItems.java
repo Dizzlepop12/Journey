@@ -210,23 +210,23 @@ public class JourneyItems {
 	public static final Item rockShard = new ItemMod("rockShard", "Rock Shard");
 	//public static final Item plasmaBall = new ItemMod("plasmaBall");
 
-	public static final Item hellstoneMultiTool = new ItemMultiTool("hellstoneMultiTool", "Bloodcrust Multi Tool", EssenceToolMaterial.HELLSTONE_MULTI_TOOL);
-	public static final Item shadiumMultiTool = new ItemMultiTool("shadiumMultiTool", "Shadium Multi Tool", EssenceToolMaterial.SHADIUM_MULTI_TOOL);
-	public static final Item celestiumMultiTool = new ItemMultiTool("celestiumMultiTool", "Celestium Multi Tool", EssenceToolMaterial.CELESTIUM_MULTI_TOOL);
-	public static final Item luniumMultiTool = new ItemMultiTool("luniumMultiTool", "Lunium Multi Tool", EssenceToolMaterial.LUNIUM_MULTI_TOOL);
-	public static final Item flairiumMultiTool = new ItemMultiTool("flairiumMultiTool", "Flairium Multi Tool", EssenceToolMaterial.FLAIRIUM_MULTI_TOOL);
-	public static final Item sapphireMultiTool = new ItemMultiTool("sapphireMultiTool", "Sapphire Multi Tool", EssenceToolMaterial.SAPPHIRE_MULTI_TOOL);
-	public static final Item gorbiteMultiTool = new ItemMultiTool("gorbiteMultiTool", "Gorbite Multi Tool", EssenceToolMaterial.GORBITE_MULTI_TOOL);
-	public static final Item orbaditeMultiTool = new ItemMultiTool("orbaditeMultiTool", "Orbadite Multi Tool", EssenceToolMaterial.ORBADITE_MULTI_TOOL);
-	public static final Item desMultiTool = new ItemMultiTool("desMultiTool", "Des Multi Tool", EssenceToolMaterial.DES_MULTI_TOOL);
-	public static final Item koriteMultiTool = new ItemMultiTool("koriteMultiTool", "Korite Multi Tool", EssenceToolMaterial.KORITE_MULTI_TOOL);
-	public static final Item storonMultiTool = new ItemMultiTool("storonMultiTool", "Storon Multi Tool", EssenceToolMaterial.KORITE_MULTI_TOOL);
-	public static final Item mekyumMultiTool = new ItemMultiTool("mekyumMultiTool", "Mekyum Multi Tool", EssenceToolMaterial.KORITE_MULTI_TOOL);
-	public static final Item woodMultiTool = new ItemMultiTool("woodMultiTool", "Wooden Multi Tool", EssenceToolMaterial.WOOD_MULTI_TOOL);
-	public static final Item stoneMultiTool = new ItemMultiTool("stoneMultiTool", "Stone Multi Tool", EssenceToolMaterial.STONE_MULTI_TOOL);
-	public static final Item ironMultiTool = new ItemMultiTool("ironMultiTool", "Iron Multi Tool", EssenceToolMaterial.IRON_MULTI_TOOL);
-	public static final Item goldMultiTool = new ItemMultiTool("goldMultiTool", "Gold Multi Tool", EssenceToolMaterial.GOLD_MULTI_TOOL);
-	public static final Item diamondMultiTool = new ItemMultiTool("diamondMultiTool", "Diamond Multi Tool", EssenceToolMaterial.DIAMOND_MULTI_TOOL);
+	public static final Item hellstoneMultiTool = new ItemMultiTool("hellstoneMultiTool", "Bloodcrust Multi Tool", EssenceToolMaterial.HELLSTONE_MULTI_TOOL, 1750);
+	public static final Item shadiumMultiTool = new ItemMultiTool("shadiumMultiTool", "Shadium Multi Tool", EssenceToolMaterial.SHADIUM_MULTI_TOOL, 1670);
+	public static final Item celestiumMultiTool = new ItemMultiTool("celestiumMultiTool", "Celestium Multi Tool", EssenceToolMaterial.CELESTIUM_MULTI_TOOL, 1820);
+	public static final Item luniumMultiTool = new ItemMultiTool("luniumMultiTool", "Lunium Multi Tool", EssenceToolMaterial.LUNIUM_MULTI_TOOL, 1670);
+	public static final Item flairiumMultiTool = new ItemMultiTool("flairiumMultiTool", "Flairium Multi Tool", EssenceToolMaterial.FLAIRIUM_MULTI_TOOL, 1202);
+	public static final Item sapphireMultiTool = new ItemMultiTool("sapphireMultiTool", "Sapphire Multi Tool", EssenceToolMaterial.SAPPHIRE_MULTI_TOOL, 2456);
+	public static final Item gorbiteMultiTool = new ItemMultiTool("gorbiteMultiTool", "Gorbite Multi Tool", EssenceToolMaterial.GORBITE_MULTI_TOOL, 2115);
+	public static final Item orbaditeMultiTool = new ItemMultiTool("orbaditeMultiTool", "Orbadite Multi Tool", EssenceToolMaterial.ORBADITE_MULTI_TOOL, 2115);
+	public static final Item desMultiTool = new ItemMultiTool("desMultiTool", "Des Multi Tool", EssenceToolMaterial.DES_MULTI_TOOL, 2102);
+	public static final Item koriteMultiTool = new ItemMultiTool("koriteMultiTool", "Korite Multi Tool", EssenceToolMaterial.KORITE_MULTI_TOOL, 1820);
+	public static final Item storonMultiTool = new ItemMultiTool("storonMultiTool", "Storon Multi Tool", EssenceToolMaterial.KORITE_MULTI_TOOL, 1820);
+	public static final Item mekyumMultiTool = new ItemMultiTool("mekyumMultiTool", "Mekyum Multi Tool", EssenceToolMaterial.KORITE_MULTI_TOOL, 1820);
+	public static final Item woodMultiTool = new ItemMultiTool("woodMultiTool", "Wooden Multi Tool", EssenceToolMaterial.WOOD_MULTI_TOOL, 60);
+	public static final Item stoneMultiTool = new ItemMultiTool("stoneMultiTool", "Stone Multi Tool", EssenceToolMaterial.STONE_MULTI_TOOL, 132);
+	public static final Item ironMultiTool = new ItemMultiTool("ironMultiTool", "Iron Multi Tool", EssenceToolMaterial.IRON_MULTI_TOOL, 251);
+	public static final Item goldMultiTool = new ItemMultiTool("goldMultiTool", "Gold Multi Tool", EssenceToolMaterial.GOLD_MULTI_TOOL, 33);
+	public static final Item diamondMultiTool = new ItemMultiTool("diamondMultiTool", "Diamond Multi Tool", EssenceToolMaterial.DIAMOND_MULTI_TOOL, 1562);
 
 	public static final Item hellstonePickaxe = new ItemModPickaxe("hellstonePickaxe", "Bloodcrust Pickaxe", EssenceToolMaterial.HELLSTONE);
 	public static final Item shadiumPickaxe = new ItemModPickaxe("shadiumPickaxe", "Shadium Pickaxe", EssenceToolMaterial.SHADIUM);
@@ -280,7 +280,7 @@ public class JourneyItems {
 	public static final Item storonHoe = new ItemModHoe("storonHoe", "Storon Hoe", EssenceToolMaterial.KORITE);
 	public static final Item mekyumHoe = new ItemModHoe("mekyumHoe", "Storon Hoe", EssenceToolMaterial.KORITE);
 	
-	public static final Item multiToolOfEternalSmelting = new ItemMultiTool("multiToolOfEternalSmelting", "Multi Tool of Eternal Smelting", EssenceToolMaterial.SMELTING_TOOL);
+	public static final Item multiToolOfEternalSmelting = new ItemMultiTool("multiToolOfEternalSmelting", "Multi Tool of Eternal Smelting", EssenceToolMaterial.SMELTING_TOOL, 512);
 
 	public static final Item hellstoneSword = new ItemFireSword("hellstoneSword", "Bloodcrust Sword", EssenceToolMaterial.HELLSTONE_SWORD);
 	public static final Item shadiumSword = new ItemFreezeSword("shadiumSword", "Shadium Sword", EssenceToolMaterial.SHADIUM_SWORD);
