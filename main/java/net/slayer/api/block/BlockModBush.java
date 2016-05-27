@@ -111,6 +111,11 @@ public class BlockModBush extends BlockMod implements IPlantable {
 	}
 	
 	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(AGE).intValue();
+	}
+	
+	@Override
 	protected BlockState createBlockState() {
 		return new BlockState(this, AGE);
 	}
