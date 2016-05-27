@@ -69,6 +69,13 @@ public class WorldGenEssence implements IWorldGenerator {
 			worldMinableGenNether(JourneyBlocks.hellstoneOre, 5, w, x, y, z);
 		}
 		
+		for(times = 0; times < 500; times++) {
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			worldMinableGenNether(JourneyBlocks.nethicanSludge, 50, w, x, y, z);
+		}
+		
 		if(r.nextInt(20)==0) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);

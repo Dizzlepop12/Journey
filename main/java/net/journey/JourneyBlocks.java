@@ -61,6 +61,7 @@ import net.journey.blocks.tileentity.TileEntityJourneyChest;
 import net.journey.entity.mob.corba.EntityOverseerElder;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Items;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
@@ -68,6 +69,7 @@ import net.slayer.api.EnumMaterialTypes;
 import net.slayer.api.EnumToolType;
 import net.slayer.api.block.BlockMod;
 import net.slayer.api.block.BlockModBars;
+import net.slayer.api.block.BlockModBush;
 import net.slayer.api.block.BlockModDoor;
 import net.slayer.api.block.BlockModFence;
 import net.slayer.api.block.BlockModFlower;
@@ -126,7 +128,10 @@ public class JourneyBlocks {
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");
 	public static final Block yellowGemBlock = new BlockMod("yellowGemBlock", "Yellow Gem Block");
 	
-	public static final Block benCarson = new BlockMod(EnumMaterialTypes.SLIME, "benCarson", "Ben Carson", 1.0F);
+	public static final Block sizzleberryBush = new BlockModBush("sizzleberryBush", "Sizzleberry Bush", JourneyItems.ash, true);
+	public static final Block testBush = new BlockModBush("testBush", "testy Bush", Items.apple, false);
+	
+	public static final Block nethicanSludge = new BlockMod(EnumMaterialTypes.SLIME, "nethicanSludge", "Ben Carson", 1.0F);
 	
 	public static final Block eucaGrass = new BlockModGrass(null, "eucaGrass", "Euca Grass", 2.0F);
 	public static final Block eucaStone = new BlockMod("eucaStone", "Euca Stone", 2.0F);
