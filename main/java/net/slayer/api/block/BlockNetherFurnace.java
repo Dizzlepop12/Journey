@@ -177,11 +177,7 @@ public class BlockNetherFurnace extends BlockModContainer {
         }
     }
 
-    /**
-     * Returns a new instance of a block's tile entity class. Called on placing the block.
-     */
-    public TileEntity createNewTileEntity(World worldIn, int meta)
-    {
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
         return new TileEntityNetherFurnace();
     }
 
@@ -200,7 +196,7 @@ public class BlockNetherFurnace extends BlockModContainer {
 
             if (tileentity instanceof TileEntityNetherFurnace)
             {
-                ((TileEntityNetherFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
+                ((TileEntityNetherFurnace)tileentity).setCustomName(stack.getDisplayName());
             }
         }
     }

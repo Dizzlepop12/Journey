@@ -11,6 +11,9 @@ public class JourneyFuelHandler implements IFuelHandler {
 		if (fuel.getItem() == JourneyItems.blazium) {
 			return 3200;
 		}
+		if (fuel.getItem() == JourneyItems.firestoneClump) {
+			return 2600;
+		}
 		return 0;
 	}
 }

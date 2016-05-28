@@ -5,6 +5,7 @@ import net.journey.JourneyItems;
 import java.util.Random;
 
 import net.journey.JITL;
+import net.journey.JourneyBlocks;
 import net.journey.util.Config;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -26,6 +27,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
@@ -34,6 +36,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.slayer.api.PlayerHelper;
 import net.slayer.api.SlayerAPI;
+import net.slayer.api.block.BlockModBush;
 
 public class PlayerEvent {
 
@@ -90,6 +93,13 @@ public class PlayerEvent {
 			}
 		}
 	}
+	
+	/* @SubscribeEvent
+	public void bonemealUsed(BonemealEvent event, BlockPos pos) {
+		if(event.world.getBlockState(new BlockPos(event.pos.getX(), event.pos.getY(), event.pos.getZ())) == JourneyBlocks.sizzleberryBush) {
+			((BlockModBush)JourneyBlocks.sizzleberryBush)
+		}
+	} */
 
 	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event) {

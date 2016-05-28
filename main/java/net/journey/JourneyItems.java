@@ -24,6 +24,7 @@ import net.journey.items.swords.ItemStunSword;
 import net.journey.items.swords.ItemStunWitherSword;
 import net.journey.items.swords.ItemWitherSword;
 import net.journey.util.*;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.item.*;
@@ -635,12 +636,14 @@ public class JourneyItems {
 	public static final Item staffBase = new ItemMod("staffBase", "Staff Base");
 	
 	public static final Item frostyGift = new ItemPresent("frostyGift", "Frosty Gift");
+	
+	public static final Item firestoneClump = new ItemMod("firestoneClump", "Firestone Clump");
 
 	//TODO
-	public static final Item friedFlamingGhastTentacale = new ItemModFood("friedFlamingGhastTentacle", "Fried Flaming Tentacale", 4, 0.6F, 10, false).setAlwaysEdible().setPotionEffect(Potion.fireResistance.id, 5, 1, 1.0F);
-	public static final Item flamingGhastTentacle = new ItemModFood("flamingGhastTentacle", "Flaming Ghast Tentacale", 1, 0.6F, 10, false).setAlwaysEdible().setPotionEffect(Potion.fireResistance.id, 5, 1, 1.0F);
-	public static final Item friedGhastTentacale = new ItemModFood("friedGhastTentacle", "Fried Ghast Tentacale", 4, 0.6F, 10, false);
-	public static final Item ghastTentacle = new ItemModFood("ghastTentacle", "Ghast Tentacale", 1, 0.6F, 10, false);
+	public static final Item friedFlamingGhastTentacale = new ItemModFood("friedFlamingGhastTentacle", "Fried Flaming Tentacale", 4, 0.6F, 10, true).setAlwaysEdible().setPotionEffect(Potion.fireResistance.id, 5, 1, 1.0F);
+	public static final Item flamingGhastTentacle = new ItemModFood("flamingGhastTentacle", "Flaming Ghast Tentacale", 1, 0.6F, 10, true).setAlwaysEdible().setPotionEffect(Potion.fireResistance.id, 5, 1, 1.0F);
+	public static final Item friedGhastTentacale = new ItemModFood("friedGhastTentacle", "Fried Ghast Tentacale", 4, 0.6F, 10, true);
+	public static final Item ghastTentacle = new ItemModFood("ghastTentacle", "Ghast Tentacale", 1, 0.6F, 10, true);
 	public static final Item friedEgg = new ItemModFood("friedEgg", "Fried Egg", 2, 0.6F, 10, false);
 	public static final Item floroPedal = new ItemModFood("floroPedal", "Floro Pedal", 3, 0.6F, 10, false);
 	public static final Item tomato = new ItemModFood("tomato", "Tomato", 3, 0.6F, 10, false);
@@ -660,6 +663,7 @@ public class JourneyItems {
 	public static final Item jellyBeans = new ItemModFood("jellyBeans", "Jelly Beans", 1, 0.1F, 10, false);
 	public static final Item chocolate = new ItemModFood("chocolate", "Chocolate Bar", 2, 0.1F, 10, false);
 	public static final Item vanillaWafer = new ItemModFood("vanillaWafer", "Vanilla Wafer", 1, 0.1F, 10, false);
+	public static final Item bleedheart = new ItemBleedheart("bleedheart", "Bleedheart Fruit", 1, 0.1F, false);
 	
 	public static final Item goldenSteak = new ItemGoldenFood("normalGoldenSteak", "Golden Steak", 6, 1.2F, false, false);
 	public static final Item goldenSteakOP = new ItemGoldenFood("OPGoldenSteak", "Golden Steak", 10, 2.2F, false, true);

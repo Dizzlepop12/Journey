@@ -1,5 +1,9 @@
 package net.journey.dimension;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import net.journey.dimension.boil.BiomeGenBoiling;
 import net.journey.dimension.boil.WorldProviderBoiling;
 import net.journey.dimension.cloudia.BiomeGenCloudia;
@@ -101,9 +105,10 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.slayer.api.SlayerAPI;
 
 public class DimensionHelper {
-
+	
 	protected static final BiomeGenBase.Height boilHeight = new BiomeGenBase.Height(0.125F, 0.1F); 
 	protected static final BiomeGenBase.Height corbaHeight = new BiomeGenBase.Height(0.2F, 0.2F); 
 
@@ -120,6 +125,7 @@ public class DimensionHelper {
 	public static BiomeGenBase wither = new BiomeGenWither(Config.witherBiome);
 
 	public static void init(){
+		LogHelper.info("Registering Dimensions...");
 		addDimension(Config.euca, WorldProviderEuca.class, Config.keepLoadingEuca);
 		addDimension(Config.depths, WorldProviderDepths.class, Config.keepLoadingDepths);
 		addDimension(Config.boil, WorldProviderBoiling.class, Config.keepLoadingBoil);

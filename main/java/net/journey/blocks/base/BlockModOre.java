@@ -45,6 +45,11 @@ public class BlockModOre extends BlockMod {
 			g = 1.0F;
 			b = 0.0F;
 		}
+		if(this == JourneyBlocks.firestoneOre) {
+			r = 2.0F;
+			g = 0.5F;
+			b = 0.0F;
+		}
 		if(this == JourneyBlocks.flairiumOre || this == JourneyBlocks.flairiumBlock || this == JourneyBlocks.blaziumOre || this == JourneyBlocks.blaziumBlock) {
 			r = 1.0F;
 			g = 0.5F;
@@ -96,6 +101,11 @@ public class BlockModOre extends BlockMod {
             int j = random.nextInt(fortune + 2) - 1;
             if(j < 0) j = 0; 
             return this.quantityDropped(random) * (j + 1);
+        }
+        if(this == JourneyBlocks.firestoneOre) {
+            int j = random.nextInt(fortune + 2) - 1;
+            if(j < 1) j = 1; 
+        	return this.quantityDropped(random) * (j + 3);
         } else {
             return 1;
         }
@@ -109,6 +119,7 @@ public class BlockModOre extends BlockMod {
 		if(this == JourneyBlocks.enderilliumOre) return JourneyItems.enderilliumShard;
 		if(this == JourneyBlocks.gorbiteOre) return JourneyItems.gorbiteGem;
 		if(this == JourneyBlocks.luniteOre) return JourneyItems.luniteChunk;
+		if(this == JourneyBlocks.firestoneOre) return JourneyItems.firestoneClump;
 		return Item.getItemFromBlock(this);
 	}
 }

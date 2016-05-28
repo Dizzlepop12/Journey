@@ -41,6 +41,7 @@ import net.journey.blocks.crop.BlockGlowshroomCrop;
 import net.journey.blocks.crop.BlockSpineberryCrop;
 import net.journey.blocks.crop.BlockTomatoCrop;
 import net.journey.blocks.crop.BlockZatPedalsCrop;
+import net.journey.blocks.crop.base.BlockFruitCrop;
 import net.journey.blocks.machines.BlockGrindstone;
 import net.journey.blocks.machines.BlockJourneyChest;
 import net.journey.blocks.machines.BlockKnowledgeTable;
@@ -105,6 +106,7 @@ public class JourneyBlocks {
 	public static final Block gorbiteOre = new BlockModOre("gorbiteOre", "Gorbite Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
 	public static final Block orbaditeOre = new BlockModOre("orbaditeOre", "Orbadite Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
 	public static final Block luniteOre = new BlockModOre("luniteOre", "Lunite Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
+	public static final Block firestoneOre = new BlockModOre("firestoneOre", "Firestone Ores").setHarvestLevel(EnumToolType.DIAMOND_PICK);
 
 	public static final Block sapphireBlock = new BlockModOre("sapphireBlock", "Sapphire Block").setHarvestLevel(EnumToolType.STONE_PICK);
 	public static final Block shadiumBlock = new BlockModOre("shadiumBlock", "Shadium Block").setHarvestLevel(EnumToolType.STONE_PICK);
@@ -123,6 +125,12 @@ public class JourneyBlocks {
 	public static final Block orbaditeBlock = new BlockModOre("orbaditeBlock", "Orbadite Block").setHarvestLevel(EnumToolType.STONE_PICK);
 	public static final Block luniteBlock = new BlockModOre("luniteBlock", "Lunite Block").setHarvestLevel(EnumToolType.STONE_PICK);
 
+	public static final Block sizzlerWoodLeaves = new BlockModLeaves("sizzlerWoodLeaves", "Sizzler Wood Leaves", 2.0F);
+	public static final Block sizzlerWoodLog = new BlockModLog("sizzlerWoodLog", "Sizzler Wood Log");
+	public static final Block heatSoil = new BlockMod(EnumMaterialTypes.DIRT, "heatSoil", "Nethic Soil", 2.0F);
+	
+	public static final Block bleedheartFruit = new BlockFruitCrop("bleedheartFruit", "Bleedheart Fruit");
+	
 	public static final Block greenGemBlock = new BlockMod("greenGemBlock", "Green Gem Block");
 	public static final Block purpleGemBlock = new BlockMod("purpleGemBlock", "Purple Gem Block");
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");

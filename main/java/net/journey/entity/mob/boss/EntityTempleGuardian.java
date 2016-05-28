@@ -56,6 +56,11 @@ public class EntityTempleGuardian extends EntityEssenceBoss implements IRangedAt
 		}
 	}
 	
+    @Override
+    public float getSoundVolume() {
+    	return 1.0F;
+    }
+	
 	public void setCombatTask() {
 		this.tasks.removeTask(this.aiArrowAttack); {
 			this.tasks.addTask(4, this.aiArrowAttack);
