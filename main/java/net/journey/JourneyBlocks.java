@@ -32,6 +32,8 @@ import net.journey.blocks.BlockTrophy;
 import net.journey.blocks.BlockWitherFrame;
 import net.journey.blocks.base.BlockModFire;
 import net.journey.blocks.base.BlockModOre;
+import net.journey.blocks.base.BlockNetherFlower;
+import net.journey.blocks.base.BlockNetherPlant;
 import net.journey.blocks.crop.BlockCorveggieCrop;
 import net.journey.blocks.crop.BlockCrackenCaneCrop;
 import net.journey.blocks.crop.BlockCrakeBulbCrop;
@@ -128,9 +130,11 @@ public class JourneyBlocks {
 	public static final Block sizzlerWoodLeaves = new BlockModLeaves("sizzlerWoodLeaves", "Sizzler Wood Leaves", 2.0F);
 	public static final Block sizzlerWoodLog = new BlockModLog("sizzlerWoodLog", "Sizzler Wood Log");
 	public static final Block heatSoil = new BlockMod(EnumMaterialTypes.DIRT, "heatSoil", "Nethic Soil", 2.0F);
-	
+	public static final BlockNetherFlower deathGrass = new BlockNetherFlower("deathgrass", "Death Grass");
+	public static final BlockNetherFlower hellBell = new BlockNetherFlower("hellBell", "Hell Bell");
+	public static final Block hellshroom = new BlockNetherPlant("hellshroom", "Hellshroom");
 	public static final Block bleedheartFruit = new BlockFruitCrop("bleedheartFruit", "Bleedheart Fruit");
-	
+
 	public static final Block greenGemBlock = new BlockMod("greenGemBlock", "Green Gem Block");
 	public static final Block purpleGemBlock = new BlockMod("purpleGemBlock", "Purple Gem Block");
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.journey.JourneyTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
@@ -25,11 +26,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.slayer.api.EnumMaterialTypes;
 
-public class BlockModBush extends BlockMod implements IPlantable {
+public class BlockModBush extends BlockMod implements IGrowable {
 
 	private boolean isNether;
-	Item berry;
-	private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 4);
+	private Item berry;
+	private static final PropertyInteger AGE = PropertyInteger.create("age", 0, 2);
 
 	public BlockModBush(String name, String finalName, Item berry, boolean isNether) {
 		super(EnumMaterialTypes.LEAVES, name, finalName, 1.0F);
@@ -44,14 +45,14 @@ public class BlockModBush extends BlockMod implements IPlantable {
 	@Override
 	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing face, float x, float y, float z) {
 		double 
-		posX = player.posX, 
+		posX = player.posX,
 		posY = player.posY, 
 		posZ = player.posZ;
-		if (state.getValue(AGE) == 4) {
+		if (state.getValue(AGE) == 2) {
 			if (w.isRemote) { 
 				return true;
 			}
-			w.setBlockState(pos, this.getDefaultState(), 2);
+			w.setBlockState(pos, this.getDefaultState(), 1);
 			EntityItem entityItem = new EntityItem(w, posX, posY, posZ, new ItemStack(this.berry));
 			w.spawnEntityInWorld(entityItem);
 			return true;
@@ -61,20 +62,17 @@ public class BlockModBush extends BlockMod implements IPlantable {
 	
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess access, BlockPos pos) {
+		
+		if (access.getBlockState(pos).getValue(AGE) == 0) {
+			this.setBlockBounds(0, 0, 0, 0.3F, 0.3F, 0.3F);
+		}
+		
 		if (access.getBlockState(pos).getValue(AGE) == 1) {
 			this.setBlockBounds(0, 0, 0, 0.3F, 0.3F, 0.3F);
 		}
 		
 		if (access.getBlockState(pos).getValue(AGE) == 2) {
 			this.setBlockBounds(0, 0, 0, 0.5F, 0.5F, 0.5F);
-		}
-		
-		if (access.getBlockState(pos).getValue(AGE) == 3) {
-			this.setBlockBounds(0, 0, 0, 0.7F, 0.7F, 0.7F);
-		}
-		
-		if (access.getBlockState(pos).getValue(AGE) == 4) {
-			this.setBlockBounds(0, 0, 0, 1.0F, 1.0F, 1.0F);
 		}
 	}
 	
@@ -96,8 +94,8 @@ public class BlockModBush extends BlockMod implements IPlantable {
 	public void updateTick(World w, BlockPos pos, IBlockState state, Random rand) {
 		if (w.getBlockState(pos.down()).getBlock() == this) {
 			int age = state.getValue(AGE).intValue();
-			if (age < 4) {
-				int chance = rand.nextInt(4);
+			if (age < 2) {
+				int chance = rand.nextInt(2);
 				if (chance == 1) { 
 					w.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(age + 1)), 2);
 				}
@@ -131,13 +129,18 @@ public class BlockModBush extends BlockMod implements IPlantable {
 		return false;
 	}
 	
-	@Override
-	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
-		return EnumPlantType.Plains;
-	}
+    @Override
+    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
+        return ((Integer)state.getValue(AGE)).intValue() < 2;
+    }
 
-	@Override
-	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
-		return this.getDefaultState();
+    @Override
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        return true;
+    }
+
+    @Override
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(((Integer)state.getValue(AGE)).intValue() + 1)), 2);
 	}
 }

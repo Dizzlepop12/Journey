@@ -12,6 +12,8 @@ import net.journey.dimension.nether.gen.WorldGenHellThorn;
 import net.journey.dimension.nether.gen.WorldGenHellThornMedium;
 import net.journey.dimension.nether.gen.WorldGenHellThornTall;
 import net.journey.dimension.nether.gen.WorldGenNetherDungeons;
+import net.journey.dimension.nether.gen.WorldGenNetherFlower;
+import net.journey.dimension.nether.gen.WorldGenNetherShroom;
 import net.journey.dimension.nether.gen.WorldGenNetherTower;
 import net.journey.dimension.overworld.gen.*;
 import net.journey.util.Config;
@@ -55,20 +57,27 @@ public class WorldGenEssence implements IWorldGenerator {
 	public void generateNether(World w, Random r, int chunkX, int chunkZ) {
 		int x, y, z;
 		int times;
-		for(times = 0; times < 20; times++) {
-			y = r.nextInt(128) + 1;
+		for(times = 0; times < 100; times++) {
+			y = r.nextInt(30) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			worldMinableGenNether(JourneyBlocks.lavaRock, 5, w, x, y, z);
+			worldMinableGenNether(JourneyBlocks.lavaRock, 40, w, x, y, z);
 		}
 		
-		for(times = 0; times < 20; times++) {
+		for(times = 0; times < 10; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			worldMinableGenNether(JourneyBlocks.hellstoneOre, 5, w, x, y, z);
 		}
 		
+		for(times = 0; times < 15; times++) {
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			worldMinableGenNether(JourneyBlocks.firestoneOre, 10, w, x, y, z);
+		}
+
 		for(times = 0; times < 500; times++) {
 			y = r.nextInt(40) + 1;
 			x = chunkX + r.nextInt(16);
@@ -81,6 +90,27 @@ public class WorldGenEssence implements IWorldGenerator {
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			worldMinableGenNether(JourneyBlocks.heatSoil, 40, w, x, y, z);
+		}
+		
+		/*for(times = 0; times < 100; times++) {
+			y = r.nextInt(256); 
+			x = chunkX + this.r.nextInt(16) + 8; 
+			z = chunkZ + this.r.nextInt(16) + 8;
+			new WorldGenNetherFlower(JourneyBlocks.deathGrass).generate(worldObj, r, new BlockPos(x, y, z));
+		}
+		
+		for(times = 0; times < 16; times++) {
+			y = r.nextInt(256); 
+			x = chunkX + this.r.nextInt(16) + 8; 
+			z = chunkZ + this.r.nextInt(16) + 8;
+			new WorldGenNetherFlower(JourneyBlocks.hellBell).generate(worldObj, r, new BlockPos(x, y, z));
+		} */
+		
+		for(times = 0; times < 100; times++) {
+			y = r.nextInt(250); 
+			x = chunkX + r.nextInt(16) + 8; 
+			z = chunkZ + r.nextInt(16) + 8;
+			(new WorldGenNetherShroom()).generate(w, r, new BlockPos(x, y, z));
 		}
 		
 		if(r.nextInt(20)==0) {
@@ -111,6 +141,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.netherrack, w))
 			new WorldGenHellThornTall().generate(w, r, new BlockPos(x, y, z));
 		}
 		
@@ -118,6 +149,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.netherrack, w))
 			new WorldGenHellThornMedium().generate(w, r, new BlockPos(x, y, z));
 		}
 		
@@ -125,6 +157,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			y = r.nextInt(64); 
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.netherrack, w))
 			new WorldGenHellThorn().generate(w, r, new BlockPos(x, y, z));
 		}
 	}

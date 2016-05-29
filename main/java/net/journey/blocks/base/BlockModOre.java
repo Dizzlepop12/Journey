@@ -103,7 +103,7 @@ public class BlockModOre extends BlockMod {
             return this.quantityDropped(random) * (j + 1);
         }
         if(this == JourneyBlocks.firestoneOre) {
-            int j = random.nextInt(fortune + 2) - 1;
+            int j = random.nextInt(2) - 1;
             if(j < 1) j = 1; 
         	return this.quantityDropped(random) * (j + 3);
         } else {
