@@ -130,11 +130,11 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		if(r.nextInt(20)==0) {
+		if(r.nextInt(200)==0) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			if(y > 20 && y < 110) if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
+			if(y > 40) if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
 				new WorldGenNetherBush().generate(w, r, new BlockPos(x, y, z));
 		}
 
