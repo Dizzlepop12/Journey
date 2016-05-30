@@ -1,10 +1,14 @@
 package net.journey.dimension;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.journey.JourneyBlocks;
 import net.journey.dimension.boil.gen.WorldGenBoilingFire;
 import net.journey.dimension.boil.gen.WorldGenBoilingLava;
+import net.journey.dimension.corba.gen.trees.WorldGenCorbaLargeTree;
+import net.journey.dimension.corba.gen.trees.WorldGenCorbaMediumTree;
+import net.journey.dimension.corba.gen.trees.WorldGenCorbaSmallTree;
 import net.journey.dimension.depths.gen.WorldGenDepthsTree;
 import net.journey.dimension.euca.gen.WorldGenSmeltery;
 import net.journey.dimension.nether.gen.WorldGenBoilPortal;
@@ -16,6 +20,10 @@ import net.journey.dimension.nether.gen.WorldGenNetherDungeons;
 import net.journey.dimension.nether.gen.WorldGenNetherFlower;
 import net.journey.dimension.nether.gen.WorldGenNetherShroom;
 import net.journey.dimension.nether.gen.WorldGenNetherTower;
+import net.journey.dimension.nether.gen.trees.WorldGenBleedheartTree0;
+import net.journey.dimension.nether.gen.trees.WorldGenBleedheartTree1;
+import net.journey.dimension.nether.gen.trees.WorldGenBleedheartTree2;
+import net.journey.dimension.nether.gen.trees.WorldGenSizzlerWoodTree0;
 import net.journey.dimension.overworld.gen.*;
 import net.journey.util.Config;
 import net.journey.util.LogHelper;
@@ -35,11 +43,17 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGenEssence implements IWorldGenerator {
 
 	private World worldObj;
+	private ArrayList<WorldGenerator> trees;
 	private static Random r = new Random();
 
 	public WorldGenEssence() {
 		r = new Random();
 		LogHelper.info("Loading world generator");
+		trees = new ArrayList<WorldGenerator>(3);
+		trees.add(new WorldGenBleedheartTree0());
+		trees.add(new WorldGenBleedheartTree1());
+		trees.add(new WorldGenBleedheartTree2());
+		trees.add(new WorldGenSizzlerWoodTree0());
 	}
 	
 	@Override
@@ -66,6 +80,7 @@ public class WorldGenEssence implements IWorldGenerator {
 		Chunk chunk = w.getChunkFromBlockCoords(pos);
 		WorldChunkManager chunkManager = w.getWorldChunkManager();
 		BiomeGenBase biome = chunk.getBiome(pos, chunkManager);
+		
 		for(times = 0; times < 100; times++) {
 			y = r.nextInt(30) + 1;
 			x = chunkX + r.nextInt(16);
@@ -115,7 +130,14 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenNetherFlower(JourneyBlocks.hellBell).generate(worldObj, r, new BlockPos(x, y, z));
 		} */
 		
-		for(times = 0; times < 100; times++) {
+		for(times = 0; times < 10; times++) {
+			y = r.nextInt(45) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			trees.get(r.nextInt(trees.size())).generate(w, r, new BlockPos(x, y, z));
+		}
+		
+		for(times = 0; times < 10; times++) {
 			y = r.nextInt(250); 
 			x = chunkX + r.nextInt(16) + 8; 
 			z = chunkZ + r.nextInt(16) + 8;
@@ -130,7 +152,7 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		if(r.nextInt(200)==0) {
+		for(times = 0; times < 100; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
@@ -154,7 +176,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenNetherDungeons().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 1; times++) {
+		for(times = 0; times < 5; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
@@ -162,7 +184,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenHellThornTall().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 1; times++) {
+		for(times = 0; times < 5; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
@@ -170,7 +192,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenHellThornMedium().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 1; times++) {
+		for(times = 0; times < 5; times++) {
 			y = r.nextInt(64); 
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);

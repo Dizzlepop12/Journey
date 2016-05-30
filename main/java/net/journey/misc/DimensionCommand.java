@@ -12,6 +12,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.PlayerNotFoundException;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -35,62 +36,67 @@ public class DimensionCommand extends CommandBase {
 		if(!playerMP.worldObj.isRemote) {
 			if(var2[0].equalsIgnoreCase("Overworld")) {
 				if(playerMP.dimension != 0) {
-					playerMP.dimension = 0;
+					playerMP.travelToDimension(0);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("Nether")) {
 				if(playerMP.dimension != -1) {
-					playerMP.dimension = -1;
+					playerMP.travelToDimension(-1);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("End")) {
 				if(playerMP.dimension != 1) {
-					playerMP.dimension = 1;
+					playerMP.travelToDimension(1);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("Euca")) {
 				if(playerMP.dimension != Config.euca) {
-					playerMP.dimension = Config.euca;
+					playerMP.travelToDimension(Config.euca);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("BoilingPoint")) {
 				if(playerMP.dimension != Config.boil) {
-					playerMP.dimension = Config.boil;
+					playerMP.travelToDimension(Config.boil);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("Depths")) {
 				if(playerMP.dimension != Config.depths) {
-					playerMP.dimension = Config.depths;
+					playerMP.travelToDimension(Config.depths);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("FrozenLands")) {
 				if(playerMP.dimension != Config.frozen) {
-					playerMP.dimension = Config.frozen;
+					playerMP.travelToDimension(Config.frozen);
 				}
 			}
 
 			if(var2[0].equalsIgnoreCase("Corba")) {
 				if(playerMP.dimension != Config.corba) {
-					playerMP.dimension = Config.corba;
+					playerMP.travelToDimension(Config.corba);
+				}
+			}
+			
+			if(var2[0].equalsIgnoreCase("Terrania")) {
+				if(playerMP.dimension != Config.terrania) {
+					playerMP.travelToDimension(Config.terrania);
+				}
+			}
+			
+			if(var2[0].equalsIgnoreCase("Withanian Lands")) {
+				if(playerMP.dimension != Config.wither) {
+					playerMP.travelToDimension(Config.wither);
 				}
 			}
 
-			/*if(var2[0].equalsIgnoreCase("Wastelands")) {
-				if(playerMP.dimension != Config.wastelands) {
-					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, Config.wastelands, new ModTeleporter(playerMP.mcServer.worldServerForDimension(Config.wastelands), Config.wastelands, EssenceBlocks.wastelandsPortal, EssenceBlocks.wastelandsPortalFrame));
-				}
-			}*/
-
 			if(var2[0].equalsIgnoreCase("Cloudia")) {
 				if(playerMP.dimension != Config.cloudia) {
-					playerMP.mcServer.getConfigurationManager().transferPlayerToDimension(playerMP, Config.cloudia, new ModTeleporter(playerMP.mcServer.worldServerForDimension(Config.cloudia), Config.cloudia, JourneyBlocks.cloudiaPortal, JourneyBlocks.cloudiaPortalFrame));
-					//playerMP.dimension = Config.cloudia;
+					playerMP.travelToDimension(Config.cloudia);
 				}
 			}
 		}
