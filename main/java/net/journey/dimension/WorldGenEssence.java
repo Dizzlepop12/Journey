@@ -11,6 +11,7 @@ import net.journey.dimension.nether.gen.WorldGenBoilPortal;
 import net.journey.dimension.nether.gen.WorldGenHellThorn;
 import net.journey.dimension.nether.gen.WorldGenHellThornMedium;
 import net.journey.dimension.nether.gen.WorldGenHellThornTall;
+import net.journey.dimension.nether.gen.WorldGenNetherBush;
 import net.journey.dimension.nether.gen.WorldGenNetherDungeons;
 import net.journey.dimension.nether.gen.WorldGenNetherFlower;
 import net.journey.dimension.nether.gen.WorldGenNetherShroom;
@@ -23,8 +24,12 @@ import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenEssence implements IWorldGenerator {
@@ -57,6 +62,10 @@ public class WorldGenEssence implements IWorldGenerator {
 	public void generateNether(World w, Random r, int chunkX, int chunkZ) {
 		int x, y, z;
 		int times;
+		BlockPos pos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+		Chunk chunk = w.getChunkFromBlockCoords(pos);
+		WorldChunkManager chunkManager = w.getWorldChunkManager();
+		BiomeGenBase biome = chunk.getBiome(pos, chunkManager);
 		for(times = 0; times < 100; times++) {
 			y = r.nextInt(30) + 1;
 			x = chunkX + r.nextInt(16);
@@ -119,6 +128,14 @@ public class WorldGenEssence implements IWorldGenerator {
 			z = chunkZ + r.nextInt(16);
 			if(y > 20 && y < 110) if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
+		}
+		
+		if(r.nextInt(20)==0) {
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(y > 20 && y < 110) if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
+				new WorldGenNetherBush().generate(w, r, new BlockPos(x, y, z));
 		}
 
 		if(r.nextInt(40)==0) {
@@ -336,6 +353,17 @@ public class WorldGenEssence implements IWorldGenerator {
 			y = r.nextInt(250); x = chunkX + r.nextInt(16) + 8; z = chunkZ + r.nextInt(16) + 8;
 			(new WorldGenMinable(JourneyBlocks.withanLight.getDefaultState(), 25, BlockHelper.forBlock(JourneyBlocks.withanRockReinforced))).generate(w, r, new BlockPos(x, y, z));
 			break;
+		}
+	}
+	
+	private static void generateNetherBush(World w, Random rand, int x, int z, WorldGenerator generator) {
+		WorldGenerator gen = generator;
+		for(int i = 0; i < 2; i++) {
+			int xRand = x * 16 + rand.nextInt(16);
+			int yRand = rand.nextInt(256);
+			int zRand = z * 16 + rand.nextInt(16);
+			BlockPos position = new BlockPos(xRand, yRand, zRand);
+			gen.generate(w, rand, position);
 		}
 	}
 

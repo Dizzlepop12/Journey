@@ -1,5 +1,5 @@
 {
-	"parent": "essence:block/bleedheartFruit_stage2",
+	"parent": "essence:block/bleedheart_age2_s",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10, -45, 170 ],

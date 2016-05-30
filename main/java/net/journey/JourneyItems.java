@@ -659,11 +659,12 @@ public class JourneyItems {
 	public static final Item mintCandyCane = new ItemCandyCane("mintCandyCane", "Mint Candy Cane", 3, 1.6F, false, false).setPotionEffect(Potion.digSpeed.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item fruityCandyCane = new ItemCandyCane("fruityCandyCane", "Fruity Candy Cane", 3, 1.6F, false, false).setPotionEffect(Potion.damageBoost.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item cherryCandyCane = new ItemCandyCane("cherryCandyCane", "Cherry Candy Cane", 3, 1.6F, false, false).setPotionEffect(Potion.regeneration.id, 10, 1, 1.0F).setAlwaysEdible();
-	public static final Item peppermint = new ItemModFood("peppermint", "Peppermint", 1, 0.1F, 10, false);
-	public static final Item jellyBeans = new ItemModFood("jellyBeans", "Jelly Beans", 1, 0.1F, 10, false);
-	public static final Item chocolate = new ItemModFood("chocolate", "Chocolate Bar", 2, 0.1F, 10, false);
-	public static final Item vanillaWafer = new ItemModFood("vanillaWafer", "Vanilla Wafer", 1, 0.1F, 10, false);
-	public static final Item bleedheart = new ItemBleedheart("bleedheart", "Bleedheart Fruit", 1, 0.1F, false);
+	public static final Item peppermint = new ItemModFood("peppermint", "Peppermint", 1, 0.1F, 2, false);
+	public static final Item jellyBeans = new ItemModFood("jellyBeans", "Jelly Beans", 1, 0.1F, 2, false);
+	public static final Item chocolate = new ItemModFood("chocolate", "Chocolate Bar", 2, 0.1F, 2, false);
+	public static final Item vanillaWafer = new ItemModFood("vanillaWafer", "Vanilla Wafer", 1, 0.1F, 2, false);
+	public static final Item bleedheart = new ItemBleedheart("bleedheart", "Bleedheart Fruit", 2, 0.1F, false);
+	public static final Item sizzleberry = new ItemModFood("sizzleberry", "Sizzleberry", 1, 4.0F, 5, false);
 	
 	public static final Item goldenSteak = new ItemGoldenFood("normalGoldenSteak", "Golden Steak", 6, 1.2F, false, false);
 	public static final Item goldenSteakOP = new ItemGoldenFood("OPGoldenSteak", "Golden Steak", 10, 2.2F, false, true);
@@ -689,17 +690,17 @@ public class JourneyItems {
 	public static final Item goldenWing = new ItemGoldenFood("normalGoldenWing", "Golden Wing", 2, 4.5F, false, false);
 	public static final Item goldenWingOP = new ItemGoldenFood("OPGoldenWing", "Golden Wing", 4, 5.0F, false, true);
 	
-	public static final Item eucaMeat = new ItemModFood("eucaMeat", "Euca Meat", 6, 0.6F, 10, false);
-	public static final Item rocMeat = new ItemModFood("rocMeat", "Bird Wing", 4, 0.6F, 10, false);
-	public static final Item cookedRocMeat = new ItemModFood("cookedRocMeat", "Cooked Bird Wing", 10, 0.6F, 10, false);
+	public static final Item eucaMeat = new ItemModFood("eucaMeat", "Euca Meat", 6, 0.6F, 10, true);
+	public static final Item rocMeat = new ItemModFood("rocMeat", "Bird Wing", 4, 0.6F, 10, true);
+	public static final Item cookedRocMeat = new ItemModFood("cookedRocMeat", "Cooked Bird Wing", 10, 0.6F, 10, true);
 	public static final Item hongoShroom = new ItemModFood("hongoShroom", "Hongoshroom", 4, 1.2F, 10, false);
 	public static final Item greenHonglowShroom = new ItemHonglow("greenHonglowShroom", "Green Honglowshroom", 2, 1.2F, false, false).setPotionEffect(Potion.jump.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item redHonglowShroom = new ItemHonglow("redHonglowShroom", "Red Honglowshroom", 2, 1.2F, false, false).setPotionEffect(Potion.regeneration.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item blueHonglowShroom = new ItemHonglow("blueHonglowShroom", "Blue Honglowshroom", 2, 1.2F, false, false).setPotionEffect(Potion.moveSpeed.id, 10, 1, 1.0F).setAlwaysEdible();
 	public static final Item honglowShroom = new ItemHonglow("honglowShroom", "Honglowshroom", 6, 1.2F, false, false).setAlwaysEdible();
-	public static final Item snakeFlesh = new ItemZatPedal("snakeFlesh", "Snake Flesh", 6, 1.2F, false, false).setPotionEffect(Potion.fireResistance.id, 60, 1, 1.0F).setAlwaysEdible();
-	public static final Item flamingBeef = new ItemModFood("flamingBeef", "Raw Flaming Beef", 6, 1.2F, false).setPotionEffect(Potion.fireResistance.id, 90, 1, 1.0F).setAlwaysEdible();
-	public static final Item flamingBeefCooked = new ItemModFood("flamingBeefCooked", "Cooked Flaming Beef", 16, 1.2F, false).setPotionEffect(Potion.fireResistance.id, 100, 2, 2.0F).setAlwaysEdible();
+	public static final Item snakeFlesh = new ItemZatPedal("snakeFlesh", "Snake Flesh", 6, 1.2F, false, true).setPotionEffect(Potion.fireResistance.id, 60, 1, 1.0F).setAlwaysEdible();
+	public static final Item flamingBeef = new ItemModFood("flamingBeef", "Raw Flaming Beef", 6, 1.2F, true).setPotionEffect(Potion.fireResistance.id, 90, 1, 1.0F).setAlwaysEdible();
+	public static final Item flamingBeefCooked = new ItemModFood("flamingBeefCooked", "Cooked Flaming Beef", 16, 1.2F, true).setPotionEffect(Potion.fireResistance.id, 100, 2, 2.0F).setAlwaysEdible();
 
 	public static final Item underwaterWorldRecord = new ItemModRecord("underwaterWorld", "Underwater World");
 	public static final Item blueWater = new ItemModRecord("blueWater", "Blue Water");

@@ -140,7 +140,7 @@ public class JourneyBlocks {
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");
 	public static final Block yellowGemBlock = new BlockMod("yellowGemBlock", "Yellow Gem Block");
 	
-	public static final Block sizzleberryBush = new BlockModBush("sizzleberryBush", "Sizzleberry Bush", JourneyItems.ash, true);
+	public static final Block sizzleberryBush = new BlockModBush("sizzleberryBush", "Sizzleberry Bush", JourneyItems.sizzleberry, true);
 	public static final Block testBush = new BlockModBush("testBush", "testy Bush", Items.apple, false);
 	
 	public static final Block nethicanSludge = new BlockMod(EnumMaterialTypes.SLIME, "nethicanSludge", "Ben Carson", 1.0F);
