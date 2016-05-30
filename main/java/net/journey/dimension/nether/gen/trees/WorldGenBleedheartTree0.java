@@ -34,8 +34,8 @@ public class WorldGenBleedheartTree0 extends WorldGenerator {
 		world.setBlockState(new BlockPos(i + 2, j + 3, k + 2), JourneyBlocks.sizzlerWoodLog.getDefaultState());
 		world.setBlockState(new BlockPos(i + 2, j + 4, k + 2), JourneyBlocks.sizzlerWoodLeaves.getDefaultState());
 		world.setBlockState(new BlockPos(i + 3, j + 4, k + 2), JourneyBlocks.sizzlerWoodLog.getDefaultState());
-		world.setBlockState(new BlockPos(i + 1, j + 1, k + 3), JourneyBlocks.bleedheartFruit.getStateFromMeta(3).withProperty(BlockFruitCrop.AGE, 1));
-		world.setBlockState(new BlockPos(i + 1, j + 2, k + 1), JourneyBlocks.bleedheartFruit.getStateFromMeta(4).withProperty(BlockFruitCrop.AGE, 0));
+		this.setBlockAndNotifyAdequately(world, (new BlockPos(i + 1, j + 1, k + 3)), JourneyBlocks.bleedheartFruit.getStateFromMeta(3).withProperty(BlockFruitCrop.AGE, 1));
+		this.setBlockAndNotifyAdequately(world, (new BlockPos(i + 1, j + 2, k + 1)), JourneyBlocks.bleedheartFruit.getStateFromMeta(4).withProperty(BlockFruitCrop.AGE, 0));
 		return false;
 	}
 }

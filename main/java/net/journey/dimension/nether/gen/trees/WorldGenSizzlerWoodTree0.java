@@ -38,6 +38,6 @@ public class WorldGenSizzlerWoodTree0 extends WorldGenerator {
 		world.setBlockState(new BlockPos(i + 3, j + 5, k + 2), JourneyBlocks.sizzlerWoodLog.getDefaultState());
 		world.setBlockState(new BlockPos(i + 3, j + 6, k + 2), JourneyBlocks.sizzlerWoodLeaves.getDefaultState());
 		world.setBlockState(new BlockPos(i + 4, j + 6, k + 2), JourneyBlocks.sizzlerWoodLog.getDefaultState());
-		return false;
+		return true;
 	}
 }

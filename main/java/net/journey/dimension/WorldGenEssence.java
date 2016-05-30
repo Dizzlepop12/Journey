@@ -103,14 +103,14 @@ public class WorldGenEssence implements IWorldGenerator {
 		}
 
 		for(times = 0; times < 500; times++) {
-			y = r.nextInt(40) + 1;
+			y = r.nextInt(30) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			worldMinableGenNether(JourneyBlocks.nethicanSludge, 10, w, x, y, z);
 		}
 		
 		for(times = 0; times < 500; times++) {
-			y = r.nextInt(40) + 1;
+			y = r.nextInt(30) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			worldMinableGenNether(JourneyBlocks.heatSoil, 40, w, x, y, z);
@@ -130,8 +130,8 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenNetherFlower(JourneyBlocks.hellBell).generate(worldObj, r, new BlockPos(x, y, z));
 		} */
 		
-		for(times = 0; times < 10; times++) {
-			y = r.nextInt(45) + 1;
+		for(times = 0; times < 100; times++) {
+			y = r.nextInt(35) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			trees.get(r.nextInt(trees.size())).generate(w, r, new BlockPos(x, y, z));
@@ -152,7 +152,7 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 100; times++) {
+		for(times = 0; times < 20; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
