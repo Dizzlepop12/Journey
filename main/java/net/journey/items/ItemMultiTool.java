@@ -3,6 +3,7 @@ package net.journey.items;
 import java.util.List;
 import java.util.Set;
 
+import net.journey.JourneyBlocks;
 import net.journey.JourneyItems;
 import net.journey.JourneyTabs;
 import net.journey.client.ItemDescription;
@@ -105,6 +106,17 @@ public class ItemMultiTool extends ItemTool {
 
 		if (fa != EnumFacing.DOWN && world.getBlockState(new BlockPos(pos.up())).getBlock().isAir(world, new BlockPos(pos.up())) && (block == Blocks.grass || block == Blocks.dirt)) {
 			Block block1 = Blocks.farmland;
+			world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block1.stepSound.getStepSound(), (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.frequency * 0.8F);
+
+			if (world.isRemote) return true;
+
+			world.setBlockState(pos, block1.getDefaultState());
+			stack.damageItem(1, player);
+			return true;
+		}
+		
+		if (fa != EnumFacing.DOWN && world.getBlockState(new BlockPos(pos.up())).getBlock().isAir(world, new BlockPos(pos.up())) && (block == JourneyBlocks.heatSoil)) {
+			Block block1 = JourneyBlocks.heatSoilTilled;
 			world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block1.stepSound.getStepSound(), (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.frequency * 0.8F);
 
 			if (world.isRemote) return true;

@@ -17,6 +17,8 @@ public class WorldGenNetherShroom extends WorldGenerator {
 		Block plant = JourneyBlocks.hellshroom;
 		switch(r.nextInt(3)){
 		case 0: plant = JourneyBlocks.hellshroom; break;
+		case 1: plant = JourneyBlocks.deathGrass; break;
+		case 2: plant = JourneyBlocks.hellBell; break;
 		}
 		for(int i = 0; i < 50; i++) {
 			if(w.getBlockState(pos.down()).getBlock() == Blocks.netherrack || w.getBlockState(pos.down()).getBlock() == JourneyBlocks.heatSoil && w.getBlockState(pos) == Blocks.air.getDefaultState() && pos.getY() < 250) {

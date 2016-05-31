@@ -2,27 +2,33 @@ package net.journey.dimension.nether.gen;
 
 import java.util.Random;
 
-import net.journey.blocks.base.BlockNetherFlower;
+import net.journey.JourneyBlocks;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.slayer.api.block.BlockModFlower;
 
 public class WorldGenNetherFlower extends WorldGenerator {
 
-	private BlockNetherFlower flower;
-
-	public WorldGenNetherFlower(BlockNetherFlower b) {
-		this.flower = b;
-	}
-
 	@Override
-	public boolean generate(World w, Random r, BlockPos p) {
-		for(int i = 0; i < 64; i++) {
-			BlockPos blockpos1 = new BlockPos(p.getX() + r.nextInt(8) - r.nextInt(8), p.getY() + r.nextInt(4) - r.nextInt(4), p.getZ() + r.nextInt(8) - r.nextInt(8));
-			if(flower.canBlockStay(w, blockpos1, false) && w.getBlockState(blockpos1).getBlock() == Blocks.air) {
-				w.setBlockState(blockpos1, flower.getDefaultState(), 2);
+	public boolean generate(World w, Random rand, BlockPos pos) {
+		Block plant = JourneyBlocks.deathGrass;
+		switch(rand.nextInt(2)){
+		case 0: plant = JourneyBlocks.deathGrass; break;
+		case 1: plant = JourneyBlocks.hellBell; break;
+		}
+        for (int i = 0; i < 64; ++i) {
+            BlockPos blockpos = pos.add(
+            		rand.nextInt(8) 
+            		- rand.nextInt(8), 
+            		rand.nextInt(4) 
+            		- rand.nextInt(4), 
+            		rand.nextInt(8) 
+            		- rand.nextInt(8));
+			if(w.getBlockState(blockpos.down()).getBlock() == JourneyBlocks.heatSoil && w.getBlockState(pos) == Blocks.air.getDefaultState() && pos.getY() < 250) {
+				w.setBlockState(blockpos, plant.getDefaultState(), 2);
 			}
 		}
 		return true;

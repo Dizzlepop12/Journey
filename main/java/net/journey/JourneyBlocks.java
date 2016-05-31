@@ -30,6 +30,7 @@ import net.journey.blocks.BlockSwampLamp;
 import net.journey.blocks.BlockTrap;
 import net.journey.blocks.BlockTrophy;
 import net.journey.blocks.BlockWitherFrame;
+import net.journey.blocks.base.BlockCanBeTilled;
 import net.journey.blocks.base.BlockModFire;
 import net.journey.blocks.base.BlockModOre;
 import net.journey.blocks.base.BlockNetherFlower;
@@ -127,13 +128,13 @@ public class JourneyBlocks {
 	public static final Block orbaditeBlock = new BlockModOre("orbaditeBlock", "Orbadite Block").setHarvestLevel(EnumToolType.STONE_PICK);
 	public static final Block luniteBlock = new BlockModOre("luniteBlock", "Lunite Block").setHarvestLevel(EnumToolType.STONE_PICK);
 
-	public static final Block sizzlerWoodLeaves = new BlockModLeaves("sizzlerWoodLeaves", "Sizzler Wood Leaves", 2.0F);
-	public static final Block sizzlerWoodLog = new BlockModLog("sizzlerWoodLog", "Sizzler Wood Log");
-	public static final Block heatSoil = new BlockMod(EnumMaterialTypes.DIRT, "heatSoil", "Nethic Soil", 2.0F);
-	public static final BlockNetherFlower deathGrass = new BlockNetherFlower("deathgrass", "Death Grass");
+	public static final Block sizzlerWoodLeaves = new BlockModLeaves("sizzlerWoodLeaves", "Deadblood Leaves", 2.0F);
+	public static final Block sizzlerWoodLog = new BlockModLog("sizzlerWoodLog", "Deadblood Bark");
+	public static final BlockNetherFlower deathGrass = new BlockNetherFlower("deathGrass", "Death Grass");
 	public static final BlockNetherFlower hellBell = new BlockNetherFlower("hellBell", "Hell Bell");
 	public static final Block hellshroom = new BlockNetherPlant("hellshroom", "Hellshroom");
 	public static final Block bleedheartFruit = new BlockFruitCrop("bleedheartFruit", "Bleedheart Fruit");
+	public static final Block heatSoil = new BlockMod(EnumMaterialTypes.DIRT, "heatSoil", "Nethic Soil", 2.0F);
 
 	public static final Block greenGemBlock = new BlockMod("greenGemBlock", "Green Gem Block");
 	public static final Block purpleGemBlock = new BlockMod("purpleGemBlock", "Purple Gem Block");
@@ -143,7 +144,7 @@ public class JourneyBlocks {
 	public static final Block sizzleberryBush = new BlockModBush("sizzleberryBush", "Sizzleberry Bush", JourneyItems.sizzleberry, true);
 	public static final Block testBush = new BlockModBush("testBush", "testy Bush", Items.apple, false);
 	
-	public static final Block nethicanSludge = new BlockMod(EnumMaterialTypes.SLIME, "nethicanSludge", "Ben Carson", 1.0F);
+	public static final Block nethicanSludge = new BlockMod(EnumMaterialTypes.SLIME, "nethicanSludge", "Nethican Sludge", 1.0F);
 	
 	public static final Block eucaGrass = new BlockModGrass(null, "eucaGrass", "Euca Grass", 2.0F);
 	public static final Block eucaStone = new BlockMod("eucaStone", "Euca Stone", 2.0F);

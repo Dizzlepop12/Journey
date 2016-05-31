@@ -103,17 +103,49 @@ public class WorldGenEssence implements IWorldGenerator {
 		}
 
 		for(times = 0; times < 500; times++) {
-			y = r.nextInt(30) + 1;
+			y = r.nextInt(35) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			worldMinableGenNether(JourneyBlocks.nethicanSludge, 10, w, x, y, z);
 		}
 		
 		for(times = 0; times < 500; times++) {
-			y = r.nextInt(30) + 1;
+			y = r.nextInt(35) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			worldMinableGenNether(JourneyBlocks.heatSoil, 40, w, x, y, z);
+		}
+		
+		for(times = 0; times < 150; times++) {
+			y = r.nextInt(35); 
+			x = chunkX + r.nextInt(16) + 8; 
+			z = chunkZ + r.nextInt(16) + 8;
+			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w))
+			(new WorldGenSizzlerWoodTree0()).generate(w, r, new BlockPos(x, y - 1, z));
+		}
+		
+		for(times = 0; times < 150; times++) {
+			y = r.nextInt(256); 
+			x = chunkX + r.nextInt(16) + 8; 
+			z = chunkZ + r.nextInt(16) + 8;
+			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w))
+			(new WorldGenBleedheartTree0()).generate(w, r, new BlockPos(x, y - 1, z));
+		}
+		
+		for(times = 0; times < 150; times++) {
+			y = r.nextInt(256); 
+			x = chunkX + r.nextInt(16) + 8; 
+			z = chunkZ + r.nextInt(16) + 8;
+			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w))
+			(new WorldGenBleedheartTree1()).generate(w, r, new BlockPos(x, y - 1, z));
+		}
+		
+		for(times = 0; times < 150; times++) {
+			y = r.nextInt(256); 
+			x = chunkX + r.nextInt(16) + 8; 
+			z = chunkZ + r.nextInt(16) + 8;
+			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w))
+			(new WorldGenBleedheartTree2()).generate(w, r, new BlockPos(x, y - 1, z));
 		}
 		
 		/*for(times = 0; times < 100; times++) {
@@ -130,14 +162,14 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenNetherFlower(JourneyBlocks.hellBell).generate(worldObj, r, new BlockPos(x, y, z));
 		} */
 		
-		for(times = 0; times < 100; times++) {
+		/* for(times = 0; times < 100; times++) {
 			y = r.nextInt(35) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			trees.get(r.nextInt(trees.size())).generate(w, r, new BlockPos(x, y, z));
-		}
+		} */
 		
-		for(times = 0; times < 10; times++) {
+		for(times = 0; times < 100; times++) {
 			y = r.nextInt(250); 
 			x = chunkX + r.nextInt(16) + 8; 
 			z = chunkZ + r.nextInt(16) + 8;
@@ -152,12 +184,20 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 20; times++) {
+		for(times = 0; times < 5; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			if(y > 40) if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
+			if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
 				new WorldGenNetherBush().generate(w, r, new BlockPos(x, y, z));
+		}
+		
+		for(times = 0; times < 100; times++) {
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
+				new WorldGenNetherFlower().generate(w, r, new BlockPos(x, y, z));
 		}
 
 		if(r.nextInt(40)==0) {
@@ -202,9 +242,19 @@ public class WorldGenEssence implements IWorldGenerator {
 	}
 	
 	public boolean isBlockTop(int x, int y, int z, Block grass, World w) {
-		return w.getBlockState(new BlockPos(x, y, z)) == grass.getDefaultState() && w.getBlockState(new BlockPos(x, y + 1, z)) == Blocks.air.getDefaultState()
-				&& w.getBlockState(new BlockPos(x, y + 2, z)) == Blocks.air.getDefaultState() && w.getBlockState(new BlockPos(x, y + 3, z)) == Blocks.air.getDefaultState()
-				&& w.getBlockState(new BlockPos(x, y + 4, z)) == Blocks.air.getDefaultState() && w.getBlockState(new BlockPos(x, y + 5, z)) == Blocks.air.getDefaultState();
+		return 
+				w.getBlockState(new BlockPos(x, y - 1, z)) == grass.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 1, z)) == Blocks.air.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 2, z)) == Blocks.air.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 3, z)) == Blocks.air.getDefaultState() &&
+				w.getBlockState(new BlockPos(x, y + 4, z)) == Blocks.air.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 5, z)) == Blocks.air.getDefaultState() &&	
+				
+				w.getBlockState(new BlockPos(x, y + 1, z)) != Blocks.lava.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 2, z)) != Blocks.lava.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 3, z)) != Blocks.lava.getDefaultState() &&
+				w.getBlockState(new BlockPos(x, y + 4, z)) != Blocks.lava.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 5, z)) != Blocks.lava.getDefaultState();
 	}
 	
 	public void generateOverworld(World w, Random rand, int chunkX, int chunkZ) {
