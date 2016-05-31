@@ -62,6 +62,7 @@ public class WorldGenEssence implements IWorldGenerator {
 		switch(dim) {
 		case -1: generateNether(w, r, chunkX * 16, chunkZ * 16);
 		case 0: generateOverworld(w, r, chunkX * 16, chunkZ * 16);
+		case 1: generateEnd(w, r, chunkX * 16, chunkZ * 16);
 		}
 		if(dim == Config.boil) generateBoilingPoint(w, r, chunkX * 16, chunkZ * 16);
 		if(dim == Config.depths) generateDepths(w, r, chunkX * 16, chunkZ * 16);
@@ -297,12 +298,6 @@ public class WorldGenEssence implements IWorldGenerator {
 			if(w.getBlockState(new BlockPos(x, y - 1, z)) == Blocks.grass.getDefaultState()) 
 				new WorldGenTowerDungeon().generate(w, r, new BlockPos(x, y, z));
 		}
-		for(times = 0; times < 6; times++) {
-			y = r.nextInt(160); 
-			x = chunkX + r.nextInt(16) + 8; 
-			z = chunkZ + r.nextInt(16) + 8;
-			worldMinableGenEnd(JourneyBlocks.enderilliumOre, 5, w, x, y, z);
-		}
 		if(r.nextInt(10)==0) {
 			y = r.nextInt(200); 
 			x = chunkX + r.nextInt(16) + 8; 
@@ -328,6 +323,17 @@ public class WorldGenEssence implements IWorldGenerator {
 				w.getBlockState(new BlockPos(x, y - 1, z)) == Blocks.sand.getDefaultState() || 
 				w.getBlockState(new BlockPos(x, y, z)) == Blocks.sand.getDefaultState())
 			new WorldGenMerchant().generate(w, r, new BlockPos(x, y, z));
+		}
+	}
+	
+	public void generateEnd(World w, Random r, int chunkX, int chunkZ) {
+		int x, y, z;
+		int times;
+		for(times = 0; times < 6; times++) {
+			y = r.nextInt(160); 
+			x = chunkX + r.nextInt(16) + 8; 
+			z = chunkZ + r.nextInt(16) + 8;
+			worldMinableGenEnd(JourneyBlocks.enderilliumOre, 5, w, x, y, z);
 		}
 	}
 
@@ -425,17 +431,6 @@ public class WorldGenEssence implements IWorldGenerator {
 			y = r.nextInt(250); x = chunkX + r.nextInt(16) + 8; z = chunkZ + r.nextInt(16) + 8;
 			(new WorldGenMinable(JourneyBlocks.withanLight.getDefaultState(), 25, BlockHelper.forBlock(JourneyBlocks.withanRockReinforced))).generate(w, r, new BlockPos(x, y, z));
 			break;
-		}
-	}
-	
-	private static void generateNetherBush(World w, Random rand, int x, int z, WorldGenerator generator) {
-		WorldGenerator gen = generator;
-		for(int i = 0; i < 2; i++) {
-			int xRand = x * 16 + rand.nextInt(16);
-			int yRand = rand.nextInt(256);
-			int zRand = z * 16 + rand.nextInt(16);
-			BlockPos position = new BlockPos(xRand, yRand, zRand);
-			gen.generate(w, rand, position);
 		}
 	}
 

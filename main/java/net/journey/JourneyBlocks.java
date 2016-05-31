@@ -30,6 +30,7 @@ import net.journey.blocks.BlockSwampLamp;
 import net.journey.blocks.BlockTrap;
 import net.journey.blocks.BlockTrophy;
 import net.journey.blocks.BlockWitherFrame;
+import net.journey.blocks.base.BlockBiomeLeaves;
 import net.journey.blocks.base.BlockCanBeTilled;
 import net.journey.blocks.base.BlockModFire;
 import net.journey.blocks.base.BlockModOre;
@@ -136,6 +137,8 @@ public class JourneyBlocks {
 	public static final Block bleedheartFruit = new BlockFruitCrop("bleedheartFruit", "Bleedheart Fruit");
 	public static final Block heatSoil = new BlockMod(EnumMaterialTypes.DIRT, "heatSoil", "Nethic Soil", 2.0F);
 
+	public static final Block testLeave = new BlockBiomeLeaves("hdddd", "Hellshroom");
+	
 	public static final Block greenGemBlock = new BlockMod("greenGemBlock", "Green Gem Block");
 	public static final Block purpleGemBlock = new BlockMod("purpleGemBlock", "Purple Gem Block");
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");

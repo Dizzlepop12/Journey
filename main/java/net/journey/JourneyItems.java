@@ -343,7 +343,7 @@ public class JourneyItems {
 	public static final Item healersBlade = new ItemHealthSword("healersBlade", "Healers Blade", EssenceToolMaterial.HEALERS_BLADE, 1);
 	public static final Item terronicBlade = new ItemHealthSword("terronicBlade", "Terronic Blade", EssenceToolMaterial.TERRONIC_BLADE, 2);
 	
-	public static final Item developerSword = new ItemModSword("developerSword", "Creative Sword", EssenceToolMaterial.DEVELOPER_SWORD);
+	public static final Item developerSword = new ItemModSword("developerSword", "Creative Sword", EssenceToolMaterial.DEVELOPER_SWORD).setCreativeTab(JourneyTabs.util);
 	
 	public static final Item slugSlime = new ItemMod("slugSlime", "Slug Slime");
 	
