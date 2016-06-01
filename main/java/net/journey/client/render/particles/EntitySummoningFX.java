@@ -39,9 +39,7 @@ public class EntitySummoningFX extends EntityFX{
 		glAlphaFunc(GL_GREATER, 0.003921569F);		
 		wr.begin(GL11.GL_QUADS, wr.getVertexFormat());
 		this.getBrightness(getBrightnessForRender(partialTicks));
-		/**super.renderParticle(wr, e, partialTicks, f3, f7, f5, f6, f7);
-        		GlStateManager.disableBlend();
-        		GlStateManager.enableLighting(); */
+		super.renderParticle(wr, e, partialTicks, f3, f7, f5, f6, f7);
 		float scale = 0.1F*particleScale;
 		float x = (float)(this.prevPosX + (this.posX - this.prevPosX) * partialTicks - interpPosX);
 		float y = (float)(this.prevPosY + (this.posY - this.prevPosY) * partialTicks - interpPosY);
