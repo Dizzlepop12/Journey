@@ -185,7 +185,7 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 5; times++) {
+		for(times = 0; times < 1; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
@@ -194,11 +194,19 @@ public class WorldGenEssence implements IWorldGenerator {
 		}
 		
 		for(times = 0; times < 100; times++) {
-			y = r.nextInt(128) + 1;
+			y = r.nextInt(50) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
-				new WorldGenNetherFlower().generate(w, r, new BlockPos(x, y, z));
+			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w)) 
+				new WorldGenNetherFlower(w, r, new BlockPos(x, y, z), JourneyBlocks.deathGrass);
+		}
+		
+		for(times = 0; times < 100; times++) {
+			y = r.nextInt(50) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w)) 
+				new WorldGenNetherFlower(w, r, new BlockPos(x, y, z), JourneyBlocks.hellBell);
 		}
 
 		if(r.nextInt(40)==0) {

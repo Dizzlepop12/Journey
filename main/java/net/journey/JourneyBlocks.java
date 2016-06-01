@@ -129,6 +129,8 @@ public class JourneyBlocks {
 	public static final Block orbaditeBlock = new BlockModOre("orbaditeBlock", "Orbadite Block").setHarvestLevel(EnumToolType.STONE_PICK);
 	public static final Block luniteBlock = new BlockModOre("luniteBlock", "Lunite Block").setHarvestLevel(EnumToolType.STONE_PICK);
 
+	public static final Block witherwoodLog = new BlockModLog("witherwoodLog", "Witherwood Log");
+	public static final Block witherwoodLeaves = new BlockModLeaves("witherwoodLeaves", "Witherwood Leaves", 1.0F);
 	public static final Block sizzlerWoodLeaves = new BlockModLeaves("sizzlerWoodLeaves", "Deadblood Leaves", 2.0F);
 	public static final Block sizzlerWoodLog = new BlockModLog("sizzlerWoodLog", "Deadblood Bark");
 	public static final BlockNetherFlower deathGrass = new BlockNetherFlower("deathGrass", "Death Grass");
@@ -137,7 +139,7 @@ public class JourneyBlocks {
 	public static final Block bleedheartFruit = new BlockFruitCrop("bleedheartFruit", "Bleedheart Fruit");
 	public static final Block heatSoil = new BlockMod(EnumMaterialTypes.DIRT, "heatSoil", "Nethic Soil", 2.0F);
 
-	public static final Block testLeave = new BlockBiomeLeaves("hdddd", "Hellshroom");
+	public static final Block redBirchLeaves = new BlockBiomeLeaves("redBirchLeaves", "Red Birch Leaves", 1.0F);
 	
 	public static final Block greenGemBlock = new BlockMod("greenGemBlock", "Green Gem Block");
 	public static final Block purpleGemBlock = new BlockMod("purpleGemBlock", "Purple Gem Block");

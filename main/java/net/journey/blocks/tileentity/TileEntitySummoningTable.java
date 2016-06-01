@@ -71,6 +71,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.boilPowder)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.blazierOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -83,6 +84,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.snakeSkin)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.soulWatcherOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -95,6 +97,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.natureTablet)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.loggerOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -107,6 +110,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.overseeingEye)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.sentryKingOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -119,6 +123,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.scale)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.scaleOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -131,6 +136,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.rocFeather)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.thunderbirdOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -143,6 +149,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.gateKeys)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.corallatorOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -155,6 +162,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.gateKeys)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.eudorOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -167,6 +175,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.hellstoneIngot)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.netherBeastOrb);
+				addSound();
 				addParticles();
 			}
 			else if(areItemsInSlots(
@@ -179,6 +188,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.withicSpine)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.witheringBeastOrb);
+				addSound();
 				addParticles();
 			}		
 			else if(areItemsInSlots(
@@ -191,6 +201,7 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 					JourneyItems.earthenCrystal)) {
 				setAllSlotsToNull();
 				inventory[3] = new ItemStack(JourneyItems.enchantedTerrastar);
+				addSound();
 				addParticles();
 			}
 			/**else if(areItemsInSlots(
@@ -210,10 +221,11 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void addSound(EntityPlayer p, World w) {
-		if(!worldObj.isRemote) {
-			EnumSounds.playSound(EnumSounds.SUMMON_TABLE, w, p);			
-		}
+	public void addSound() {
+		double x = pos.getX();
+		double y = pos.getY();
+		double z = pos.getZ();
+		worldObj.playSoundEffect(x, y, z, "essence:summon", 1.0F, 1.0F);
 	}
 	@SideOnly(Side.CLIENT)
 	public void addParticles() {

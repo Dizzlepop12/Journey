@@ -65,7 +65,7 @@ public class BlockLock extends BlockMod {
 	
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if(playerIn.getHeldItem() !=null && playerIn.getHeldItem().getItem() == key) {
+		if(playerIn.getHeldItem() !=null && playerIn.getHeldItem().getItem() == key ) {
 			EnumSounds.playSound(EnumSounds.UNLOCK, worldIn, playerIn);
 			EnumSounds.playSound(EnumSounds.CREAK, worldIn, playerIn);
 			worldIn.setBlockState(pos.add(0, 0, 0), Blocks.air.getDefaultState());

@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class EntitySummoningFX extends EntityFX{
 
-	public static final ResourceLocation texture = new ResourceLocation(SlayerAPI.MOD_ID, "textures/particle/summoning.png");
+	public static final ResourceLocation texture = new ResourceLocation(SlayerAPI.PREFIX + "textures/particle/summoning.png");
 	private float scale;
 	private int color;
 	private double relativeTextureHeight;
