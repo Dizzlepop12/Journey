@@ -10,13 +10,13 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 public class BiomeRegistry {
 	
 	public static void mainClass() {
-		initBiome();
+		init();
 		registerBiome();
 	}
 	
 	public static BiomeGenBase lushLands;
 
-	public static void initBiome() {
+	public static void init() {
 		lushLands = new BiomeGenLushLands(Config.lushLandsBiome, true).setBiomeName("Lush Lands").setTemperatureRainfall(3.2F, 3.9F);
 	}
 

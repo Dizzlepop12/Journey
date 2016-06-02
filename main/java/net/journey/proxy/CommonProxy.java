@@ -55,7 +55,7 @@ public class CommonProxy {
 		JourneySmeltingRecipes.init();
 		JourneyWeaponRecipes.init();
 		DimensionHelper.init();
-		BiomeRegistry.initBiome();
+		BiomeRegistry.init();
 		DimensionHelper.addSpawns();
 		JourneyTabs.init();
 		BiomeRegistry.mainClass();
