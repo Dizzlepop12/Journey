@@ -119,7 +119,6 @@ public class JourneyBook {
         categories.add(category3);
         categories.add(category4);
 
-        ModelLoader.setCustomModelResourceLocation(GuideAPIItems.guideBook, 0, new ModelResourceLocation("essence:journeyBook"));
         book.setSpawnWithBook(true);
         book.setCategoryList(categories);
         book.setTitle(SlayerAPI.Colour.GOLD + title);

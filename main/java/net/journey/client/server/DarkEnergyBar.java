@@ -23,10 +23,6 @@ public class DarkEnergyBar implements IExtendedEntityProperties {
 	public DarkEnergyBar(EntityPlayer player) {
 		this.player = player;
 	}
-	
-	public DarkEnergyBar() {
-		this.player = Minecraft.getMinecraft().thePlayer;
-	}
 
 	@Override
 	public void saveNBTData(NBTTagCompound n) {

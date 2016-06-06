@@ -22,10 +22,6 @@ public class EssenceBar implements IExtendedEntityProperties {
 	public EssenceBar(EntityPlayer player) {
 		this.player = player;
 	}
-	
-	public EssenceBar() {
-		this.player = Minecraft.getMinecraft().thePlayer;
-	}
 
 	@Override
 	public void saveNBTData(NBTTagCompound n) {

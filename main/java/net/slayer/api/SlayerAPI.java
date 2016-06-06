@@ -65,7 +65,8 @@ public class SlayerAPI {
 
 	public static final String 
 			MOD_NAME = "Journey into the Light", 
-			MOD_ID = "essence", PREFIX = MOD_ID + ":", 
+			MOD_ID = "essence", 
+			PREFIX = MOD_ID + ":", 
 			MOD_VERSION = "1.1.1_1"; 
 	public static final boolean 
 			DEVMODE = true, 

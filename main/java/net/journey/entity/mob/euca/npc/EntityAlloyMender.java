@@ -2,7 +2,7 @@ package net.journey.entity.mob.euca.npc;
 
 import net.journey.JourneyBlocks;
 import net.journey.JourneyItems;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
@@ -33,9 +33,8 @@ public class EntityAlloyMender extends EntityModVillager {
 	}
 
 	@Override
-	public GuiIDs guiID() {
-		return GuiIDs.ALLOY_MENDER;
-		
+	public int guiID() {
+		return GuiHandler.alloyMender;
 	}
 
 	@SuppressWarnings("unchecked")

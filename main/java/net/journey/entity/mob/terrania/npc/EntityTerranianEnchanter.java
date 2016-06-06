@@ -1,7 +1,7 @@
 package net.journey.entity.mob.terrania.npc;
 
 import net.journey.JourneyItems;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -36,8 +36,8 @@ public class EntityTerranianEnchanter extends EntityModVillager {
 	}
 
 	@Override
-	public GuiIDs guiID() {
-		return GuiIDs.TERRANIAN_ENCHANTER;
+	public int guiID() {
+		return GuiHandler.terranianEnchanter;
 	}
 
 	@Override

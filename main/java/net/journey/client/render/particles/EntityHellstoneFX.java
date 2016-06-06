@@ -1,5 +1,7 @@
 package net.journey.client.render.particles;
 
+import java.util.Random;
+
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.entity.Entity;
@@ -23,8 +25,8 @@ public class EntityHellstoneFX extends EntityFX {
         this.portalPosZ = this.posZ = var6;
         float var14 = this.rand.nextFloat() * 0.6F + 0.4F;
         this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
-        this.particleBlue = 0.6F * rand.nextFloat();
-        this.particleGreen = 0.6F * rand.nextFloat();
+        this.particleBlue = 0.6F; //* rand.nextFloat();
+        this.particleGreen = 0.6F; //* rand.nextFloat();
         this.particleRed = 1.0F;
         this.particleMaxAge = (int)(Math.random() * 10.0D) + 40;
         this.noClip = true;

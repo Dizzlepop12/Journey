@@ -1,17 +1,21 @@
 package net.journey.items;
 
+import java.util.List;
+
 import net.journey.JourneyTabs;
+import net.journey.client.ItemDescription;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.slayer.api.item.ItemMod;
 
 public class ItemPiercer extends ItemMod {
 
 	private Class<? extends EntityThrowable> entity;
-	private float damage = 0;
+	private float damage;
 	private int maxBounces = 0;
 	
 	public ItemPiercer(String name, String f, float damage, int bounces, Class<? extends EntityThrowable> entity) {
@@ -34,5 +38,11 @@ public class ItemPiercer extends ItemMod {
 			e.printStackTrace();
 		}
 		return stack;
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list) {
+		ItemDescription.addInformation(stack, player, list);
+		list.add(damage + "Ranged Damage");
 	}
 }

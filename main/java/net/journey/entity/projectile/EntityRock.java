@@ -2,7 +2,8 @@ package net.journey.entity.projectile;
 
 import java.util.Random;
 
-import net.journey.client.render.particles.EntityEnlightmentFX;
+import net.journey.client.render.particles.EntityGreenpaceFX;
+import net.journey.client.render.particles.EntityIceballFX;
 import net.journey.client.render.particles.EntityRockFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.entity.EntityLivingBase;
@@ -40,8 +41,14 @@ public class EntityRock extends EntityBasicProjectile {
 	protected void onImpact(MovingObjectPosition var1) {
 		if(var1.entityHit != null) { 
 			var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), getDamage());
-			((EntityLivingBase) var1.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 1000, 100));
+			((EntityLivingBase)var1.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 5));
+			var1.entityHit.extinguish();
 		}
 		if(!worldObj.isRemote) this.setDead();
+	}
+	
+	@Override
+	protected float getGravityVelocity() {
+		return 0.01F;
 	}
 }

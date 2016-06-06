@@ -244,10 +244,8 @@ public class ArmorAbilityEvent{
 				JourneyItems.celestiumChest && legs == 
 				JourneyItems.celestiumLegs && boots == 
 				JourneyItems.celestiumBoots) {
-			event.player.capabilities.setPlayerWalkSpeed(0.3F);
+			event.player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10, 2));
 			event.player.fallDistance = 0.0F;
-		} else {
-			event.player.capabilities.setPlayerWalkSpeed(0.1F);
 		}
 	}
 

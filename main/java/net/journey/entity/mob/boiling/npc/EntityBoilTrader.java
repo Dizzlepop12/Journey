@@ -1,7 +1,7 @@
 package net.journey.entity.mob.boiling.npc;
 
 import net.journey.JourneyItems;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
@@ -32,8 +32,8 @@ public class EntityBoilTrader extends EntityModVillager {
 	}
 
 	@Override
-	public GuiIDs guiID() {
-		return GuiIDs.BOIL_TRADER;
+	public int guiID() {
+		return GuiHandler.boilTrader;
 	}
 
 	@SuppressWarnings("unchecked")

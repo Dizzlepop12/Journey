@@ -1,7 +1,7 @@
 package net.journey.entity.mob.cloudia.npc;
 
 import net.journey.JourneyItems;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
@@ -22,8 +22,8 @@ public class EntityStarlightVillager extends EntityModVillager {
 	}
 
 	@Override
-	public GuiIDs guiID() {
-		return GuiIDs.STARLIGHT_VILLAGER;
+	public int guiID() {
+		return GuiHandler.starlightVillager;
 	}
 
 	@SuppressWarnings("unchecked")

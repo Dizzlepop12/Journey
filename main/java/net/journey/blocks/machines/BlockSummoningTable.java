@@ -6,7 +6,7 @@ import java.util.List;
 
 import net.journey.JITL;
 import net.journey.blocks.tileentity.TileEntitySummoningTable;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +34,7 @@ public class BlockSummoningTable extends BlockModContainer {
 		TileEntitySummoningTable tile = (TileEntitySummoningTable)worldIn.getTileEntity(pos);
 		if(!worldIn.isRemote) {
 			if(tile != null) { 
-				playerIn.openGui(JITL.instance, GuiIDs.SUMMONING.ordinal(), worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(JITL.instance, GuiHandler.summoning, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 			return true;
 		}

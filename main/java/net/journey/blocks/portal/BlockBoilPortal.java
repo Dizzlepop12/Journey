@@ -7,6 +7,7 @@ import net.journey.JourneyBlocks;
 import net.journey.JourneyTabs;
 import net.journey.client.render.particles.EntityBoilPotalFX;
 import net.journey.dimension.ModTeleporter;
+import net.journey.enums.EnumSounds;
 import net.journey.util.Config;
 import net.journey.util.LangRegistry;
 import net.minecraft.block.Block;
@@ -114,6 +115,7 @@ public class BlockBoilPortal extends BlockBreakable {
 			thePlayer.triggerAchievement(JourneyAchievements.achievementBoil);
 			int dimensionID = Config.boil;
 			Block blockFrame = JourneyBlocks.boilPortalFrame;
+			EnumSounds.playSound(EnumSounds.SUMMON_TABLE, worldIn, entity);
 			if(thePlayer.timeUntilPortal > 0) 
 				thePlayer.timeUntilPortal = 10;
 			else if(thePlayer.dimension != dimensionID) {

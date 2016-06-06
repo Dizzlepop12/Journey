@@ -1,7 +1,7 @@
 package net.journey.entity.mob.frozen.npc;
 
 import net.journey.JourneyItems;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.journey.items.ItemPresent;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,8 +37,8 @@ public class EntityFrozenMerchant extends EntityModVillager {
 	}
 
 	@Override
-	public GuiIDs guiID() {
-		return GuiIDs.FROZEN_MERCHANT;
+	public int guiID() {
+		return GuiHandler.frozenMerchant;
 	}
 	
 	@Override

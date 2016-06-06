@@ -3,7 +3,7 @@ package net.journey.blocks.machines;
 import net.journey.JourneyTabs;
 import net.journey.JITL;
 import net.journey.blocks.tileentity.TileEntityTrophyTable;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
@@ -25,7 +25,7 @@ public class BlockTrophyTable extends BlockModContainer {
 		TileEntityTrophyTable tile = (TileEntityTrophyTable)worldIn.getTileEntity(pos);
 		if(!worldIn.isRemote) {
 			if(tile != null) { 
-				playerIn.openGui(JITL.instance, GuiIDs.TROPHY.ordinal(), worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(JITL.instance, GuiHandler.trophy, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 			return true;
 		}

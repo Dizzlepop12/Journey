@@ -20,10 +20,6 @@ public class PowerBar implements IExtendedEntityProperties {
 		this.player = player;
 	}
 	
-	public PowerBar() {
-		this.player = Minecraft.getMinecraft().thePlayer;
-	}
-
 	@Override
 	public void saveNBTData(NBTTagCompound n) {
 		NBTTagCompound tag = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);

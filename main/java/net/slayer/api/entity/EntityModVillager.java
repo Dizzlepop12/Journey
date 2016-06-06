@@ -3,7 +3,7 @@ package net.slayer.api.entity;
 import java.util.Iterator;
 
 import net.journey.JITL;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;
@@ -139,7 +139,7 @@ public abstract class EntityModVillager extends EntityVillager implements INpc, 
 	public boolean interact(EntityPlayer var1) {
 		if(!this.worldObj.isRemote) {
 			abstractInteract(var1);
-			var1.openGui(JITL.instance, guiID().ordinal(), this.worldObj, getEntityId(), 0, 0);
+			var1.openGui(JITL.instance, guiID(), this.worldObj, getEntityId(), 0, 0);
 			return true;
 		} else {
 			return super.interact(var1);
@@ -148,7 +148,7 @@ public abstract class EntityModVillager extends EntityVillager implements INpc, 
 
 	public abstract void abstractInteract(EntityPlayer p);
 
-	public abstract GuiIDs guiID();
+	public abstract int guiID();
 
 	public abstract void addRecipies(MerchantRecipeList list);
 

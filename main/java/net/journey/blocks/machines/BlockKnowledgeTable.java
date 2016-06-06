@@ -5,7 +5,7 @@ import java.util.Random;
 import net.journey.JourneyTabs;
 import net.journey.JITL;
 import net.journey.blocks.tileentity.TileEntityKnowledgeTable;
-import net.journey.client.GuiHandler.GuiIDs;
+import net.journey.client.GuiHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -29,7 +29,7 @@ public class BlockKnowledgeTable extends BlockModContainer {
 		TileEntityKnowledgeTable tile = (TileEntityKnowledgeTable)worldIn.getTileEntity(pos);
 		if(!worldIn.isRemote) {
 			if(tile != null) { 
-				playerIn.openGui(JITL.instance, GuiIDs.KNOWLEDGE.ordinal(), worldIn, pos.getX(), pos.getY(), pos.getZ());
+				playerIn.openGui(JITL.instance, GuiHandler.knowledge, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			}
 			return true;
 		}

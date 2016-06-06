@@ -10,7 +10,6 @@ import net.journey.JourneyBlocks;
 import net.journey.blocks.tileentity.TileEntityJourneyChest;
 import net.journey.blocks.tileentity.TileEntityNetherFurnace;
 import net.journey.blocks.tileentity.TileEntitySummoningTable;
-import net.journey.client.GuiHandler.GuiIDs;
 import net.journey.enums.EnumSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;

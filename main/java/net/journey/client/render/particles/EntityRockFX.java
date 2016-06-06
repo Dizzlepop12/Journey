@@ -22,10 +22,10 @@ public class EntityRockFX extends EntityFX {
         this.portalPosY = this.posY = var4;
         this.portalPosZ = this.posZ = var6;
         float var14 = this.rand.nextFloat() * 0.6F + 0.4F;
-        this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F;
-        this.particleBlue = 0.2F;
-        this.particleGreen = 0.2F;
-        this.particleRed = 0.2F;
+        this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
+        this.particleBlue = 0.3F;
+        this.particleGreen = 0.3F;
+        this.particleRed = 0.3F;
         this.particleMaxAge = (int)(Math.random() * 10.0D) + 40;
         this.noClip = true;
         this.setParticleTextureIndex((int)(Math.random() * 8.0D));
@@ -42,7 +42,7 @@ public class EntityRockFX extends EntityFX {
         var8 = 1.0F - var8;
         var8 *= var8;
         var8 = 1.0F - var8;
-        this.particleScale = 5F;
+        this.particleScale = this.portalParticleScale * var8;
         super.renderParticle(p_180434_1_, p_180434_2_, par2, p_180434_4_, p_180434_5_, p_180434_6_, p_180434_7_, p_180434_8_);
     }
 
