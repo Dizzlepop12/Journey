@@ -28,18 +28,18 @@ public class BlockSummoningTable extends BlockModContainer {
 		super(EnumMaterialTypes.STONE, name, f, 2.0F, JourneyTabs.machineBlocks);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
 	}
-
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ) {
-		TileEntitySummoningTable tile = (TileEntitySummoningTable)worldIn.getTileEntity(pos);
-		if(!worldIn.isRemote) {
-			if(tile != null) { 
-				playerIn.openGui(JITL.instance, GuiHandler.summoning, worldIn, pos.getX(), pos.getY(), pos.getZ());
+	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer p, EnumFacing side, float hitX, float hitY, float hitZ) {
+		TileEntity tile  = w.getTileEntity(pos);
+		if(tile != null){
+			if(!p.isSneaking()){
+				if(!w.isRemote) p.openGui(JITL.instance, GuiHandler.summoning, w, pos.getX(), pos.getY(), pos.getZ());
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
+
 	
     @Override
     public void setBlockBoundsForItemRender() {

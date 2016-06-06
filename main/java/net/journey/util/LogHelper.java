@@ -15,9 +15,9 @@ public class LogHelper {
     private static BufferedWriter writer;
     
     static {
-        File dir = new File("./EssenceOfTheGods");
+        File dir = new File("./JourneyIntoTheLight");
         dir.mkdir();
-        dir = new File("./EssenceOfTheGods/debug.log");
+        dir = new File("./JourneyIntoTheLight/debug.log");
         try {
             writer = new BufferedWriter(new FileWriter(dir));
         } catch (IOException e) {
@@ -26,7 +26,7 @@ public class LogHelper {
     }
 
     private static void log(Level level, Object msg) {
-        FMLLog.log(SlayerAPI.MOD_NAME, level, "[Essence of the gods] " + msg.toString());
+        FMLLog.log(SlayerAPI.MOD_NAME, level, "[Journey Into the Light] " + msg.toString());
         if(SlayerAPI.DEVMODE) writeFile(msg);
     }
 

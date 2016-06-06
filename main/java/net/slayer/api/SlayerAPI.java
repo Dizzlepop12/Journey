@@ -64,7 +64,7 @@ public class SlayerAPI {
 	public static Logger logger = Logger.getLogger(SlayerAPI.MOD_ID);
 
 	public static final String 
-			MOD_NAME = "Journey into the Light", 
+			MOD_NAME = "Journey Into the Light", 
 			MOD_ID = "essence", 
 			PREFIX = MOD_ID + ":", 
 			MOD_VERSION = "1.1.1_1"; 
