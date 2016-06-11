@@ -1,5 +1,5 @@
 {
-	"parent": "essence:block/lavarock",
+	"parent": "essence:block/igniterOn",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10, -45, 170 ],

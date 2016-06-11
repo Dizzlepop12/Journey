@@ -30,6 +30,7 @@ public class JourneyBlockRecipes {
 		GameRegistry.addRecipe(new ItemStack(JourneyItems.blueGem, 9), new Object[] {"i", 'i', JourneyBlocks.blueGemBlock});
 		GameRegistry.addRecipe(new ItemStack(JourneyItems.yellowGem, 9), new Object[] {"i", 'i', JourneyBlocks.yellowGemBlock});
 		
+		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.igniter, 1), new Object[] {"iii", "jkj", "cfc", 'i', Blocks.netherrack, 'j', Items.iron_ingot, 'k', JourneyBlocks.lavaRock, 'c', Blocks.cobblestone, 'f', Items.flint_and_steel});
 		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.eucaPortalFrame, 10), new Object[] {"iii", "iii", "iii", 'i', JourneyItems.eucaPortalGem});
 		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.depthsPortalFrame, 10), new Object[] {"iii", "iii", "iii", 'i', JourneyItems.depthsPortalGem});
 		GameRegistry.addRecipe(new ItemStack(JourneyBlocks.cloudiaPortalFrame, 10), new Object[] {"iii", "iii", "iii", 'i', JourneyItems.cloudiaPortalGem});

@@ -27,6 +27,7 @@ import net.journey.blocks.BlockRoot;
 import net.journey.blocks.BlockSenterianPortalFrame;
 import net.journey.blocks.BlockStalks;
 import net.journey.blocks.BlockSwampLamp;
+import net.journey.blocks.BlockTerraFlower;
 import net.journey.blocks.BlockTrap;
 import net.journey.blocks.BlockTrophy;
 import net.journey.blocks.BlockWitherFrame;
@@ -47,6 +48,7 @@ import net.journey.blocks.crop.BlockTomatoCrop;
 import net.journey.blocks.crop.BlockZatPedalsCrop;
 import net.journey.blocks.crop.base.BlockFruitCrop;
 import net.journey.blocks.machines.BlockGrindstone;
+import net.journey.blocks.machines.BlockIgniter;
 import net.journey.blocks.machines.BlockJourneyChest;
 import net.journey.blocks.machines.BlockKnowledgeTable;
 import net.journey.blocks.machines.BlockStoneCraftingTable;
@@ -141,6 +143,8 @@ public class JourneyBlocks {
 
 	public static final Block redBirchLeaves = new BlockBiomeLeaves("redBirchLeaves", "Red Birch Leaves", 1.0F);
 	
+	public static final Block igniterOn = new BlockIgniter("igniterOn", "Redstone Igniter");
+	public static final Block igniter = new BlockIgniter("igniter", "Redstone Igniter");
 	public static final Block greenGemBlock = new BlockMod("greenGemBlock", "Green Gem Block");
 	public static final Block purpleGemBlock = new BlockMod("purpleGemBlock", "Purple Gem Block");
 	public static final Block blueGemBlock = new BlockMod("blueGemBlock", "Blue Gem Block");
@@ -355,7 +359,7 @@ public class JourneyBlocks {
 	public static final Block terranianDarkPanels = new BlockMod("terranianDarkPanels", "Terranian Dark Panels", 2.0F);
 	public static final Block terranianPanels = new BlockMod("terranianPanels", "Terranian Panels", 2.0F);
 	public static final BlockModFlower terranianTallgrass = new BlockModFlower("terranianTallgrass", "Terranian Tallgrass");
-	public static final Block terragrow = new BlockModMobFlower("terragrow", "Terranian Flower");
+	public static final Block terragrow = new BlockTerraFlower("terragrow", "Terranian Flower");
 	public static final Block terraniaLamp = new BlockMod(EnumMaterialTypes.GLASS, "terraniaLamp", "Terrania Lamp", 0.1F).setLightLevel(1.0F).setCreativeTab(JourneyTabs.decoration);
 	
 	public static final Block hotBrick = new BlockMod("hotBrick", "Hot Brick", 2.0F);
