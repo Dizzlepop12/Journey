@@ -1,62 +1,76 @@
 package net.journey.client.render.particles;
 
-import net.journey.JITL;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.slayer.api.SlayerAPI;
-import static org.lwjgl.opengl.GL11.*;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import org.lwjgl.opengl.GL11;
+@SideOnly(Side.CLIENT)
+public class EntitySummoningFX extends EntityFX {
+	float summonScale;
 
-public class EntitySummoningFX extends EntityFX{
+	public EntitySummoningFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, float x, float y, float z) {
+		this(worldIn, xCoordIn, yCoordIn, zCoordIn, 1.0F, x, y, z);
+	}
 
-	public static final ResourceLocation texture = new ResourceLocation(SlayerAPI.PREFIX + "textures/particle/summoning.png");
-	private float scale;
-	private int color;
-	private double relativeTextureHeight;
-	
-	
-	public EntitySummoningFX(World w, double x, double y, double z) {
-		super(w, x, y, z);
-		setMaxAge(particleMaxAge);
-		setGravity(-0.01);
+	public EntitySummoningFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, float idek, float x, float y, float z) {
+		super(worldIn, xCoordIn, yCoordIn, zCoordIn, 0.0D, 0.0D, 0.0D);
+		this.motionX *= 0.1D;
+		this.motionY *= 0.1D;
+		this.motionZ *= 0.1D;
+		this.particleGravity = -1.0F;
+		if (x == 0.0F) {
+			x = 1.0F;
+		}
+		this.particleGreen = 0.5F;
+		this.particleRed = 0.0F;
+		this.particleBlue = 0.5F;
+		this.particleScale *= 0.75F;
+		this.particleScale *= idek;
+		this.summonScale = this.particleScale;
+		this.setGravity(-0.01);
         this.particleMaxAge = (int)(Math.random() * 10.0D) + 40;
-        this.noClip = true;
+		this.noClip = false;
 	}
-	
+
 	@Override
-	public void renderParticle(WorldRenderer wr, Entity e, float partialTicks, float f3, float f4, float f5, float f6, float f7) {
-		Minecraft.getMinecraft().renderEngine.bindTexture(this.texture);
-		GL11.glDepthMask(false);
-		GL11.glEnable(GL_BLEND);		
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glAlphaFunc(GL_GREATER, 0.003921569F);		
-		wr.begin(GL11.GL_QUADS, wr.getVertexFormat());
-		this.getBrightness(getBrightnessForRender(partialTicks));
-		super.renderParticle(wr, e, partialTicks, f3, f7, f5, f6, f7);
-		float scale = 0.1F*particleScale;
-		float x = (float)(this.prevPosX + (this.posX - this.prevPosX) * partialTicks - interpPosX);
-		float y = (float)(this.prevPosY + (this.posY - this.prevPosY) * partialTicks - interpPosY);
-		float z = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * partialTicks - interpPosZ);
-		wr.pos(x - f3 * scale - f6 * scale, y - f4 * scale, z - f5 * scale - f7 * scale).endVertex();;
-		wr.pos(x - f3 * scale + f6 * scale, y + f4 * scale, z - f5 * scale + f7 * scale).endVertex();;
-		wr.pos(x + f3 * scale + f6 * scale, y + f4 * scale, z + f5 * scale + f7 * scale).endVertex();;
-		wr.pos(x + f3 * scale - f6 * scale, y - f4 * scale, z + f5 * scale - f7 * scale).endVertex();;
-		Tessellator.getInstance().draw();
-		glDisable(GL_BLEND);
-		glDepthMask(true);
-		glAlphaFunc(GL_GREATER, 0.1F);
+	public void renderParticle(WorldRenderer worldRendererIn, Entity entityIn, float partialTicks, float par4, float par5, float par6, float par7, float par8) {
+		float f = ((float)this.particleAge + partialTicks) / (float)this.particleMaxAge * 32.0F;
+		f = MathHelper.clamp_float(f, 0.0F, 1.0F);
+		this.particleScale = this.summonScale * f;
+		super.renderParticle(worldRendererIn, entityIn, partialTicks, par4, par5, par6, par7, par8);
 	}
-	
-	public int getFXLayer(){
-		return 3;
-		
+
+	@Override
+	public void onUpdate() {
+		this.prevPosX = this.posX;
+		this.prevPosY = this.posY;
+		this.prevPosZ = this.posZ;
+
+		if (this.particleAge++ >= this.particleMaxAge) {
+			this.setDead();
+		}
+
+        this.setParticleTextureIndex((int)(Math.random() * 26.0D + 1.0D + 224.0D));
+		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+
+		if (this.posY == this.prevPosY) {
+			this.motionX *= 1.1D;
+			this.motionZ *= 1.1D;
+		}
+
+		this.motionX *= 0.9599999785423279D;
+		this.motionY *= 0.9599999785423279D;
+		this.motionZ *= 0.9599999785423279D;
+
+		if (this.onGround) {
+			this.motionX *= 0.699999988079071D;
+			this.motionZ *= 0.699999988079071D;
+		}
 	}
 	
 	public EntitySummoningFX setMaxAge(int maxAge){
@@ -68,9 +82,12 @@ public class EntitySummoningFX extends EntityFX{
 		particleGravity = (float) d;
 		return this;
 	}
-	
-	public EntitySummoningFX setScale(float scale) {
-		particleScale = scale;
-		return this;		
+
+	@SideOnly(Side.CLIENT)
+	public static class Factory implements IParticleFactory {
+		public EntityFX getEntityFX(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_)
+		{
+			return new EntitySummoningFX(worldIn, xCoordIn, yCoordIn, zCoordIn, (float)xSpeedIn, (float)ySpeedIn, (float)zSpeedIn);
+		}
 	}
 }
