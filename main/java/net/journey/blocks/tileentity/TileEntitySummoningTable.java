@@ -228,7 +228,6 @@ public class TileEntitySummoningTable extends TileEntity implements ITickable, I
 		double z = pos.getZ();
 		worldObj.playSoundEffect(x, y, z, "essence:summon", 1.0F, 1.0F);
 	}
-	
 	@SideOnly(Side.CLIENT)
 	public void addParticles() {
 		Random r = new Random();

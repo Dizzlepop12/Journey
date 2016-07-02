@@ -12,8 +12,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.NoteBlockEvent.Note;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.slayer.api.SlayerAPI;
@@ -40,13 +38,14 @@ public class EntitySummoningFX extends EntityFX {
 		this.noClip = true;
 		this.texHeight = 1.0D / this.textures;
 	}
+	
 	@Override
-	public void renderParticle(WorldRenderer wr, Entity entity, float partialTicks, float rx, float rxz, float rz, float ryz, float rxy) {
+	public void renderParticle(WorldRenderer wr, Entity entity, float partialTicks, float x, float y, float z, float xyz, float rxy) {
 		Tessellator tessel = Tessellator.getInstance();
 		WorldRenderer worldrender = tessel.getWorldRenderer();
-		float ipx = (float)((this.prevPosX + (this.posX - this.prevPosX) * (double)partialTicks) - this.interpPosX);
-		float ipy = (float)((this.prevPosY + (this.posY - this.prevPosY) * (double)partialTicks) - this.interpPosY);
-		float ipz = (float)((this.prevPosZ + (this.posZ - this.prevPosZ) * (double)partialTicks) - this.interpPosZ);
+		float posx = (float)((this.prevPosX + (this.posX - this.prevPosX) * (double)partialTicks) - this.interpPosX);
+		float posy = (float)((this.prevPosY + (this.posY - this.prevPosY) * (double)partialTicks) - this.interpPosY);
+		float posz = (float)((this.prevPosZ + (this.posZ - this.prevPosZ) * (double)partialTicks) - this.interpPosZ);
 		int prevTex = GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(this.tex);
 		float r = (float)(this.color >> 16 & 0xff) / 255F;
@@ -55,10 +54,14 @@ public class EntitySummoningFX extends EntityFX {
 		worldrender.begin(GL11.GL_QUADS, worldrender.getVertexFormat());
 		this.getBrightnessForRender(partialTicks);
 		this.setRBGColorF(r, g, b);
-		wr.pos(ipx - rx * this.scale - ryz * this.scale, ipy - rxz * this.scale, (this.currentTexture + 1) * this.texHeight).endVertex();
+		wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+		wr.pos(posx - x * this.scale - xyz * this.scale, posy - z * this.scale, posz - z * this.scale - rxy * this.scale);
+		wr.tex(posz - xyz * this.scale + rxy * this.scale, this.currentTexture * this.texHeight);
+		wr.endVertex();
 		tessel.draw();
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, prevTex);
 	}
+	
 	@Override
 	public int getFXLayer() {
 		return 3;
