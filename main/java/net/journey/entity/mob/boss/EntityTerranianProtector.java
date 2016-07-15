@@ -42,7 +42,7 @@ public class EntityTerranianProtector extends EntityEssenceBoss implements IRang
 		this.tasks.addTask(7, new EntityTerranianProtector.AILookAround());
 		this.targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
 		addAttackingAI();
-		setSize(16.0F, 1F);
+		setSize(2.0F, 10F);
 	}
 
 	@Override

@@ -28,23 +28,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class TileEntityJourneyChest extends TileEntityLockable implements ITickable, IInventory
 {
     private ItemStack[] chestContents = new ItemStack[27];
-    /** Determines if the check for adjacent chests has taken place. */
     public boolean adjacentChestChecked;
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityJourneyChest adjacentChestZNeg;
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityJourneyChest adjacentChestXPos;
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityJourneyChest adjacentChestXNeg;
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityJourneyChest adjacentChestZPos;
-    /** The current angle of the lid (between 0 and 1) */
     public float lidAngle;
-    /** The angle of the lid last tick */
     public float prevLidAngle;
-    /** The number of players currently using this chest */
     public int numPlayersUsing;
-    /** Server sync counter (once per 20 ticks) */
     private int ticksSinceSync;
     private int cachedChestType;
     private String customName;
