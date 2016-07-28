@@ -13,7 +13,7 @@ public class LangRegistry {
 
 	public static LangRegistry instance = new LangRegistry();
 
-	public String location = "C:/Users/Camden/Desktop/JourneyWorkspace/src/Journey/main/resources/assets/essence/lang/";
+	public String location = "C:/Users/Ryan/Desktop/JourneyWorkspace/src/Journey/main/resources/assets/essence/lang/";
 	private BufferedWriter writer;
 	public static ArrayList<String> 
 		blockUnloc = new ArrayList<String>(), 
