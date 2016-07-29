@@ -46,6 +46,11 @@ public class WorldGenEssence implements IWorldGenerator {
 
 	private World worldObj;
 	private ArrayList<WorldGenerator> trees;
+	
+	private BiomeGenBase forest;
+	private BiomeGenBase jungle;
+	private BiomeGenBase taiga;
+	
 	private static Random r = new Random();
 
 	public WorldGenEssence() {
@@ -273,6 +278,37 @@ public class WorldGenEssence implements IWorldGenerator {
 	public void generateOverworld(World w, Random rand, int chunkX, int chunkZ) {
 		int x, y, z;
 		int times;
+		BlockPos pos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+		Chunk chunk = w.getChunkFromBlockCoords(pos);
+		WorldChunkManager chunkManager = w.getWorldChunkManager();
+		BiomeGenBase biome = chunk.getBiome(pos, chunkManager);
+		BiomeDictionary biomeD = new BiomeDictionary();
+		
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.grass, w)) 
+			if(BiomeDictionary.isBiomeOfType(biome, Type.FOREST))
+				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.juiceberryBush, Blocks.grass).generate(w, r, new BlockPos(x, y, z));
+		}
+		
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.grass, w)) 
+			if(BiomeDictionary.isBiomeOfType(biome, Type.CONIFEROUS))
+				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.bradberryBush, Blocks.grass).generate(w, r, new BlockPos(x, y, z));
+		}
+		
+		for(times = 0; times < 10; times++) {
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.grass, w)) 
+			if(BiomeDictionary.isBiomeOfType(biome, Type.JUNGLE))
+				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.tangleberryBush, Blocks.grass).generate(w, r, new BlockPos(x, y, z));
+		}
+		
 		for(times = 0; times < 100; times++) {
 			y = r.nextInt(63); 
 			x = chunkX + r.nextInt(16) + 8; 
@@ -338,6 +374,10 @@ public class WorldGenEssence implements IWorldGenerator {
 		}
 	}
 	
+	private boolean isBiome(BiomeGenBase biome, BiomeGenBase biome1) {
+		return biome1.biomeID == biome1.biomeID;
+	}
+
 	public void generateEnd(World w, Random r, int chunkX, int chunkZ) {
 		int x, y, z;
 		int times;
