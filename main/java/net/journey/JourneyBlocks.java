@@ -151,7 +151,9 @@ public class JourneyBlocks {
 	public static final Block yellowGemBlock = new BlockMod("yellowGemBlock", "Yellow Gem Block");
 	
 	public static final Block sizzleberryBush = new BlockModBush("sizzleberryBush", "Sizzleberry Bush", JourneyItems.sizzleberry, true);
-	public static final Block testBush = new BlockModBush("testBush", "testy Bush", Items.apple, false);
+	public static final Block bradberryBush = new BlockModBush("bradberryBush", "Bradberry Bush", JourneyItems.bradberry, false);
+	public static final Block tangleberryBush = new BlockModBush("tangleberryBush", "Tangleberry Bush", JourneyItems.tangleberry, false);
+	public static final Block juiceberryBush = new BlockModBush("juiceberryBush", "Juiceberry Bush", JourneyItems.juiceberry, false);
 	
 	public static final Block nethicanSludge = new BlockMod(EnumMaterialTypes.SLIME, "nethicanSludge", "Nethican Sludge", 1.0F);
 	

@@ -12,10 +12,10 @@ import net.journey.dimension.corba.gen.trees.WorldGenCorbaSmallTree;
 import net.journey.dimension.depths.gen.WorldGenDepthsTree;
 import net.journey.dimension.euca.gen.WorldGenSmeltery;
 import net.journey.dimension.nether.gen.WorldGenBoilPortal;
+import net.journey.dimension.nether.gen.WorldGenBush;
 import net.journey.dimension.nether.gen.WorldGenHellThorn;
 import net.journey.dimension.nether.gen.WorldGenHellThornMedium;
 import net.journey.dimension.nether.gen.WorldGenHellThornTall;
-import net.journey.dimension.nether.gen.WorldGenNetherBush;
 import net.journey.dimension.nether.gen.WorldGenNetherDungeons;
 import net.journey.dimension.nether.gen.WorldGenNetherFlower;
 import net.journey.dimension.nether.gen.WorldGenNetherShroom;
@@ -38,6 +38,8 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenEssence implements IWorldGenerator {
@@ -81,6 +83,7 @@ public class WorldGenEssence implements IWorldGenerator {
 		Chunk chunk = w.getChunkFromBlockCoords(pos);
 		WorldChunkManager chunkManager = w.getWorldChunkManager();
 		BiomeGenBase biome = chunk.getBiome(pos, chunkManager);
+		BiomeDictionary biomeD = new BiomeDictionary();
 		
 		for(times = 0; times < 100; times++) {
 			y = r.nextInt(30) + 1;
@@ -181,7 +184,8 @@ public class WorldGenEssence implements IWorldGenerator {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			if(y > 20 && y < 110) if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
+			if(y > 20 && y < 110) 
+			if(isBlockTop(x, y, z, Blocks.netherrack, w))
 				new WorldGenNetherTower().generate(w, r, new BlockPos(x, y, z));
 		}
 		
@@ -190,7 +194,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			if(isBlockTop(x, y, z, Blocks.netherrack, w)) 
-				new WorldGenNetherBush().generate(w, r, new BlockPos(x, y, z));
+				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.sizzleberryBush, Blocks.netherrack).generate(w, r, new BlockPos(x, y, z));
 		}
 		
 		for(times = 0; times < 100; times++) {
