@@ -15,6 +15,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * creates a new world chunk manager for WorldProvider
      */
+    @Override
     public void registerWorldChunkManager()
     {
         this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.hell, 0.0F);
@@ -26,6 +27,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Return Vec3D with biome specific fog color
      */
+    @Override
     @SideOnly(Side.CLIENT)
     public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
     {
@@ -35,6 +37,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Creates the light to brightness table
      */
+    @Override
     protected void generateLightBrightnessTable()
     {
         float f = 0.1F;
@@ -49,6 +52,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Returns a new chunk provider which generates chunks for this world
      */
+    @Override
     public IChunkProvider createChunkGenerator()
     {
         return new ChunkProviderNether(this.worldObj, this.worldObj.getWorldInfo().isMapFeaturesEnabled(), this.worldObj.getSeed());
@@ -57,6 +61,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
      */
+    @Override
     public boolean isSurfaceWorld()
     {
         return false;
@@ -65,6 +70,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Will check if the x, z position specified is alright to be set as the map spawn point
      */
+    @Override
     public boolean canCoordinateBeSpawn(int x, int z)
     {
         return false;
@@ -73,6 +79,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
      */
+    @Override
     public float calculateCelestialAngle(long p_76563_1_, float p_76563_3_)
     {
         return 0.5F;
@@ -81,6 +88,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * True if the player can respawn in this dimension (true = overworld, false = nether).
      */
+    @Override
     public boolean canRespawnHere()
     {
         return false;
@@ -89,6 +97,7 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Returns true if the given X,Z coordinate should show environmental fog.
      */
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean doesXZShowFog(int x, int z)
     {
@@ -98,16 +107,19 @@ public class WorldProviderNetherJourney extends WorldProvider
     /**
      * Returns the dimension's name, e.g. "The End", "Nether", or "Overworld".
      */
+    @Override
     public String getDimensionName()
     {
         return "Nether";
     }
 
+    @Override
     public String getInternalNameSuffix()
     {
         return "_nether";
     }
 
+    @Override
     public WorldBorder getWorldBorder()
     {
         return new WorldBorder()
