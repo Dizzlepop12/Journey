@@ -6,8 +6,6 @@ import net.journey.*;
 import net.journey.achievement.event.JourneyDungeonEvent;
 import net.journey.achievement.event.JourneySapphireEvent;
 import net.journey.achievement.event.JourneySapphireSwordEvent;
-import net.journey.biome.base.BiomeRegistry;
-import net.journey.biome.base.WorldTypeJourney;
 import net.journey.blocks.tileentity.*;
 import net.journey.book.JourneyBook;
 import net.journey.client.BarTickHandler;
@@ -45,8 +43,6 @@ public class CommonProxy {
 	public void registerModModels() { }
 	
 	public void preInit(FMLPreInitializationEvent event) {
-		DimensionManager.unregisterDimension(-1);
-		DimensionManager.unregisterProviderType(-1);
 		Config.init(event);
 		//Essence.tropicalWater.setBlock(EssenceBlocks.tropicalWater);
 		EntityRegistry.init();
@@ -57,11 +53,15 @@ public class CommonProxy {
 		JourneyMiscRecipes.init();
 		JourneySmeltingRecipes.init();
 		JourneyWeaponRecipes.init();
-		DimensionHelper.init();
-		BiomeRegistry.init();
+		
 		DimensionHelper.addSpawns();
+		
+		DimensionManager.unregisterProviderType(-1);
+		DimensionManager.unregisterDimension(-1);
+		
+		DimensionHelper.init();
+		
 		JourneyTabs.init();
-		BiomeRegistry.mainClass();
 		JourneyBook.registerTests(1);
 		
 		if(SlayerAPI.DEVMODE) LangRegistry.instance.register();
@@ -86,13 +86,13 @@ public class CommonProxy {
 		FMLCommonHandler.instance().bus().register(new JourneySapphireEvent());
 		FMLCommonHandler.instance().bus().register(new JourneyDungeonEvent());
 	}
+	
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGenEssence(), 2);
 		SlayerAPI.registerEvent(new PlayerEvent());
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {
-		WorldType JOURNEY = new WorldTypeJourney(3, "Journey");
 	}
 	
 	public void serverStarting(FMLServerStartingEvent event) {
