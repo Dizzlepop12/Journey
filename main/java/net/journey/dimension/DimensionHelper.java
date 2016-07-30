@@ -127,12 +127,11 @@ public class DimensionHelper {
 	public static BiomeGenBase golden = new BiomeGenGoldenGrains(Config.goldenBiome);
 	public static BiomeGenBase senterian = new BiomeGenSenterian(Config.senterianBiome);
 	public static BiomeGenBase wither = new BiomeGenWither(Config.witherBiome);
-	public static BiomeGenBase netherJourney = new BiomeGenHell(8);
 
 	public static void init(){
 		LogHelper.info("Registering Dimensions...");
 		DimensionManager.unregisterProviderType(-1);
-		DimensionManager.unregisterDimension(-1);
+		DimensionManager.registerProviderType(-1, WorldProviderNetherJourney.class, true);
 		addDimension(Config.euca, WorldProviderEuca.class, Config.keepLoadingEuca);
 		addDimension(Config.depths, WorldProviderDepths.class, Config.keepLoadingDepths);
 		addDimension(Config.boil, WorldProviderBoiling.class, Config.keepLoadingBoil);
@@ -144,7 +143,6 @@ public class DimensionHelper {
 		addDimension(Config.golden, WorldProviderGoldenGrains.class, Config.keepLoadingGolden);
 		addDimension(Config.senterian, WorldProviderSenterian.class, Config.keepLoadingSenterian);
 		addDimension(Config.wither, WorldProviderWither.class, Config.keepLoadingWither);
-		addDimension(-1, WorldProviderNetherJourney.class, true);
 	}
 
 	private static void addDimension(int id, Class<? extends WorldProvider> w, boolean keeploading) {
