@@ -201,11 +201,6 @@ public class ChunkProviderNether implements IChunkProvider {
                                             iblockstate1 = Blocks.netherrack.getDefaultState();
                                         }
                                         
-                                        if (j > 56) {
-                                        	iblockstate = JourneyBlocks.lavaRock.getDefaultState();
-                                            iblockstate1 = JourneyBlocks.lavaRock.getDefaultState();
-                                        }
-                                        
                                         if (flag) {
                                             iblockstate = Blocks.soul_sand.getDefaultState();
                                             iblockstate1 = Blocks.soul_sand.getDefaultState();
