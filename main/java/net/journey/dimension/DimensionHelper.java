@@ -127,7 +127,7 @@ public class DimensionHelper {
 	public static BiomeGenBase golden = new BiomeGenGoldenGrains(Config.goldenBiome);
 	public static BiomeGenBase senterian = new BiomeGenSenterian(Config.senterianBiome);
 	public static BiomeGenBase wither = new BiomeGenWither(Config.witherBiome);
-	public static BiomeGenBase netherJourney = new BiomeGenHell(-1);
+	public static BiomeGenBase netherJourney = new BiomeGenHell(8);
 
 	public static void init(){
 		LogHelper.info("Registering Dimensions...");

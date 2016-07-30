@@ -44,6 +44,7 @@ public class CommonProxy {
 	public void registerModModels() { }
 	
 	public void preInit(FMLPreInitializationEvent event) {
+		DimensionManager.unregisterDimension(-1);
 		Config.init(event);
 		//Essence.tropicalWater.setBlock(EssenceBlocks.tropicalWater);
 		EntityRegistry.init();
@@ -82,7 +83,6 @@ public class CommonProxy {
 		FMLCommonHandler.instance().bus().register(new JourneySapphireSwordEvent());
 		FMLCommonHandler.instance().bus().register(new JourneySapphireEvent());
 		FMLCommonHandler.instance().bus().register(new JourneyDungeonEvent());
-		DimensionManager.unregisterDimension(-1);
 	}
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGenEssence(), 2);
