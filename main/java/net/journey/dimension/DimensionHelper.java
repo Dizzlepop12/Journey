@@ -131,6 +131,8 @@ public class DimensionHelper {
 
 	public static void init(){
 		LogHelper.info("Registering Dimensions...");
+		DimensionManager.unregisterProviderType(-1);
+		DimensionManager.unregisterDimension(-1);
 		addDimension(Config.euca, WorldProviderEuca.class, Config.keepLoadingEuca);
 		addDimension(Config.depths, WorldProviderDepths.class, Config.keepLoadingDepths);
 		addDimension(Config.boil, WorldProviderBoiling.class, Config.keepLoadingBoil);

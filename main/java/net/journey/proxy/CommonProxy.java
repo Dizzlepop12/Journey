@@ -55,10 +55,6 @@ public class CommonProxy {
 		JourneyWeaponRecipes.init();
 		
 		DimensionHelper.addSpawns();
-		
-		DimensionManager.unregisterProviderType(-1);
-		DimensionManager.unregisterDimension(-1);
-		
 		DimensionHelper.init();
 		
 		JourneyTabs.init();
