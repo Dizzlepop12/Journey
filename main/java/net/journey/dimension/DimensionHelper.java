@@ -18,6 +18,7 @@ import net.journey.dimension.frozen.BiomeGenFrozenLands;
 import net.journey.dimension.frozen.WorldProviderFrozenLands;
 import net.journey.dimension.golden.BiomeGenGoldenGrains;
 import net.journey.dimension.golden.WorldProviderGoldenGrains;
+import net.journey.dimension.nether.WorldProviderNetherJourney;
 import net.journey.dimension.senterian.BiomeGenSenterian;
 import net.journey.dimension.senterian.WorldProviderSenterian;
 import net.journey.dimension.terrania.BiomeGenTerrania;
@@ -101,7 +102,9 @@ import net.journey.util.LogHelper;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenHell;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.DimensionManager;
@@ -124,6 +127,7 @@ public class DimensionHelper {
 	public static BiomeGenBase golden = new BiomeGenGoldenGrains(Config.goldenBiome);
 	public static BiomeGenBase senterian = new BiomeGenSenterian(Config.senterianBiome);
 	public static BiomeGenBase wither = new BiomeGenWither(Config.witherBiome);
+	public static BiomeGenBase netherJourney = new BiomeGenHell(-1);
 
 	public static void init(){
 		LogHelper.info("Registering Dimensions...");
@@ -138,6 +142,7 @@ public class DimensionHelper {
 		addDimension(Config.golden, WorldProviderGoldenGrains.class, Config.keepLoadingGolden);
 		addDimension(Config.senterian, WorldProviderSenterian.class, Config.keepLoadingSenterian);
 		addDimension(Config.wither, WorldProviderWither.class, Config.keepLoadingWither);
+		addDimension(-1, WorldProviderNetherJourney.class, true);
 	}
 
 	private static void addDimension(int id, Class<? extends WorldProvider> w, boolean keeploading) {

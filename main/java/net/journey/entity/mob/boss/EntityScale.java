@@ -12,6 +12,8 @@ import net.journey.entity.projectile.EntityIceBall;
 import net.journey.entity.projectile.EntityMagmaFireball;
 import net.journey.enums.EnumSounds;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -35,6 +37,8 @@ import net.minecraft.world.World;
 import net.slayer.api.entity.EntityEssenceBoss;
 
 public class EntityScale extends EntityEssenceBoss implements IRangedAttackMob {
+	
+	private int attackTimer;
 	
 	public EntityScale(World par1World) {
 		super(par1World);
@@ -277,13 +281,13 @@ public class EntityScale extends EntityEssenceBoss implements IRangedAttackMob {
 	public Item getItemDropped() {
 		return null;
 	}
-	public void attackEntityWithRangedAttack(EntityLivingBase e, float f1)
-    {
+	
+	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase e, float f1) {
         this.launchWitherSkullToEntity(0, e);
 	}
     
-    private void launchWitherSkullToEntity(int var1, EntityLivingBase e)
-    {
+    private void launchWitherSkullToEntity(int var1, EntityLivingBase e) {
         this.launchWitherSkullToCoords(var1, e.posX, e.posY + (double)e.getEyeHeight() * 0.5D, e.posZ, var1 == 0 && this.rand.nextFloat() < 0.001F);
         
     }

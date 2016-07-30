@@ -273,8 +273,6 @@ public class JourneyBlocks {
 	public static final Block senterianGuardianLamp = new BlockMod(EnumMaterialTypes.GLASS, "senterianGuardianLamp", "Senterian Guardian Lamp", 0.1F).setLightLevel(0.5F).setCreativeTab(JourneyTabs.decoration).setBlockUnbreakable().setResistance(10000000.0F);
 	public static final Block senterianPost = new BlockModFence(senterianBricks, "senterianPost", "Senterian Post").setBlockUnbreakable().setResistance(10000000.0F);
 	
-	public static final Block senterianTrap = new BlockTrap("senterianTrap", "Senterian Floor");
-	
 	public static final Block trophy = new BlockTrophy("trophy", "Trophy");
 	public static final Block trophySoul = new BlockTrophy("trophySoul", "Soul Watcher Trophy");
 	public static final Block trophyBlaze = new BlockTrophy("trophyBlaze", "Blazier Trophy");
@@ -318,8 +316,8 @@ public class JourneyBlocks {
 	public static final BlockTerraniaPortal terraniaPortal = (BlockTerraniaPortal)new BlockTerraniaPortal("terraniaPortal");
 	public static final Block terraniaPortalFrame = new BlockMod("terraniaPortalFrame", "Terrania Portal Frame", 3.0F);
 	
-	public static final BlockSenterianPortal senterianPortal = (BlockSenterianPortal)new BlockSenterianPortal(EnumMaterialTypes.METAL_SOUND, "senterianPortal", "senterianPortal", 1000000F, JourneyTabs.portalBlocks);
-	public static final Block senterianPortalFrame = new BlockSenterianPortalFrame("senterianPortalFrame", "Senterian Portal Frame");
+	public static final BlockSenterianPortal senterianPortal = (BlockSenterianPortal)new BlockSenterianPortal(EnumMaterialTypes.METAL_SOUND, "senterianPortal", "senterianPortal", 1000000F, JourneyTabs.portalBlocks).setCreativeTab(null);
+	public static final Block senterianPortalFrame = new BlockSenterianPortalFrame("senterianPortalFrame", "Senterian Portal Frame").setCreativeTab(null);
 	//public static final BlockWastelandsPortal wastelandsPortal = (BlockWastelandsPortal)new BlockWastelandsPortal("wastelandsPortal");
 	//public static final Block wastelandsPortalFrame = new BlockMod("wastelandsPortalFrame");
 	public static final BlockCloudiaPortal cloudiaPortal = (BlockCloudiaPortal)new BlockCloudiaPortal("cloudiaPortal");

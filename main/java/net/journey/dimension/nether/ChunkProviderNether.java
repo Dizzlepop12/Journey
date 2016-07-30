@@ -41,19 +41,19 @@ public class ChunkProviderNether implements IChunkProvider {
     private final Random hellRNG;
     private double[] slowsandNoise = new double[256];
     private double[] gravelNoise = new double[256];
-    private double[] netherrackExclusivityNoise = new double[256];
+    private double[] bedrockExclusivityNoise = new double[256];
     private double[] noiseField;
     private final NoiseGeneratorOctaves netherNoiseGen1;
     private final NoiseGeneratorOctaves netherNoiseGen2;
     private final NoiseGeneratorOctaves netherNoiseGen3;
     private final NoiseGeneratorOctaves slowsandGravelNoiseGen;
-    private final NoiseGeneratorOctaves netherrackExculsivityNoiseGen;
+    private final NoiseGeneratorOctaves bedrockExculsivityNoiseGen;
     public final NoiseGeneratorOctaves netherNoiseGen6;
     public final NoiseGeneratorOctaves netherNoiseGen7;
     private final WorldGenFire field_177470_t = new WorldGenFire();
     private final WorldGenGlowStone1 field_177469_u = new WorldGenGlowStone1();
     private final WorldGenGlowStone2 field_177468_v = new WorldGenGlowStone2();
-    private final WorldGenerator field_177467_w = new WorldGenMinable(Blocks.quartz_ore.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+    private final WorldGenerator field_177467_w = new WorldGenMinable(Blocks.quartz_ore.getDefaultState(), 14, BlockHelper.forBlock(Blocks.bedrock));
     private final WorldGenHellLava field_177473_x = new WorldGenHellLava(Blocks.flowing_lava, true);
     private final WorldGenHellLava field_177472_y = new WorldGenHellLava(Blocks.flowing_lava, false);
     private final GeneratorBushFeature field_177471_z = new GeneratorBushFeature(Blocks.brown_mushroom);
@@ -76,18 +76,18 @@ public class ChunkProviderNether implements IChunkProvider {
         NoiseGeneratorOctaves netherNoiseGen2 = new NoiseGeneratorOctaves(this.hellRNG, 16);
         NoiseGeneratorOctaves netherNoiseGen3 = new NoiseGeneratorOctaves(this.hellRNG, 8);
         NoiseGeneratorOctaves slowsandGravelNoiseGen = new NoiseGeneratorOctaves(this.hellRNG, 4);
-        NoiseGeneratorOctaves netherrackExculsivityNoiseGen = new NoiseGeneratorOctaves(this.hellRNG, 4);
+        NoiseGeneratorOctaves bedrockExculsivityNoiseGen = new NoiseGeneratorOctaves(this.hellRNG, 4);
         NoiseGeneratorOctaves netherNoiseGen6 = new NoiseGeneratorOctaves(this.hellRNG, 10);
         NoiseGeneratorOctaves netherNoiseGen7 = new NoiseGeneratorOctaves(this.hellRNG, 16);
         NoiseGenerator[] noiseGens = new NoiseGenerator[] {
-                netherNoiseGen1, netherNoiseGen2, netherNoiseGen3, slowsandGravelNoiseGen, netherrackExculsivityNoiseGen, netherNoiseGen6, netherNoiseGen7
+                netherNoiseGen1, netherNoiseGen2, netherNoiseGen3, slowsandGravelNoiseGen, bedrockExculsivityNoiseGen, netherNoiseGen6, netherNoiseGen7
         };
         noiseGens = net.minecraftforge.event.terraingen.TerrainGen.getModdedNoiseGenerators(worldIn, this.hellRNG, noiseGens);
         this.netherNoiseGen1 = (NoiseGeneratorOctaves)noiseGens[0];
         this.netherNoiseGen2 = (NoiseGeneratorOctaves)noiseGens[1];
         this.netherNoiseGen3 = (NoiseGeneratorOctaves)noiseGens[2];
         this.slowsandGravelNoiseGen = (NoiseGeneratorOctaves)noiseGens[3];
-        this.netherrackExculsivityNoiseGen = (NoiseGeneratorOctaves)noiseGens[4];
+        this.bedrockExculsivityNoiseGen = (NoiseGeneratorOctaves)noiseGens[4];
         this.netherNoiseGen6 = (NoiseGeneratorOctaves)noiseGens[5];
         this.netherNoiseGen7 = (NoiseGeneratorOctaves)noiseGens[6];
         worldIn.setSeaLevel(63);
@@ -134,7 +134,7 @@ public class ChunkProviderNether implements IChunkProvider {
                                 }
 
                                 if (d15 > 0.0D) {
-                                    iblockstate = Blocks.netherrack.getDefaultState();
+                                    iblockstate = Blocks.bedrock.getDefaultState();
                                 }
 
                                 int l2 = j2 + j1 * 4;
@@ -167,35 +167,35 @@ public class ChunkProviderNether implements IChunkProvider {
         double d0 = 0.03125D;
         this.slowsandNoise = this.slowsandGravelNoiseGen.generateNoiseOctaves(this.slowsandNoise, chunkX * 16, chunkZ * 16, 0, 16, 16, 1, d0, d0, 1.0D);
         this.gravelNoise = this.slowsandGravelNoiseGen.generateNoiseOctaves(this.gravelNoise, chunkX * 16, 109, chunkZ * 16, 16, 1, 16, d0, 1.0D, d0);
-        this.netherrackExclusivityNoise = this.netherrackExculsivityNoiseGen.generateNoiseOctaves(this.netherrackExclusivityNoise, chunkX * 16, chunkZ * 16, 0, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
+        this.bedrockExclusivityNoise = this.bedrockExculsivityNoiseGen.generateNoiseOctaves(this.bedrockExclusivityNoise, chunkX * 16, chunkZ * 16, 0, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
 
         for (int j = 0; j < 16; ++j){
             for (int k = 0; k < 16; ++k){
                 boolean flag = this.slowsandNoise[j + k * 16] + this.hellRNG.nextDouble() * 0.2D > 0.0D;
                 boolean flag1 = this.gravelNoise[j + k * 16] + this.hellRNG.nextDouble() * 0.2D > 0.0D;
-                int l = (int)(this.netherrackExclusivityNoise[j + k * 16] / 3.0D + 3.0D + this.hellRNG.nextDouble() * 0.25D);
+                int l = (int)(this.bedrockExclusivityNoise[j + k * 16] / 3.0D + 3.0D + this.hellRNG.nextDouble() * 0.25D);
                 int i1 = -1;
-                IBlockState iblockstate = Blocks.netherrack.getDefaultState();
-                IBlockState iblockstate1 = Blocks.netherrack.getDefaultState();
+                IBlockState iblockstate = Blocks.bedrock.getDefaultState();
+                IBlockState iblockstate1 = Blocks.bedrock.getDefaultState();
 
                 for (int j1 = 127; j1 >= 0; --j1){
                     if (j1 < 127 - this.hellRNG.nextInt(5) && j1 > this.hellRNG.nextInt(5)){
                         IBlockState iblockstate2 = primer.getBlockState(k, j1, j);
 
                         if (iblockstate2.getBlock() != null && iblockstate2.getBlock().getMaterial() != Material.air){
-                            if (iblockstate2.getBlock() == Blocks.netherrack) {
+                            if (iblockstate2.getBlock() == Blocks.bedrock) {
                                 if (i1 == -1){
                                     if (l <= 0) {
                                         iblockstate = null;
-                                        iblockstate1 = Blocks.netherrack.getDefaultState();
+                                        iblockstate1 = Blocks.bedrock.getDefaultState();
                                     }
                                     else if (j1 >= i - 4 && j1 <= i + 1) {
-                                        iblockstate = Blocks.netherrack.getDefaultState();
-                                        iblockstate1 = Blocks.netherrack.getDefaultState();
+                                        iblockstate = Blocks.bedrock.getDefaultState();
+                                        iblockstate1 = Blocks.bedrock.getDefaultState();
 
                                         if (flag1) {
                                             iblockstate = Blocks.gravel.getDefaultState();
-                                            iblockstate1 = Blocks.netherrack.getDefaultState();
+                                            iblockstate1 = Blocks.bedrock.getDefaultState();
                                         }
 
                                         if (flag) {

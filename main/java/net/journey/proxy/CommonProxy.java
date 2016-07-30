@@ -82,6 +82,7 @@ public class CommonProxy {
 		FMLCommonHandler.instance().bus().register(new JourneySapphireSwordEvent());
 		FMLCommonHandler.instance().bus().register(new JourneySapphireEvent());
 		FMLCommonHandler.instance().bus().register(new JourneyDungeonEvent());
+		DimensionManager.unregisterDimension(-1);
 	}
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGenEssence(), 2);

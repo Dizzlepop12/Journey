@@ -35,9 +35,9 @@ public class EntityBubbleProjectile extends EntityLargeFireball {
 	
 	@Override
 	protected void onImpact(MovingObjectPosition var1) {
-		if(var1.entityHit != null) var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, shootingEntity), 20.0F);
-		((EntityLivingBase) var1.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
-		((EntityLivingBase) var1.entityHit).addPotionEffect(new PotionEffect(Potion.harm.id, 100, 1));
+		if(var1.entityHit != null) var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, shootingEntity), 200.0F);
+		//((EntityLivingBase) var1.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
+		//((EntityLivingBase) var1.entityHit).addPotionEffect(new PotionEffect(Potion.harm.id, 100, 1));
 		if(!worldObj.isRemote) this.setDead();
 	}
 
