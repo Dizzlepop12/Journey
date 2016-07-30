@@ -61,7 +61,7 @@ public class BlockModBush extends BlockMod implements IGrowable, IPlantable {
 			}
 			EntityItem drop = new EntityItem(w, x, y, z, new ItemStack(berry));
 			w.spawnEntityInWorld(drop);
-			w.setBlockState(pos, state.withProperty(AGE, 1), 1);
+			w.setBlockState(pos, state.withProperty(AGE, 0), 1);
 			return true;
 		}
 		return false;

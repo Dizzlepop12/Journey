@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Random;
 
 import net.journey.JourneyBlocks;
+import net.journey.entity.mob.nether.EntityMiniGhast;
+import net.journey.entity.mob.nether.EntityWitherspine;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -32,7 +34,10 @@ import net.minecraft.world.gen.feature.WorldGenHellLava;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.MapGenNetherBridge;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class ChunkProviderNether implements IChunkProvider {
 
@@ -446,7 +451,6 @@ public class ChunkProviderNether implements IChunkProvider {
                 return this.genNetherBridge.getSpawnList();
             }
         }
-
         BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(pos);
         return biomegenbase.getSpawnableList(creatureType);
     }

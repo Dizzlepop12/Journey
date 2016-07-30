@@ -23,8 +23,11 @@ import net.minecraft.item.*;
 import net.minecraft.stats.Achievement;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.*;
+import net.minecraft.world.biome.BiomeGenHell;
 import net.minecraftforge.common.*;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.registry.*;
 import net.minecraftforge.oredict.*;
@@ -56,6 +59,7 @@ public class CommonProxy {
 		
 		DimensionHelper.addSpawns();
 		DimensionHelper.init();
+		BiomeDictionary.registerBiomeType(new BiomeGenHell(8), Type.NETHER);
 		
 		JourneyTabs.init();
 		JourneyBook.registerTests(1);

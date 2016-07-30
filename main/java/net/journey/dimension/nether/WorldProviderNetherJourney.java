@@ -12,9 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderNetherJourney extends WorldProvider
 {
-    /**
-     * creates a new world chunk manager for WorldProvider
-     */
+
     @Override
     public void registerWorldChunkManager()
     {
@@ -24,9 +22,6 @@ public class WorldProviderNetherJourney extends WorldProvider
         this.dimensionId = -1;
     }
 
-    /**
-     * Return Vec3D with biome specific fog color
-     */
     @Override
     @SideOnly(Side.CLIENT)
     public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
@@ -34,9 +29,6 @@ public class WorldProviderNetherJourney extends WorldProvider
         return new Vec3(0.20000000298023224D, 0.029999999329447746D, 0.029999999329447746D);
     }
 
-    /**
-     * Creates the light to brightness table
-     */
     @Override
     protected void generateLightBrightnessTable()
     {
@@ -49,54 +41,36 @@ public class WorldProviderNetherJourney extends WorldProvider
         }
     }
 
-    /**
-     * Returns a new chunk provider which generates chunks for this world
-     */
     @Override
     public IChunkProvider createChunkGenerator()
     {
         return new ChunkProviderNether(this.worldObj, this.worldObj.getWorldInfo().isMapFeaturesEnabled(), this.worldObj.getSeed());
     }
 
-    /**
-     * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
-     */
     @Override
     public boolean isSurfaceWorld()
     {
         return false;
     }
 
-    /**
-     * Will check if the x, z position specified is alright to be set as the map spawn point
-     */
     @Override
     public boolean canCoordinateBeSpawn(int x, int z)
     {
         return false;
     }
 
-    /**
-     * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
-     */
     @Override
     public float calculateCelestialAngle(long p_76563_1_, float p_76563_3_)
     {
         return 0.5F;
     }
 
-    /**
-     * True if the player can respawn in this dimension (true = overworld, false = nether).
-     */
     @Override
     public boolean canRespawnHere()
     {
         return false;
     }
 
-    /**
-     * Returns true if the given X,Z coordinate should show environmental fog.
-     */
     @Override
     @SideOnly(Side.CLIENT)
     public boolean doesXZShowFog(int x, int z)
@@ -104,9 +78,6 @@ public class WorldProviderNetherJourney extends WorldProvider
         return true;
     }
 
-    /**
-     * Returns the dimension's name, e.g. "The End", "Nether", or "Overworld".
-     */
     @Override
     public String getDimensionName()
     {

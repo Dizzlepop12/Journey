@@ -669,6 +669,7 @@ public class JourneyItems {
 	public static final Item bradberry = new ItemModFood("bradberry", "Bradberry", 1, 8, 4, false);
 	public static final Item tangleberry = new ItemModFood("tangleberry", "Tangleberry", 2, 4, 1, false);
 	public static final Item juiceberry = new ItemModFood("juiceberry", "Juiceberry", 1, 6, 1, false);
+	public static final Item bogberry = new ItemModFood("bogberry", "Bogberry", 2, 6, 3, false);
 	
 	public static final Item goldenSteak = new ItemGoldenFood("normalGoldenSteak", "Golden Steak", 6, 1.2F, false, false);
 	public static final Item goldenSteakOP = new ItemGoldenFood("OPGoldenSteak", "Golden Steak", 10, 2.2F, false, true);
