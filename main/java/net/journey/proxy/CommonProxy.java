@@ -12,6 +12,7 @@ import net.journey.blocks.tileentity.*;
 import net.journey.book.JourneyBook;
 import net.journey.client.BarTickHandler;
 import net.journey.dimension.*;
+import net.journey.dimension.nether.WorldProviderNetherJourney;
 import net.journey.enums.*;
 import net.journey.event.*;
 import net.journey.misc.*;
@@ -45,6 +46,7 @@ public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent event) {
 		DimensionManager.unregisterDimension(-1);
+		DimensionManager.unregisterProviderType(-1);
 		Config.init(event);
 		//Essence.tropicalWater.setBlock(EssenceBlocks.tropicalWater);
 		EntityRegistry.init();

@@ -90,13 +90,6 @@ public class WorldGenEssence implements IWorldGenerator {
 		BiomeGenBase biome = chunk.getBiome(pos, chunkManager);
 		BiomeDictionary biomeD = new BiomeDictionary();
 		
-		for(times = 0; times < 100; times++) {
-			y = r.nextInt(30) + 1;
-			x = chunkX + r.nextInt(16);
-			z = chunkZ + r.nextInt(16);
-			worldMinableGenNether(JourneyBlocks.lavaRock, 40, w, x, y, z);
-		}
-		
 		for(times = 0; times < 10; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
@@ -112,17 +105,17 @@ public class WorldGenEssence implements IWorldGenerator {
 		}
 
 		for(times = 0; times < 200; times++) {
-			y = r.nextInt(35) + 1;
+			y = r.nextInt(255) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			worldMinableGenNether(JourneyBlocks.nethicanSludge, 10, w, x, y, z);
+			worldGenNetherFeature(JourneyBlocks.nethicanSludge, 10, w, x, y, z);
 		}
 		
-		for(times = 0; times < 250; times++) {
-			y = r.nextInt(35) + 1;
+		for(times = 0; times < 100; times++) {
+			y = r.nextInt(250) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
-			worldMinableGenNether(JourneyBlocks.heatSoil, 40, w, x, y, z);
+			worldGenNetherFeature(JourneyBlocks.lavaRock, 40, w, x, y, z);
 		}
 		
 		for(times = 0; times < 150; times++) {
@@ -202,8 +195,8 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.sizzleberryBush, Blocks.netherrack).generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 100; times++) {
-			y = r.nextInt(50) + 1;
+		for(times = 0; times < 350; times++) {
+			y = r.nextInt(250) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w)) 
@@ -211,7 +204,7 @@ public class WorldGenEssence implements IWorldGenerator {
 		}
 		
 		for(times = 0; times < 100; times++) {
-			y = r.nextInt(50) + 1;
+			y = r.nextInt(250) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			if(isBlockTop(x, y, z, JourneyBlocks.heatSoil, w)) 
@@ -494,6 +487,10 @@ public class WorldGenEssence implements IWorldGenerator {
 
 	private static void worldMinableGenNether(Block spawn, int vein, World w, int x, int y, int z){
 		(new WorldGenMinable(spawn.getDefaultState(), vein, BlockHelper.forBlock(Blocks.netherrack))).generate(w, r, new BlockPos(x, y, z));
+	}
+	
+	private static void worldGenNetherFeature(Block spawn, int vein, World w, int x, int y, int z){
+		(new WorldGenMinable(spawn.getDefaultState(), vein, BlockHelper.forBlock(JourneyBlocks.heatSoil))).generate(w, r, new BlockPos(x, y, z));
 	}
 
 	private static void worldMinableGenEnd(Block spawn, int vein, World w, int x, int y, int z){
