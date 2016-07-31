@@ -60,11 +60,13 @@ public class JourneyBook {
         PageFurnaceRecipe page10 = new PageFurnaceRecipe(new ItemStack(Items.diamond_axe));
 
         ArrayList<IPage> pagesStart = new ArrayList<IPage>();
-        pagesStart.add(page2);
         pagesStart.addAll(PageHelper.pagesForLongText("Hello! It seems you're about to begin your Journey. "
-        		+ "									   To get started, you'll want to chop down a few trees, as you would normally do. "
-        		+ "									   Creating a shelter is the most essential thing to do before you go out and explore", 
-        		new ItemStack(Items.apple)));
+        		+ 									  "Getting started in this world is different from how "
+        		+ 									  "you normally would start. The immediate thing to do "
+        		+                                     "is to get some wood, and immediately make a shelter."
+        		+                                     " It doesn't matter if it's made out of dirt. As long "
+        		+                                     "as you're safe from the dangers during the day."));
+        pagesStart.add(page2);
         pagesStart.add(page3);
         pagesStart.add(page4);
         pagesStart.add(page5);
