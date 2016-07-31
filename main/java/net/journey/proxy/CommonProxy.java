@@ -57,9 +57,9 @@ public class CommonProxy {
 		JourneySmeltingRecipes.init();
 		JourneyWeaponRecipes.init();
 		
-		DimensionHelper.addSpawns();
 		DimensionHelper.init();
 		BiomeDictionary.registerBiomeType(new BiomeGenHell(8), Type.NETHER);
+		DimensionHelper.addSpawns();
 		
 		JourneyTabs.init();
 		JourneyBook.registerTests(1);
