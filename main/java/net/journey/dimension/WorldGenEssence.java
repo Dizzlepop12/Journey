@@ -295,13 +295,22 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.bradberryBush, Blocks.grass).generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		for(times = 0; times < 10; times++) {
+		for(times = 0; times < 20; times++) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
 			if(isBlockTop(x, y, z, Blocks.grass, w)) 
 			if(BiomeDictionary.isBiomeOfType(biome, Type.JUNGLE))
 				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.tangleberryBush, Blocks.grass).generate(w, r, new BlockPos(x, y, z));
+		}
+		
+		for(times = 0; times < 1; times++) {
+			y = r.nextInt(128) + 1;
+			x = chunkX + r.nextInt(16);
+			z = chunkZ + r.nextInt(16);
+			if(isBlockTop(x, y, z, Blocks.grass, w)) 
+			if(BiomeDictionary.isBiomeOfType(biome, Type.SWAMP))
+				new WorldGenBush(w, r, new BlockPos(x, y, z), JourneyBlocks.bogberryBush, Blocks.grass).generate(w, r, new BlockPos(x, y, z));
 		}
 		
 		for(times = 0; times < 100; times++) {
