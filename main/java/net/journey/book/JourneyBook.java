@@ -61,7 +61,10 @@ public class JourneyBook {
 
         ArrayList<IPage> pagesStart = new ArrayList<IPage>();
         pagesStart.add(page2);
-        pagesStart.addAll(PageHelper.pagesForLongText("Hello! It seems you're about to begin your Journey. To get started, you'll want to chop down a few trees, as you would normally do. Creating a shelter is the most essential thing to do before you go out and explore", new ItemStack(Items.apple)));
+        pagesStart.addAll(PageHelper.pagesForLongText("Hello! It seems you're about to begin your Journey. "
+        		+ "									   To get started, you'll want to chop down a few trees, as you would normally do. "
+        		+ "									   Creating a shelter is the most essential thing to do before you go out and explore", 
+        		new ItemStack(Items.apple)));
         pagesStart.add(page3);
         pagesStart.add(page4);
         pagesStart.add(page5);

@@ -29,6 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.slayer.api.EnumMaterialTypes;
+import net.slayer.api.SlayerAPI;
 import net.slayer.api.block.BlockMod;
 
 public class BlockFruitCrop extends BlockMod implements IGrowable {
@@ -125,6 +126,11 @@ public class BlockFruitCrop extends BlockMod implements IGrowable {
         }
     }
 
+	@Override
+	public Item getItemDropped(IBlockState par1, Random par2, int par3) {
+		return SlayerAPI.toItem(Blocks.air);
+	}
+	
     @Override
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos) {
@@ -151,7 +157,6 @@ public class BlockFruitCrop extends BlockMod implements IGrowable {
         if (i >= 2) {
             j = 3;
         }
-
         for (int k = 0; k < j; ++k) {
             dropped.add(new ItemStack(JourneyItems.bleedheart));
         }
