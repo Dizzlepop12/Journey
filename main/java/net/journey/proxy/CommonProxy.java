@@ -7,7 +7,7 @@ import net.journey.achievement.event.JourneyDungeonEvent;
 import net.journey.achievement.event.JourneySapphireEvent;
 import net.journey.achievement.event.JourneySapphireSwordEvent;
 import net.journey.blocks.tileentity.*;
-import net.journey.book.JourneyBook;
+import net.journey.book.BookRegistry;
 import net.journey.client.BarTickHandler;
 import net.journey.dimension.*;
 import net.journey.dimension.nether.WorldProviderNetherJourney;
@@ -62,7 +62,7 @@ public class CommonProxy {
 		DimensionHelper.addSpawns();
 		
 		JourneyTabs.init();
-		JourneyBook.registerTests(1);
+		BookRegistry.initBooks();
 		
 		if(SlayerAPI.DEVMODE) LangRegistry.instance.register();
 		addOreDictionary();

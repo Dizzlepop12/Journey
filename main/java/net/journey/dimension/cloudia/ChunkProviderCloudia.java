@@ -3,6 +3,9 @@ package net.journey.dimension.cloudia;
 import java.util.List;
 import java.util.Random;
 
+import net.journey.JourneyBlocks;
+import net.journey.JourneyCrops;
+import net.journey.dimension.WorldGenMelon;
 import net.journey.dimension.cloudia.gen.WorldGenCloudiaLamp;
 import net.journey.dimension.cloudia.gen.WorldGenCloudiaLand;
 import net.journey.dimension.cloudia.gen.WorldGenHut;
@@ -11,7 +14,11 @@ import net.journey.dimension.cloudia.gen.WorldGenStarlightCastle;
 import net.journey.dimension.cloudia.gen.WorldGenStarlightTree;
 import net.journey.dimension.cloudia.gen.WorldGenStarlightVillage;
 import net.journey.dimension.cloudia.gen.WorldGenTower;
+import net.journey.dimension.nether.gen.WorldGenBush;
+import net.journey.dimension.overworld.gen.WorldGenModFlower;
+import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.world.World;
@@ -22,6 +29,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class ChunkProviderCloudia implements IChunkProvider {
 
@@ -60,14 +69,30 @@ public class ChunkProviderCloudia implements IChunkProvider {
 		this.rand.setSeed(this.worldObj.getSeed() * (cx + cz) * this.rand.nextInt());
 		int x1 = cx * 16;
 		int z1 = cz * 16;
-		int x, z;
+		int x, y, z, i;
 		x = x1 + this.rand.nextInt(16);
 		z = z1 + this.rand.nextInt(16);
+		Random r = rand;
+		
+		for(i = 0; i < 150; i++) {
+			y = r.nextInt(256); x = x1 + this.rand.nextInt(16) + 8; z = z1 + this.rand.nextInt(16) + 8;
+			new WorldGenModFlower(JourneyBlocks.cloudiaTallGrass).generate(worldObj, r, new BlockPos(x, y, z));
+			new WorldGenModFlower(JourneyBlocks.cloudiaFlower).generate(worldObj, r, new BlockPos(x, y, z));
+		}
+		
+		for(i = 0; i < 100; i++) {
+			y = r.nextInt(128) + 1;
+			x = x1 + this.rand.nextInt(16) + 8;
+			z = z1 + this.rand.nextInt(16) + 8;
+			if(isBlockTop(x, y, z, JourneyBlocks.cloudiaGrass, worldObj)) 
+				new WorldGenMelon(worldObj, r, new BlockPos(x, y, z), JourneyCrops.airRootMelon, JourneyBlocks.cloudiaGrass).generate(worldObj, r, new BlockPos(x, y, z));
+		}
 		
 		if (this.rand.nextInt(60) == 0) {
 			int yCoord = rand.nextInt(20) + 64;
 			if(worldObj.isAirBlock(new BlockPos(x, yCoord, z)))castle.generate(worldObj, rand, new BlockPos(x, yCoord, z));
 		}
+		
 		if (this.rand.nextInt(60) == 0) {
 			x = x1 + this.rand.nextInt(16) + 8;
 			z = z1 + this.rand.nextInt(16) + 8;
@@ -118,6 +143,22 @@ public class ChunkProviderCloudia implements IChunkProvider {
 		}*/
 	}
 
+	public boolean isBlockTop(int x, int y, int z, Block grass, World w) {
+		return 
+				w.getBlockState(new BlockPos(x, y - 1, z)) == grass.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 1, z)) == Blocks.air.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 2, z)) == Blocks.air.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 3, z)) == Blocks.air.getDefaultState() &&
+				w.getBlockState(new BlockPos(x, y + 4, z)) == Blocks.air.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 5, z)) == Blocks.air.getDefaultState() &&	
+				
+				w.getBlockState(new BlockPos(x, y + 1, z)) != Blocks.lava.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 2, z)) != Blocks.lava.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 3, z)) != Blocks.lava.getDefaultState() &&
+				w.getBlockState(new BlockPos(x, y + 4, z)) != Blocks.lava.getDefaultState() && 
+				w.getBlockState(new BlockPos(x, y + 5, z)) != Blocks.lava.getDefaultState();
+	}
+	
 	@Override
 	public boolean chunkExists(int x, int z) {
 		return true;
