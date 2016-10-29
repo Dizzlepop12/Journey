@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 public class TeleporterWither extends Teleporter {
-	
+
 	protected WorldServer myWorld;
 
 	public TeleporterWither(WorldServer var1) {
@@ -84,7 +84,7 @@ public class TeleporterWither extends Teleporter {
 		int var9 = MathHelper.floor_double(entity.posZ);
 		int var10 = var7, var11 = var8, var12 = var9, var13 = 0, var14 = this.myWorld.rand.nextInt(4), var15, var18, var21, var23, var22, var25, var24, var27, var26, var29, var28;
 
-		
+
 		for(var15 = var7 - var4; var15 <= var7 + var4; ++var15) {
 			var16 = var15 + 0.5D - entity.posX;
 
@@ -197,7 +197,7 @@ public class TeleporterWither extends Teleporter {
 	}
 
 	private void makePortalAt(World world, int x, int y, int z) {
-		y = 90;
+		y = 45;
 		world.setBlockState(new BlockPos(x, y, z), JourneyBlocks.witherPortalFrame.getDefaultState());
 		world.setBlockState(new BlockPos(x, y, z + 1), JourneyBlocks.witherPortalFrame.getDefaultState());
 		world.setBlockState(new BlockPos(x, y, z + 2), JourneyBlocks.witherPortalFrame.getDefaultState());

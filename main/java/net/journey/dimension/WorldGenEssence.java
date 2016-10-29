@@ -211,7 +211,7 @@ public class WorldGenEssence implements IWorldGenerator {
 				new WorldGenNetherFlower(w, r, new BlockPos(x, y, z), JourneyBlocks.hellBell);
 		}
 
-		if(r.nextInt(40)==0) {
+		if(r.nextInt(30)==0) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);
@@ -219,7 +219,7 @@ public class WorldGenEssence implements IWorldGenerator {
 			new WorldGenBoilPortal().generate(w, r, new BlockPos(x, y, z));
 		}
 		
-		if(r.nextInt(40)==0) {
+		if(r.nextInt(30)==0) {
 			y = r.nextInt(128) + 1;
 			x = chunkX + r.nextInt(16);
 			z = chunkZ + r.nextInt(16);

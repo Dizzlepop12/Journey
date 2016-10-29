@@ -100,11 +100,11 @@ public class EntityNetherBeast extends EntityEssenceBoss {
 		TileEntityJourneyChest te = (TileEntityJourneyChest)worldObj.getTileEntity(new BlockPos((int)Math.floor(this.posX + 0), ((int)Math.floor(this.posY + 0)), ((int)Math.floor(this.posZ + 0))));
 		switch(rand.nextInt(2)) {
 		case 0:
-			te.setInventorySlotContents(15, new ItemStack(JourneyItems.eucaPortalPiece_1, 1));
+			te.setInventorySlotContents(15, new ItemStack(JourneyItems.eucaPortalPiece, 1));
 			te.setInventorySlotContents(1, new ItemStack(JourneyItems.netherBeastSword, 1));
 			break;
 		case 1:
-			te.setInventorySlotContents(1, new ItemStack(JourneyItems.eucaPortalPiece_1, 2));
+			te.setInventorySlotContents(1, new ItemStack(JourneyItems.eucaPortalPiece, 2));
 			te.setInventorySlotContents(10, new ItemStack(JourneyItems.netherBeastSword, 1));
 			break;
 		}

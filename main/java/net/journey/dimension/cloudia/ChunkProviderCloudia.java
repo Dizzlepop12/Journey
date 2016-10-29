@@ -80,13 +80,13 @@ public class ChunkProviderCloudia implements IChunkProvider {
 			new WorldGenModFlower(JourneyBlocks.cloudiaFlower).generate(worldObj, r, new BlockPos(x, y, z));
 		}
 		
-		for(i = 0; i < 100; i++) {
+		/* for(i = 0; i < 100; i++) {
 			y = r.nextInt(128) + 1;
 			x = x1 + this.rand.nextInt(16) + 8;
 			z = z1 + this.rand.nextInt(16) + 8;
 			if(isBlockTop(x, y, z, JourneyBlocks.cloudiaGrass, worldObj)) 
 				new WorldGenMelon(worldObj, r, new BlockPos(x, y, z), JourneyCrops.airRootMelon, JourneyBlocks.cloudiaGrass).generate(worldObj, r, new BlockPos(x, y, z));
-		}
+		} */
 		
 		if (this.rand.nextInt(60) == 0) {
 			int yCoord = rand.nextInt(20) + 64;

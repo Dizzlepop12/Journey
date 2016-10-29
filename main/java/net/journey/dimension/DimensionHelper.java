@@ -294,8 +294,8 @@ public class DimensionHelper {
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 			if (biome != null){
-				EntityRegistry.addSpawn(EntitySpectre.class, amount, 1, 1, EnumCreatureType.MONSTER, biome);
-				EntityRegistry.addSpawn(EntityWraith.class, amount, 1, 1, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntitySpectre.class, amount, 1, 1, EnumCreatureType.CREATURE, biome);
+				EntityRegistry.addSpawn(EntityWraith.class, amount, 1, 1, EnumCreatureType.CREATURE, biome);
 			}
 		}
 	}
