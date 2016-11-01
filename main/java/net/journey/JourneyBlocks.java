@@ -95,9 +95,9 @@ public class JourneyBlocks {
 
 	public static ArrayList<String> blockName = new ArrayList<String>();
 	
+	/*public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK);
 	public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK);
-	public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK);
-	public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK);
+	public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK); */
 	public static final Block mythrilOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
 	public static final Block verditeOre = new BlockModOre("verditeOre", "Verdite Ore").setHarvestLevel(EnumToolType.STONE_PICK);
 	public static final Block sapphireOre = new BlockModOre("sapphireOre", "Sapphire Ore").setHarvestLevel(EnumToolType.IRON_PICK);
@@ -200,14 +200,14 @@ public class JourneyBlocks {
 	public static final Block frozenBark = new BlockModLog("frozenBark", "Frozen Bark");
 	public static final Block frozenPlanks = new BlockMod(EnumMaterialTypes.WOOD, "frozenPlanks", "Frozen Planks", 0.5F);
 	
-	public static final BlockMod withanDirt = new BlockMod(EnumMaterialTypes.DIRT, "withanDirt", "Withan Dirt", 2.0F);
+	/*public static final BlockMod withanDirt = new BlockMod(EnumMaterialTypes.DIRT, "withanDirt", "Withan Dirt", 2.0F);
 	public static final BlockMod withanRock = new BlockMod(EnumMaterialTypes.STONE, "withanRock", "Withan Rock", 5.0F);
 	public static final Block withanGrass = new BlockModGrass(withanDirt, "withanGrass", "Withan Grass", 2.0F);
 	public static final Block withanLeaves = new BlockModLeaves("withanLeaves", "Withering Leaves", 0.5F);
 	public static final Block withanBark = new BlockModLog("withanBark", "Withering Bark");
 	public static final Block withanRockReinforced = new BlockMod("reinforcedWithan", "Withan Rock").setResistance(10000000000F).setBlockUnbreakable();
 	public static final Block withanLamp = new BlockMod(EnumMaterialTypes.GLASS, "withanLamp", "Withan Lamp", 0.1F).setLightLevel(1.0F).setCreativeTab(JourneyTabs.decoration);
-	public static final Block withanLight = new BlockMod(EnumMaterialTypes.GLASS, "withanLight", "Withan Light", 0.1F).setLightLevel(1.0F).setCreativeTab(JourneyTabs.decoration);
+	public static final Block withanLight = new BlockMod(EnumMaterialTypes.GLASS, "withanLight", "Withan Light", 0.1F).setLightLevel(1.0F).setCreativeTab(JourneyTabs.decoration); */
 	
 	public static final Block goldenGrass = new BlockModGrass((BlockMod)null, "goldenGrass", "Golden Grass", 0.5F);
 	public static final BlockMod goldenStone = new BlockMod("goldenStone", "Golden Stone");
