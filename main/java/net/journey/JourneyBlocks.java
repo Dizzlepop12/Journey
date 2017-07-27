@@ -98,6 +98,9 @@ public class JourneyBlocks {
 	/*public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK);
 	public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK);
 	public static final Block amethystOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.IRON_PICK); */
+	public static final Block cobaltOre = new BlockModOre("cobaltOre", "cobalt Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
+	public static final Block rubyOre = new BlockModOre("rubyOre", "Ruby Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
+	public static final Block adamantineOre = new BlockModOre("adamantineOre", "Adamantine Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
 	public static final Block mythrilOre = new BlockModOre("amethystOre", "Amethyst Ore").setHarvestLevel(EnumToolType.DIAMOND_PICK);
 	public static final Block verditeOre = new BlockModOre("verditeOre", "Verdite Ore").setHarvestLevel(EnumToolType.STONE_PICK);
 	public static final Block sapphireOre = new BlockModOre("sapphireOre", "Sapphire Ore").setHarvestLevel(EnumToolType.IRON_PICK);
